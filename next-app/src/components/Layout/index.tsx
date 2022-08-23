@@ -7,5 +7,9 @@ export function PageLayout({
   className?: string;
   children: React.ReactNode;
 }) {
-  return <div className={`mx-auto px-8 lg:px-0 py-8 min-h-screen ${className}`}>{children}</div>;
+  return (
+    <div className={`mx-auto px-8 lg:px-0 py-8 min-h-screen antialiased ${className}`}>
+      {children}
+    </div>
+  );
 }

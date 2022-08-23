@@ -4,6 +4,7 @@ import { gql } from '@apollo/client';
 import { createApolloClient } from '../apollo';
 import { PageLayout } from '../components/Layout';
 import { Footer } from '../components/Footer';
+import { A } from '../components/A';
 
 type Post = {
   id: string;
@@ -14,9 +15,9 @@ type Post = {
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
-    <PageLayout className="prose lg:prose-lg prose-blue grid grid-rows-[1fr_auto]">
-      <main className="">
-        <h1>Blogs</h1>
+    <PageLayout className="prose grid grid-rows-[1fr_auto]">
+      <main>
+        <h1 className="text-5xl md:text-6xl font-bold mb-12">Blogs</h1>
         <div className="space-y-4">
           {posts.map(post => {
             const formattedDate = post.publishDate
@@ -26,7 +27,7 @@ export default function Home({ posts }: { posts: Post[] }) {
             return (
               <div className="flex items-center space-x-8 text-xl" key={post.id}>
                 <Link href={`/blog/${post.slug}`}>
-                  <a className="no-underline text-current">{post.title}</a>
+                  <A className="border-b-0 text-current">{post.title}</A>
                 </Link>
                 <div className="">{formattedDate}</div>
               </div>

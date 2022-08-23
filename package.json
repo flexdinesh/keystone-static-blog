@@ -11,7 +11,8 @@
     "keystone-server"
   ],
   "scripts": {
-    "dev": "concurrently \"cd keystone-server && yarn dev\" \"cd next-app && yarn dev\"",
+    "devx": "concurrently \"cd keystone-server && yarn dev\" \"cd next-app && yarn dev\"",
+    "dev": "concurrently --names \"SERVER,APP\" -c \"magenta.bold,green.bold\" \"cd keystone-server && yarn dev\" \"cd next-app && yarn dev\"",
     "lint": "eslint . --ext .ts --ext .tsx",
     "lint:fix": "eslint . --ext .ts --ext .tsx --fix",
     "build:keystone": "cd keystone-server && yarn build",

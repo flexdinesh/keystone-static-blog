@@ -5,6 +5,7 @@ import type { DocumentRendererProps } from '@keystone-6/document-renderer';
 import { createApolloClient } from '../../apollo';
 import { PageLayout } from '../../components/Layout';
 import { Footer } from '../../components/Footer';
+import { A } from '../../components/A';
 import { CustomRenderer } from '../../components/DocumentRenderer';
 
 export type DocumentProp = DocumentRendererProps['document'];
@@ -23,11 +24,11 @@ export default function BlogPage({ post }: { post: Post | undefined }) {
     return <div>Post not found</div>;
   }
   return (
-    <PageLayout className="prose lg:prose-lg prose-blue grid grid-rows-[1fr_auto]">
+    <PageLayout className="prose grid grid-rows-[1fr_auto]">
       <main>
         <div className="pb-2">
           <Link href="/">
-            <a className="no-underline">&larr; back home</a>
+            <A className="border-b-0">&larr; back home</A>
           </Link>
         </div>
         <article className="">
