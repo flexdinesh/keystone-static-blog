@@ -1,0 +1,31 @@
+{
+  "name": "keystone-static-blog",
+  "version": "0.0.1",
+  "description": "Starter template to statically generate blogs with Keystone and Next.js",
+  "repository": "git@github.com:flexdinesh/keystone-static-blog.git",
+  "author": "Dinesh Pandiyan <flexdinesh@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "next-app",
+    "keystone-server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"cd keystone-server && yarn dev\" \"cd next-app && yarn dev\"",
+    "lint": "eslint . --ext .ts --ext .tsx",
+    "lint:fix": "eslint . --ext .ts --ext .tsx --fix",
+    "build:keystone": "cd keystone-server && yarn build",
+    "build:app": "cd next-app && yarn build"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
+    "concurrently": "^7.3.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1"
+  }
+}

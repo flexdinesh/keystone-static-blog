@@ -1,0 +1,31 @@
+{
+  "name": "next-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 8000",
+    "build": "next build",
+    "export": "next build && next export",
+    "start": "next start --port 8000",
+    "clean": "rimraf out .next"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@tailwindcss/typography": "^0.5.4",
+    "autoprefixer": "^10.4.8",
+    "date-fns": "^2.29.1",
+    "graphql": "^16.5.0",
+    "next": "^12.2.5",
+    "postcss": "^8.4.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^3.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.2",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
+    "typescript": "4.7.4"
+  }
+}
