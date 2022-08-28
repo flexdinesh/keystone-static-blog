@@ -10,7 +10,7 @@ export const A = React.forwardRef<HTMLAnchorElement, AProps>(
     return (
       <a
         ref={ref}
-        className={`cursor-pointer no-underline border-b-2 border-blue-500 hover:text-blue-600${cx}`}
+        className={`cursor-pointer no-underline ${cx}`}
         {...props}
       >
         {children}

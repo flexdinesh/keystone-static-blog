@@ -16,11 +16,11 @@ type Post = {
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
-    <PageLayout className="prose grid grid-rows-[auto_1fr_auto]">
+    <PageLayout className="prose grid grid-rows-[auto_1fr_auto] font-Montserrat">
       <Header forPage="home" />
       <main>
-        <h1 className="text-5xl md:text-6xl font-bold mb-12">Blogs</h1>
-        <div className="space-y-4">
+        {/* <h1 className="text-5xl md:text-6xl font-bold mb-12">Blogs</h1> */}
+        {/* <div className="space-y-4">
           {posts.map(post => {
             const formattedDate = post.publishDate
               ? format(new Date(post.publishDate), 'MMM yy')
@@ -35,7 +35,7 @@ export default function Home({ posts }: { posts: Post[] }) {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </main>
       <Footer />
     </PageLayout>
