@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { gql } from '@apollo/client';
 import type { DocumentRendererProps } from '@keystone-6/document-renderer';
 import { createApolloClient } from '../../apollo';
-import { PageLayout } from '../../components/Layout';
-import { Footer } from '../../components/Footer';
+import { PageLayout } from '../../components/Layout/PageLayout';
+import { Footer } from '../../components/Footer/Footer';
+import { Header } from '../../components/Header/Header';
 import { A } from '../../components/A';
 import { CustomRenderer } from '../../components/DocumentRenderer';
 
@@ -24,9 +25,10 @@ export default function BlogPage({ post }: { post: Post | undefined }) {
     return <div>Post not found</div>;
   }
   return (
-    <PageLayout className="prose grid grid-rows-[1fr_auto]">
+    <PageLayout className="prose grid grid-rows-[auto_1fr_auto]">
+      <Header forPage="blog" />
       <main>
-        <div className="pb-2">
+        <div className="pb-4">
           <Link href="/">
             <A className="border-b-0">&larr; back home</A>
           </Link>
