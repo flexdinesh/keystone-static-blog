@@ -5,37 +5,19 @@ import { createApolloClient } from '../apollo';
 import { PageLayout } from '../components/Layout/PageLayout';
 import { Footer } from '../components/Footer/Footer';
 import { Header } from '../components/Header/Header';
-import { A } from '../components/A';
-
-type Post = {
-  id: string;
-  title: string;
-  slug: string;
-  publishDate: string;
-};
+import type { Post } from '../components/BlogCard/BlogCard';
+import { BlogCard } from '../components/BlogCard/BlogCard';
 
 export default function Home({ posts }: { posts: Post[] }) {
   return (
-    <PageLayout className="prose grid grid-rows-[auto_1fr_auto] font-Montserrat">
+    <PageLayout className="prose grid grid-rows-[auto_1fr_auto] font-Roboto">
       <Header forPage="home" />
-      <main>
-        {/* <h1 className="text-5xl md:text-6xl font-bold mb-12">Blogs</h1> */}
-        {/* <div className="space-y-4">
-          {posts.map(post => {
-            const formattedDate = post.publishDate
-              ? format(new Date(post.publishDate), 'MMM yy')
-              : null;
-
-            return (
-              <div className="flex items-center space-x-8 text-xl" key={post.id}>
-                <Link href={`/blog/${post.slug}`}>
-                  <A className="border-b-0 text-current">{post.title}</A>
-                </Link>
-                <div className="">{formattedDate}</div>
-              </div>
-            );
-          })}
-        </div> */}
+      <main className="mt-10">
+        <div className="space-y-4">
+          {posts.map(post => (
+            <BlogCard post={post}/>
+          ))}
+        </div>
       </main>
       <Footer />
     </PageLayout>
