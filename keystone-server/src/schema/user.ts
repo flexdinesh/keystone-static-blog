@@ -8,5 +8,6 @@ export const User = list({
     github: text(),
     twitter: text(),
     posts: relationship({ ref: 'Post.author', many: true }),
+    externalLinks: relationship({ ref: 'ExternalLink.author', many: true }),
   },
 });

@@ -14,6 +14,13 @@ type User {
     skip: Int! = 0
   ): [Post!]
   postsCount(where: PostWhereInput! = {}): Int
+  externalLinks(
+    where: ExternalLinkWhereInput! = {}
+    orderBy: [ExternalLinkOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [ExternalLink!]
+  externalLinksCount(where: ExternalLinkWhereInput! = {}): Int
 }
 
 input UserWhereUniqueInput {
@@ -31,6 +38,7 @@ input UserWhereInput {
   github: StringFilter
   twitter: StringFilter
   posts: PostManyRelationFilter
+  externalLinks: ExternalLinkManyRelationFilter
 }
 
 input IDFilter {
@@ -78,6 +86,12 @@ input PostManyRelationFilter {
   none: PostWhereInput
 }
 
+input ExternalLinkManyRelationFilter {
+  every: ExternalLinkWhereInput
+  some: ExternalLinkWhereInput
+  none: ExternalLinkWhereInput
+}
+
 input UserOrderByInput {
   id: OrderDirection
   email: OrderDirection
@@ -97,6 +111,7 @@ input UserUpdateInput {
   github: String
   twitter: String
   posts: PostRelateToManyForUpdateInput
+  externalLinks: ExternalLinkRelateToManyForUpdateInput
 }
 
 input PostRelateToManyForUpdateInput {
@@ -104,6 +119,13 @@ input PostRelateToManyForUpdateInput {
   set: [PostWhereUniqueInput!]
   create: [PostCreateInput!]
   connect: [PostWhereUniqueInput!]
+}
+
+input ExternalLinkRelateToManyForUpdateInput {
+  disconnect: [ExternalLinkWhereUniqueInput!]
+  set: [ExternalLinkWhereUniqueInput!]
+  create: [ExternalLinkCreateInput!]
+  connect: [ExternalLinkWhereUniqueInput!]
 }
 
 input UserUpdateArgs {
@@ -117,11 +139,17 @@ input UserCreateInput {
   github: String
   twitter: String
   posts: PostRelateToManyForCreateInput
+  externalLinks: ExternalLinkRelateToManyForCreateInput
 }
 
 input PostRelateToManyForCreateInput {
   create: [PostCreateInput!]
   connect: [PostWhereUniqueInput!]
+}
+
+input ExternalLinkRelateToManyForCreateInput {
+  create: [ExternalLinkCreateInput!]
+  connect: [ExternalLinkWhereUniqueInput!]
 }
 
 type Post {
@@ -223,6 +251,93 @@ input UserRelateToOneForCreateInput {
   connect: UserWhereUniqueInput
 }
 
+type ExternalLink {
+  id: ID!
+  title: String
+  url: String
+  status: ExternalLinkStatusType
+  publishDate: DateTime
+  type: ExternalLinkTypeType
+  author: User
+}
+
+enum ExternalLinkStatusType {
+  draft
+  published
+}
+
+enum ExternalLinkTypeType {
+  dev
+  medium
+  twitter
+  youtube
+  podcast
+}
+
+input ExternalLinkWhereUniqueInput {
+  id: ID
+  url: String
+}
+
+input ExternalLinkWhereInput {
+  AND: [ExternalLinkWhereInput!]
+  OR: [ExternalLinkWhereInput!]
+  NOT: [ExternalLinkWhereInput!]
+  id: IDFilter
+  title: StringFilter
+  url: StringFilter
+  status: ExternalLinkStatusTypeNullableFilter
+  publishDate: DateTimeNullableFilter
+  type: ExternalLinkTypeTypeNullableFilter
+  author: UserWhereInput
+}
+
+input ExternalLinkStatusTypeNullableFilter {
+  equals: ExternalLinkStatusType
+  in: [ExternalLinkStatusType!]
+  notIn: [ExternalLinkStatusType!]
+  not: ExternalLinkStatusTypeNullableFilter
+}
+
+input ExternalLinkTypeTypeNullableFilter {
+  equals: ExternalLinkTypeType
+  in: [ExternalLinkTypeType!]
+  notIn: [ExternalLinkTypeType!]
+  not: ExternalLinkTypeTypeNullableFilter
+}
+
+input ExternalLinkOrderByInput {
+  id: OrderDirection
+  title: OrderDirection
+  url: OrderDirection
+  status: OrderDirection
+  publishDate: OrderDirection
+  type: OrderDirection
+}
+
+input ExternalLinkUpdateInput {
+  title: String
+  url: String
+  status: ExternalLinkStatusType
+  publishDate: DateTime
+  type: ExternalLinkTypeType
+  author: UserRelateToOneForUpdateInput
+}
+
+input ExternalLinkUpdateArgs {
+  where: ExternalLinkWhereUniqueInput!
+  data: ExternalLinkUpdateInput!
+}
+
+input ExternalLinkCreateInput {
+  title: String
+  url: String
+  status: ExternalLinkStatusType
+  publishDate: DateTime
+  type: ExternalLinkTypeType
+  author: UserRelateToOneForCreateInput
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -244,6 +359,15 @@ type Mutation {
   updatePosts(data: [PostUpdateArgs!]!): [Post]
   deletePost(where: PostWhereUniqueInput!): Post
   deletePosts(where: [PostWhereUniqueInput!]!): [Post]
+  createExternalLink(data: ExternalLinkCreateInput!): ExternalLink
+  createExternalLinks(data: [ExternalLinkCreateInput!]!): [ExternalLink]
+  updateExternalLink(
+    where: ExternalLinkWhereUniqueInput!
+    data: ExternalLinkUpdateInput!
+  ): ExternalLink
+  updateExternalLinks(data: [ExternalLinkUpdateArgs!]!): [ExternalLink]
+  deleteExternalLink(where: ExternalLinkWhereUniqueInput!): ExternalLink
+  deleteExternalLinks(where: [ExternalLinkWhereUniqueInput!]!): [ExternalLink]
 }
 
 type Query {
@@ -263,6 +387,14 @@ type Query {
   ): [Post!]
   post(where: PostWhereUniqueInput!): Post
   postsCount(where: PostWhereInput! = {}): Int
+  externalLinks(
+    where: ExternalLinkWhereInput! = {}
+    orderBy: [ExternalLinkOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [ExternalLink!]
+  externalLink(where: ExternalLinkWhereUniqueInput!): ExternalLink
+  externalLinksCount(where: ExternalLinkWhereInput! = {}): Int
   keystone: KeystoneMeta!
 }
 

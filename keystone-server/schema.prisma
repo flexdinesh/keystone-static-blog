@@ -13,12 +13,13 @@ generator client {
 }
 
 model User {
-  id      String @id @default(cuid())
-  email   String @unique @default("")
-  name    String @default("")
-  github  String @default("")
-  twitter String @default("")
-  posts   Post[] @relation("Post_author")
+  id            String         @id @default(cuid())
+  email         String         @unique @default("")
+  name          String         @default("")
+  github        String         @default("")
+  twitter       String         @default("")
+  posts         Post[]         @relation("Post_author")
+  externalLinks ExternalLink[] @relation("ExternalLink_author")
 }
 
 model Post {
@@ -30,6 +31,19 @@ model Post {
   author      User?     @relation("Post_author", fields: [authorId], references: [id])
   authorId    String?   @map("author")
   content     String    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+
+  @@index([authorId])
+}
+
+model ExternalLink {
+  id          String    @id @default(cuid())
+  title       String    @default("")
+  url         String    @unique @default("")
+  status      String?   @default("published")
+  publishDate DateTime?
+  type        String?
+  author      User?     @relation("ExternalLink_author", fields: [authorId], references: [id])
+  authorId    String?   @map("author")
 
   @@index([authorId])
 }

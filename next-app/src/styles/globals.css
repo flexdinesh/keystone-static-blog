@@ -1,9 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    transition: all 0.3s ease;
+}
+
 * {
     box-sizing: border-box;
+}
+
+@layer components {
+    .fancy-link {
+        position: relative;
+        box-decoration-break: clone;
+        text-decoration: none;
+        border-bottom: 0;
+    }
+
+    .fancy-link:hover {
+        color: theme('colors.link');
+    }
+
+    .fancy-link:hover:after {
+        transform: translateZ(0) scale(1);
+        background-color: theme('colors.link');
+        /* background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); */
+    }
+
+    .fancy-link:after {
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        content: "";
+        height: 2px;
+        position: absolute;
+        transform: translateZ(0) scaleX(0);
+        transform-origin: left center;
+        transition: all .3s ease-in-out;
+    }
 }
