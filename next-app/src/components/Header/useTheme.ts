@@ -19,20 +19,25 @@ export function setTheme(theme: Theme) {
   if (typeof window !== 'undefined') {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }
 }
 
 export function useTheme() {
-  const [mode, setMode] = React.useState<Theme>(() => {
+  const [mode, setMode] = React.useState<Theme | null>(null);
+
+  React.useEffect(() => {
     const currentTheme = getCurrentTheme();
     if (currentTheme === 'dark') {
-      return 'dark';
+      setMode('dark');
+    } else {
+      setMode('light');
     }
-    return 'light';
-  });
+  }, []);
 
   function toggleTheme(isEnabled: boolean) {
     if (isEnabled) {

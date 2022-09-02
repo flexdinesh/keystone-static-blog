@@ -1,16 +1,16 @@
 import React from 'react';
+import { format } from 'date-fns';
 import type { GetStaticPathsResult, GetStaticPropsContext } from 'next';
 // Customised prism.js downloaded from
 // https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+jsx+tsx+typescript
 import Prism from '../../components/PrismScript/prism';
 import Link from 'next/link';
-import { gql } from '@apollo/client';
 import type { DocumentRendererProps } from '@keystone-6/document-renderer';
-import { createApolloClient } from '../../apollo';
 import { PageLayout } from '../../components/Layout/PageLayout';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
 import { CustomRenderer } from '../../components/DocumentRenderer/DocumentRenderer';
+import { fetchGraphQL, gql } from '../../graphql';
 
 export type DocumentProp = DocumentRendererProps['document'];
 
@@ -18,6 +18,7 @@ type Post = {
   id: string;
   title: string;
   slug: string;
+  publishDate: string | null;
   author: {
     email: string;
     name: string;
@@ -29,7 +30,15 @@ type Post = {
   };
 };
 
+type ResponseData = {
+  post: Post | null;
+};
+
 export default function BlogPage({ post }: { post: Post | null }) {
+  const formattedDate = post?.publishDate
+    ? format(new Date(post?.publishDate), 'MMM dd, yyyy')
+    : null;
+
   React.useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -45,11 +54,14 @@ export default function BlogPage({ post }: { post: Post | null }) {
           <Header forPage="blog" />
           <div className="pb-4">
             <Link href="/">
-              <a className="before:content-['←'] before:pr-1 no-underline">back home</a>
+              <a className="no-underline hover:text-link before:content-['←'] before:pr-1 hover:before:-translate-x-1 before:inline-block before:transition-all before:duration-150 before:ease-in-out">
+                back home
+              </a>
             </Link>
           </div>
           <article className="prose lg:prose-lg prose:slate dark:prose-invert max-w-none">
-            <h1>{post.title}</h1>
+            <h1 className="!mb-0 pb-4">{post.title}</h1>
+            <div className="text-sm text-typography-secondary">{formattedDate}</div>
             <CustomRenderer document={post.content.document} />
           </article>
         </main>
@@ -61,9 +73,8 @@ export default function BlogPage({ post }: { post: Post | null }) {
 
 export async function getStaticProps({ params = {} }: GetStaticPropsContext) {
   const slug = params.slug;
-  const client = createApolloClient();
-  const res = await client.query<{ post: Post | null }>({
-    query: gql`
+  const data: ResponseData = await fetchGraphQL(
+    gql`
       query post($slug: String!) {
         post(where: { slug: $slug }) {
           __typename
@@ -83,28 +94,27 @@ export async function getStaticProps({ params = {} }: GetStaticPropsContext) {
         }
       }
     `,
-    variables: {
+    {
       slug,
-    },
-  });
+    }
+  );
 
-  const post = res?.data?.post;
+  const post = data?.post;
   return { props: { post } };
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const client = createApolloClient();
-  const res = await client.query<{ posts: { slug: string }[] }>({
-    query: gql`
+  const data: { posts: { slug: string }[] } = await fetchGraphQL(
+    gql`
       query posts {
         posts {
           slug
         }
       }
-    `,
-  });
+    `
+  );
 
-  const posts = res?.data?.posts || [];
+  const posts = data?.posts || [];
   const paths = posts.map(({ slug }) => ({
     params: { slug },
   }));

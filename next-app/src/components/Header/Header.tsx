@@ -1,45 +1,52 @@
 import React from 'react';
-import { Switch } from '@headlessui/react';
-import { useTheme } from './useTheme';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { ThemeToggle } from './ThemeToggle';
 
 type Props = {
   forPage: 'home' | 'blog';
 };
 
-function ThemeToggle() {
-  const { mode, toggleTheme } = useTheme();
-
+function TopNav() {
   return (
-    <Switch
-      checked={mode === 'dark'}
-      onChange={toggleTheme}
-      className={`${
-        mode === 'dark' ? 'bg-gray-800' : 'bg-gray-200'
-      } absolute top-4 right-4 inline-flex h-6 w-11 items-center rounded-full`}
-    >
-      <span className="sr-only">Switch theme</span>
-      <span
-        className={`${
-          mode === 'dark'
-            ? ' translate-x-6 from-secondary-200 to-secondary-800'
-            : 'translate-x-1 from-primary-200 to-primary-800'
-        } inline-block h-4 w-4 transition-all duration-300 rounded-full bg-gradient-to-tr `}
-      />
-    </Switch>
+    <div className="justify-self-end py-2 flex items-center content-center">
+      <a
+        href="https://github.com/flexdinesh"
+        aria-label="Dinesh on GitHub"
+        rel="noopener noreferrer"
+        target="_blank"
+        className="text-2xl ml-4 hover:text-primary-800 dark:hover:text-secondary-800"
+      >
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+      <a
+        href="https://twitter.com/flexdinesh"
+        aria-label="Dinesh on Twitter"
+        rel="noopener noreferrer"
+        target="_blank"
+        className="text-2xl ml-4 hover:text-primary-800 dark:hover:text-secondary-800"
+      >
+        <FontAwesomeIcon icon={faTwitter} />
+      </a>
+      <ThemeToggle />
+    </div>
   );
 }
 
 export function Header({ forPage = 'home' }: Props) {
   // semantically correct tags for SEO in home vs other pages
-  const HeaderTag = forPage === 'home' ? 'h1' : 'h3';
+  const HeadingTag = forPage === 'home' ? 'h1' : 'h3';
+  const headingClassnames = forPage === 'home' ? ' text-5xl py-2' : 'text-4xl py-0';
+  const headerClassnames = forPage === 'home' ? ' pb-8' : 'pb-2';
 
   return (
-    <header className="relative pb-8 text-center pt-16">
-      <ThemeToggle />
-      {/* Add an avatar if needed */}
-      <HeaderTag className="mb-4 text-5xl font-black leading-4 inline bg-no-repeat relative after:content-[''] after:absolute after:h-4 after:left-0 after:right-0 after:bottom-1 after:-left-1 after:-z-10 after:bg-primary-500 after:w-11/12 dark:after:bg-primary-600 dark:text-slate-50">
-        Dinesh Pandiyan
-      </HeaderTag>
+    <header className={`text-center grid auto-rows-auto ${headerClassnames}`}>
+      <TopNav />
+      <HeadingTag className={`dark:text-slate-50 ${headingClassnames}`}>
+        <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-secondary-500 dark:after:to-secondary-700">
+          Dinesh Pandiyan
+        </span>
+      </HeadingTag>
       <p className="text-typography-secondary font-medium text-sm tracking-wider mt-2">
         I talk and write about web.
       </p>

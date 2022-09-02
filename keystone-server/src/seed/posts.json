@@ -5,7 +5,9 @@
     "status": "published",
     "publishDate": null,
     "author": {
-      "email": "flexdinesh@gmail.com"
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
     },
     "content": {
       "document": [
@@ -56,7 +58,9 @@
     "status": "published",
     "publishDate": null,
     "author": {
-      "email": "flexdinesh@gmail.com"
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
     },
     "content": {
       "document": [
@@ -107,7 +111,9 @@
     "status": "published",
     "publishDate": null,
     "author": {
-      "email": "flexdinesh@gmail.com"
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
     },
     "content": {
       "document": [
@@ -986,7 +992,9 @@
     },
     "publishDate": "2019-03-22T17:00:00.000Z",
     "author": {
-      "email": "flexdinesh@gmail.com"
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
     }
   }
 ]

@@ -34,7 +34,7 @@ module.exports = {
           dark: 'hsl(274, 4%, 16%)',
         },
         border: '#ccc',
-        link: '#667eea',
+        link: '#339af0',
         typography: {
           light: 'hsl(0, 0%, 25%)',
           dark: 'hsl(0, 0%, 98%)',

@@ -6,7 +6,9 @@
     "publishDate": "2019-11-11T03:00:00.000Z",
     "type": "medium",
     "author": {
-      "email": "flexdinesh@gmail.com"
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
     }
   },
   {
@@ -16,7 +18,9 @@
     "publishDate": "2019-09-14T04:00:00.000Z",
     "type": "medium",
     "author": {
-      "email": "flexdinesh@gmail.com"
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
     }
   },
   {
@@ -26,7 +30,9 @@
     "publishDate": "2019-10-05T03:32:00.000Z",
     "type": "twitter",
     "author": {
-      "email": "flexdinesh@gmail.com"
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
     }
   }
 ]
