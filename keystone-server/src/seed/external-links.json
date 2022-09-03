@@ -34,5 +34,17 @@
         "email": "flexdinesh@gmail.com"
       }
     }
+  },
+  {
+    "title": "Deploy Gatsby sites to GitHub Pages",
+    "url": "https://dev.to/flexdinesh/deploy-gatsby-sites-to-github-pages-eed",
+    "status": "published",
+    "publishDate": "2019-01-23T13:00:00.000Z",
+    "type": "dev",
+    "author": {
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
+    }
   }
 ]

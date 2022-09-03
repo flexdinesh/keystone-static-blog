@@ -1,58 +1,5 @@
 [
   {
-    "title": "Welcome to Keystone Studio",
-    "slug": "welcome",
-    "status": "published",
-    "publishDate": null,
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    },
-    "content": {
-      "document": [
-        {
-          "type": "paragraph",
-          "children": [
-            {
-              "text": "Welcome to "
-            },
-            {
-              "text": "Keystone Studio.",
-              "bold": true
-            },
-            {
-              "text": " "
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "children": [
-            {
-              "text": "Keystone is a powerful backend framework that lets you ship and iterate features at blazing speeds. With Keystone's "
-            },
-            {
-              "text": "schema driven development",
-              "italic": true
-            },
-            {
-              "text": " mental model you can go from ideating to writing schema to having a working GraphQL API ready in a mere few minutes."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "children": [
-            {
-              "text": "We've setup this demo with lots of goodies and customisations for you to browse around and get a feel of how Keystone works."
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
     "title": "Welcome to Keystone Studio - two",
     "slug": "welcome-two",
     "status": "published",
@@ -109,7 +56,7 @@
     "title": "Welcome to Keystone Studio - three",
     "slug": "welcome-three",
     "status": "published",
-    "publishDate": null,
+    "publishDate": "2022-09-12T14:00:00.000Z",
     "author": {
       "connect": {
         "email": "flexdinesh@gmail.com"
@@ -161,6 +108,13 @@
   {
     "title": "React Hooks - Test custom hooks with Enzyme",
     "slug": "testing-custom-hooks",
+    "status": "published",
+    "publishDate": "2019-03-22T17:00:00.000Z",
+    "author": {
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
+    },
     "content": {
       "document": [
         {
@@ -319,7 +273,11 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "There are broadly two strategies to test our React codebase."
+              "text": "There are broadly two strategies to test our React codebase. "
+            },
+            {
+              "text": "<div>Hello World!</div>",
+              "code": true
             }
           ]
         },
@@ -425,14 +383,35 @@
             {
               "text": "Greet",
               "code": true
+            },
+            {
+              "text": "\n"
             }
           ]
         },
         {
-          "type": "code",
+          "type": "component-block",
+          "component": "code",
+          "props": {
+            "content": null,
+            "language": "jsx"
+          },
           "children": [
             {
-              "text": "function Greet({ user = 'User' }) {\n  const [name, setName] = React.useState(user);\n\n  return <div onClick={() => setName('Pinocchio')}>Hello, {name}!</div>;\n}\n"
+              "type": "component-block-prop",
+              "propPath": [
+                "content"
+              ],
+              "children": [
+                {
+                  "type": "code",
+                  "children": [
+                    {
+                      "text": "function Greet({ user = 'User' }) {\n  const [name, setName] = React.useState(user);\n\n  return <div onClick={() => setName('Pinocchio')}>Hello, {name}!</div>;\n}"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -447,7 +426,7 @@
               "code": true
             },
             {
-              "text": "would mean"
+              "text": " would mean"
             }
           ]
         },
@@ -989,12 +968,59 @@
           ]
         }
       ]
-    },
-    "publishDate": "2019-03-22T17:00:00.000Z",
+    }
+  },
+  {
+    "title": "Welcome to Keystone Studio",
+    "slug": "welcome",
+    "status": "published",
+    "publishDate": null,
     "author": {
       "connect": {
         "email": "flexdinesh@gmail.com"
       }
+    },
+    "content": {
+      "document": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Welcome to "
+            },
+            {
+              "text": "Keystone Studio.",
+              "bold": true
+            },
+            {
+              "text": " "
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Keystone is a powerful backend framework that lets you ship and iterate features at blazing speeds. With Keystone's "
+            },
+            {
+              "text": "schema driven development",
+              "italic": true
+            },
+            {
+              "text": " mental model you can go from ideating to writing schema to having a working GraphQL API ready in a mere few minutes."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "We've setup this demo with lots of goodies and customisations for you to browse around and get a feel of how Keystone works."
+            }
+          ]
+        }
+      ]
     }
   }
 ]
