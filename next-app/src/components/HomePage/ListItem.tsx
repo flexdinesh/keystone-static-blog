@@ -2,13 +2,20 @@ import React from 'react';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDev, faTwitter, faMedium, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faDev,
+  faTwitter,
+  faMedium,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 import { faPodcast } from '@fortawesome/free-solid-svg-icons';
 import type { Post, ExternalLink } from './types';
 
 const externalLinkTypeToIconMap = {
-  dev: faDev,
+  github: faGithub,
   twitter: faTwitter,
+  dev: faDev,
   medium: faMedium,
   youtube: faYoutube,
   podcast: faPodcast,
@@ -42,9 +49,11 @@ export function ListItem({ item }: { item: Post | ExternalLink }) {
         <Link href={item.url} passHref>
           <a className="hover:text-link" target={'_blank'}>
             <span className="animate-link hover:after:bg-link">{item.title}</span>
-            <span className="pl-2" title={externalLinkTypeToTitleMessageMap[item.type]}>
-              <FontAwesomeIcon icon={externalLinkTypeToIconMap[item.type]} />
-            </span>
+            {item.type && (
+              <span className="pl-2" title={externalLinkTypeToTitleMessageMap[item.type]}>
+                <FontAwesomeIcon icon={externalLinkTypeToIconMap[item.type]} />
+              </span>
+            )}
           </a>
         </Link>
       )}

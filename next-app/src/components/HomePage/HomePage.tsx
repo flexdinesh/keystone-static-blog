@@ -13,7 +13,7 @@ export type HomePageProps = {
 
 export function HomePage({ posts, externalLinks }: HomePageProps) {
   const items = [...posts, ...externalLinks].sort((a, b) =>
-    (a.publishDate || '').localeCompare(b.publishDate || '')
+    (b.publishDate || '').localeCompare(a.publishDate || '')
   );
   return (
     <React.Fragment>

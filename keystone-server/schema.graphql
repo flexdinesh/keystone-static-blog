@@ -267,9 +267,10 @@ enum ExternalLinkStatusType {
 }
 
 enum ExternalLinkTypeType {
+  github
+  twitter
   dev
   medium
-  twitter
   youtube
   podcast
 }

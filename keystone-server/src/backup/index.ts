@@ -37,9 +37,9 @@ async function backupExternalLinks(context: Context) {
 }
 
 export async function backupToJSON(context: Context) {
-  console.log(`💼 Backing up data to JSON...`);
+  console.log(`💼 Back up data to JSON...`);
   await backupUsers(context);
   await backupPosts(context);
   await backupExternalLinks(context);
-  console.log(`💼 Backing up data to JSON completed.`);
+  console.log(`💼 Back up data to JSON completed.`);
 }

@@ -28,9 +28,10 @@ export const ExternalLink = list({
     type: select({
       type: 'enum',
       options: [
+        { label: 'GitHub', value: 'github' },
+        { label: 'Twitter', value: 'twitter' },
         { label: 'Dev.to', value: 'dev' },
         { label: 'Medium', value: 'medium' },
-        { label: 'Twitter', value: 'twitter' },
         { label: 'YouTube', value: 'youtube' },
         { label: 'Podcast', value: 'podcast' },
       ],

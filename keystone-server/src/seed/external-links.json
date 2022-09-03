@@ -12,18 +12,6 @@
     }
   },
   {
-    "title": "React Dev Tools — Debug Like a Ninja",
-    "url": "https://medium.com/the-thinkmill/react-dev-tools-debug-like-a-ninja-c3a5d09895c6",
-    "status": "published",
-    "publishDate": "2019-09-14T04:00:00.000Z",
-    "type": "medium",
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    }
-  },
-  {
     "title": "Top 10 features in React Dev Tools in 10 tweets",
     "url": "https://twitter.com/flexdinesh/status/1180324978278879232",
     "status": "published",
@@ -41,6 +29,18 @@
     "status": "published",
     "publishDate": "2019-01-23T13:00:00.000Z",
     "type": "dev",
+    "author": {
+      "connect": {
+        "email": "flexdinesh@gmail.com"
+      }
+    }
+  },
+  {
+    "title": "Design system boilerplate",
+    "url": "https://github.com/flexdinesh/design-system-boilerplate",
+    "status": "published",
+    "publishDate": "2022-02-12T13:00:00.000Z",
+    "type": "github",
     "author": {
       "connect": {
         "email": "flexdinesh@gmail.com"
