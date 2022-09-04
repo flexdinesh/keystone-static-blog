@@ -58,7 +58,9 @@ const customComponentRenderers: CustomRendererProps['componentBlocks'] = {
   },
   code: function Code({ content, language }: any) {
     return (
-      <section className={`language-${language} flex items-center justify-center`}>
+      <section
+        className={`not-prose text-sm mb-8 rounded-md antialiased language-${language} flex items-center justify-center bg-slate-900 dark:bg-slate-900`}
+      >
         {content}
       </section>
     );

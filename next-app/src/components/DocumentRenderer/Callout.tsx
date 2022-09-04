@@ -10,23 +10,23 @@ export function Callout({ intent, content }: CalloutProps) {
   let borderColor = 'current';
   switch (intent) {
     case 'info': {
-      bgColor = 'bg-blue-100 dark:bg-blue-900/50';
-      borderColor = 'border-blue-700 dark:border-blue-300';
+      bgColor = 'bg-blue-100 dark:bg-cyan-900/50';
+      borderColor = 'border-blue-700 dark:border-cyan-400';
       break;
     }
     case 'warning': {
       bgColor = 'bg-orange-100 dark:bg-orange-900/50';
-      borderColor = 'border-orange-700 dark:border-orange-300';
+      borderColor = 'border-orange-700 dark:border-orange-400';
       break;
     }
     case 'error': {
       bgColor = 'bg-red-100 dark:bg-red-900/50';
-      borderColor = 'border-red-700 dark:border-red-300';
+      borderColor = 'border-red-700 dark:border-red-400';
       break;
     }
     case 'success': {
       bgColor = 'bg-green-100 dark:bg-green-900/50';
-      borderColor = 'border-green-700 dark:border-green-300';
+      borderColor = 'border-green-700 dark:border-green-400';
       break;
     }
   }
