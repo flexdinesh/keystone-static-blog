@@ -30,7 +30,15 @@ export function BlogPage({ post }: BlogPageProps) {
 
   return (
     <React.Fragment>
-      <BlogPageSeo title={post.title} />
+      <BlogPageSeo
+        title={post.title}
+        authorName={post.author.name}
+        slug={post.slug}
+        publishTimeISO={post.publishDate}
+        metaDescription={post.metaDescription}
+        metaImageUrl={post.metaImageUrl}
+        metaImageAltText={post.metaImageAltText}
+      />
       <PageLayout className="max-w-3xl grid grid-rows-[1fr_auto]">
         <main>
           <Header forPage="blog" />

@@ -19,6 +19,22 @@ export const Post = list({
     }),
     publishDate: timestamp(),
     author: relationship({ ref: 'User.posts', many: false }),
+    metaDescription: text({
+      ui: {
+        displayMode: 'textarea',
+        description: '(Optional) Only used in meta tags for SEO purposes.',
+      },
+    }),
+    metaImageUrl: text({
+      ui: {
+        description: '(Optional) Only used in meta tags for SEO purposes.',
+      },
+    }),
+    metaImageAltText: text({
+      ui: {
+        description: '(Optional) If you added Meta Image Url, alt text for it.',
+      },
+    }),
     content: document({
       // a fully featured document editor with all of the formatting abilities
       formatting: true,

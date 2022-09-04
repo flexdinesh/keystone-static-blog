@@ -7,6 +7,9 @@ export type Post = {
   title: string;
   slug: string;
   publishDate: string | null;
+  metaDescription: string | null;
+  metaImageUrl: string | null;
+  metaImageAltText: string | null;
   author: {
     email: string;
     name: string;

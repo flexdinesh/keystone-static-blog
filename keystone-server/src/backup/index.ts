@@ -13,7 +13,8 @@ async function backupUsers(context: Context) {
 async function backupPosts(context: Context) {
   const { query } = context.sudo();
   const postsInDatabase = await query.Post.findMany({
-    query: 'title slug status publishDate author { email } content { document }',
+    query:
+      'title slug status publishDate metaDescription metaImageUrl metaImageAltText author { email } content { document }',
   });
   const postsWithAuthorConnect = postsInDatabase.map(post => ({
     ...post,
