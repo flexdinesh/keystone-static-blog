@@ -14,9 +14,9 @@ type HeroProps = {
 
 export function Hero({ imageSrc, caption }: HeroProps) {
   return (
-    <figure className="not-prose flex items-center justify-center flex-col my-6">
+    <figure className="not-prose my-6">
       <div
-        className="bg-center bg-cover min-h-[320px] w-full"
+        className="bg-center bg-cover bg-no-repeat h-0 pt-[56.25%] w-full"
         style={{ backgroundImage: `url(${imageSrc})` }}
       />
       {caption.discriminant ? (

@@ -30,7 +30,9 @@ export const hero = component({
               backgroundImage: `url(${props.fields.imageSrc.value})`,
               backgroundPosition: 'center',
               backgroundSize: 'cover',
-              minHeight: 200,
+              backgroundRepeat: 'no-repeat',
+              paddingTop: '56.25%',
+              height: 0,
               width: '100%',
             }}
           />
