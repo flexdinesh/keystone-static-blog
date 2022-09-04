@@ -1,9 +1,12 @@
 [
   {
-    "title": "How does it work? WIP",
-    "slug": "welcome",
+    "title": "Build Static Blogs with Keystone 🧢",
+    "slug": "static-blogs-with-keystone",
     "status": "published",
-    "publishDate": null,
+    "publishDate": "2022-09-04T10:00:00.000Z",
+    "metaDescription": "This is a starter template to build statically generated blog-like websites with Keystone and Next.js. Built by Dinesh Pandiyan.",
+    "metaImageUrl": "https://raw.githubusercontent.com/flexdinesh/keystone-static-blog/main/next-app/public/images/meta-image.png",
+    "metaImageAltText": "Banner image with graphics describing that static blogs could be built with Keystone and Next.js",
     "author": {
       "connect": {
         "email": "flexdinesh@gmail.com"
@@ -12,17 +15,118 @@
     "content": {
       "document": [
         {
+          "type": "component-block",
+          "component": "hero",
+          "props": {
+            "imageSrc": "https://raw.githubusercontent.com/flexdinesh/keystone-static-blog/main/next-app/public/images/meta-image.png",
+            "caption": {
+              "discriminant": true,
+              "value": null
+            }
+          },
+          "children": [
+            {
+              "type": "component-block-prop",
+              "propPath": [
+                "caption",
+                "value"
+              ],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Build static blogs with Keystone and Next.js"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "paragraph",
           "children": [
             {
-              "text": "Welcome to "
+              "text": "Keystone is a backend framework to build content-driven websites. It automatically generates a GraphQL API for you based on schema definitions that you give for your content. When you combine it with Next.js's static site generation, you get an amazing tool to generate static blogs."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": ""
             },
             {
-              "text": "Keystone Studio.",
+              "type": "link",
+              "href": "https://github.com/flexdinesh/keystone-static-blog",
+              "children": [
+                {
+                  "text": "Keystone static blog"
+                }
+              ]
+            },
+            {
+              "text": " is a starter template to build statically generated blog-like websites with "
+            },
+            {
+              "type": "link",
+              "href": "https://keystonejs.com/",
+              "children": [
+                {
+                  "text": "Keystone"
+                }
+              ]
+            },
+            {
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "href": "https://nextjs.org/",
+              "children": [
+                {
+                  "text": "Next.js"
+                }
+              ]
+            },
+            {
+              "text": ". The template is built with and styled using "
+            },
+            {
+              "type": "link",
+              "href": "https://tailwindcss.com/docs/theme",
+              "children": [
+                {
+                  "text": "Tailwind's configuration based theme"
+                }
+              ]
+            },
+            {
+              "text": " which makes it easy to extend and customise it."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "This blog you're reading is build using the template — ",
+              "italic": true,
               "bold": true
             },
             {
-              "text": " "
+              "type": "link",
+              "href": "https://github.com/flexdinesh/keystone-static-blog",
+              "children": [
+                {
+                  "text": "keystone-static-blog"
+                }
+              ]
+            },
+            {
+              "text": "."
             }
           ]
         },
@@ -30,14 +134,340 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "Keystone is a powerful backend framework that lets you ship and iterate features at blazing speeds. With Keystone's "
+              "text": "The template comes built-in with lots of goodies"
+            }
+          ]
+        },
+        {
+          "type": "unordered-list",
+          "children": [
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Beautiful,",
+                      "bold": true
+                    },
+                    {
+                      "text": " "
+                    },
+                    {
+                      "text": "performant",
+                      "bold": true
+                    },
+                    {
+                      "text": " and "
+                    },
+                    {
+                      "text": "fully responsive",
+                      "bold": true
+                    },
+                    {
+                      "text": " blog right from the get go."
+                    }
+                  ]
+                }
+              ]
             },
             {
-              "text": "schema driven development",
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Built with "
+                    },
+                    {
+                      "text": "Tailwind",
+                      "bold": true
+                    },
+                    {
+                      "text": " so it comes with a really nice "
+                    },
+                    {
+                      "text": "dark mode",
+                      "bold": true
+                    },
+                    {
+                      "text": " that's easily customisable."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "SEO optimised and accessible from the start. "
+                    },
+                    {
+                      "text": "Lighthouse score is 100 for both SEO and Accessibility",
+                      "bold": true
+                    },
+                    {
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "children": [
+            {
+              "bold": true,
+              "text": "How does it work?"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "The short version is that the blog is entirely generated during build-time using Next.js static site generation and the content for the blog is made available during build-time using Keystone's powerful content platform along with the magic of zero configuration file-system based SQLite database."
+            }
+          ]
+        },
+        {
+          "type": "unordered-list",
+          "children": [
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "The blog is generated statically using "
+                    },
+                    {
+                      "type": "link",
+                      "href": "https://nextjs.org/docs/advanced-features/static-html-export",
+                      "children": [
+                        {
+                          "text": "Next.js static HTML export"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "The content for the blog is fetched from a "
+                    },
+                    {
+                      "type": "link",
+                      "href": "https://keystonejs.com/",
+                      "children": [
+                        {
+                          "text": "local Keystone server"
+                        }
+                      ]
+                    },
+                    {
+                      "text": ". Keystone is a fantastic content platform that auto-magically generates GraphQL API based on schema definitions."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Usually content platforms need to be connected to a database and hosted somewhere which often comes with hosting, configuration and maintenance cost. "
+                    },
+                    {
+                      "type": "link",
+                      "href": "https://keystonejs.com/docs/apis/config#sqlite",
+                      "children": [
+                        {
+                          "text": "Keystone supports SQLite database"
+                        }
+                      ]
+                    },
+                    {
+                      "text": " and we make use of that to avoid having to configure, host or maintain anything. "
+                    },
+                    {
+                      "text": "You can get started with zero configuration and commit your database along with your code like any other file.",
+                      "bold": true
+                    },
+                    {
+                      "text": " 🤯 This is what makes this whole "
+                    },
+                    {
+                      "text": "generate blogs locally without having to host a server anywhere",
+                      "italic": true
+                    },
+                    {
+                      "text": " possible."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Author your content visually in your local environment using "
+                    },
+                    {
+                      "type": "link",
+                      "href": "https://keystonejs.com/docs/guides/document-field-demo",
+                      "children": [
+                        {
+                          "text": "Keystone's powerful document editor"
+                        }
+                      ]
+                    },
+                    {
+                      "text": " and admin dashboard. Once your content is ready, just run a local build and your blog will be exported as a static website. Now you can easily host this static website anywhere. I created "
+                    },
+                    {
+                      "type": "link",
+                      "href": "https://dineshpandiyan.com/",
+                      "children": [
+                        {
+                          "text": "my blog"
+                        }
+                      ]
+                    },
+                    {
+                      "text": " using this template and hosted it in "
+                    },
+                    {
+                      "type": "link",
+                      "href": "https://www.netlify.com/",
+                      "children": [
+                        {
+                          "text": "Netlify"
+                        }
+                      ]
+                    },
+                    {
+                      "text": ". Every time I make a change to my content, all I gotta do is push my changes to the repo and Netlify automatically deploys it in less than a minute."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "The generated blog and content is styled using "
+                    },
+                    {
+                      "type": "link",
+                      "href": "https://tailwindcss.com/",
+                      "children": [
+                        {
+                          "text": "Tailwind"
+                        }
+                      ]
+                    },
+                    {
+                      "text": " and could be easily customised easily."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "children": [
+            {
+              "text": "How is this different from MDX based blogs?",
+              "bold": true
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "The idea is same - you statically generate your blog using content made available during build-time. The difference however, is that, MDX authored content is passed through a plugin system during the build and the content is made available in your pages to be built. This is easy as long as you only need the default out-of-the-box markdown syntax content. The moment you want to customise your content with fancier components (Eg. carousel, YouTube video, Twitter embed, syntax highlighted code, Hero image, etc) you will either have to find a plugin that supports that or build them yourself which sometimes can get quite cumbersome."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "This is where "
+            },
+            {
+              "type": "link",
+              "href": "https://keystonejs.com/docs/guides/document-field-demo#document-fields-demo",
+              "children": [
+                {
+                  "text": "Keystone's all powerful document field"
+                }
+              ]
+            },
+            {
+              "text": " comes into play. You can author content using a visual editor and see how your content is going to look while authoring it. And most importantly Keystone's document field makes it easy to add custom components (Eg. "
+            },
+            {
+              "text": "carousel, YouTube video, Twitter embed, syntax highlighted code, Hero image, etc",
               "italic": true
             },
             {
-              "text": " mental model you can go from ideating to writing schema to having a working GraphQL API ready in a mere few minutes."
+              "text": "). All you need to know to add a custom component is to know how to code in React and voila. 🥳 This template is setup with a few custom components ("
+            },
+            {
+              "text": "hero image, custom blockquote, embed tweet, embed youtube videos, callouts and syntax highlighted code blocks",
+              "italic": true
+            },
+            {
+              "text": "). You can see them the custom components in action here — "
+            },
+            {
+              "type": "link",
+              "href": "https://staticblogswithkeystone.netlify.app/blog/keystone-content-authoring",
+              "children": [
+                {
+                  "text": "Keystone Content Authoring Experience is Just Fantastic!"
+                }
+              ]
+            },
+            {
+              "text": "."
             }
           ]
         },
@@ -45,12 +475,137 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "We've setup this demo with lots of goodies and customisations for you to browse around and get a feel of how Keystone works."
+              "text": "Keystone's document editor stands out in a handful of ways over MDX based content —"
             }
           ]
         },
         {
+          "type": "unordered-list",
+          "children": [
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Ability to visually see your content while authoring it."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Keystone's admin dashboard makes it easy to publish/unpublish content, go through all your content visually for editing, author SEO information along with your post, etc."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Complete control over how you render and style your content. Default out-of-the-box elements and your custom elements can be styled however you want. Checkout this post to see all available formatting options - "
+                    },
+                    {
+                      "type": "link",
+                      "href": "http://staticblogswithkeystone.netlify.app/blog/keystone-content-authoring",
+                      "children": [
+                        {
+                          "text": "Keystone content authoring experience is just fantastic"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "Multi-column layouts for your content."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list-item",
+              "children": [
+                {
+                  "type": "list-item-content",
+                  "children": [
+                    {
+                      "text": "And more. Keystone's document editor is friggin' fantastic."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "children": [
+            {
+              "text": "That's all folks."
+            }
+          ],
+          "level": 2
+        },
+        {
           "type": "paragraph",
+          "children": [
+            {
+              "text": "I hope you enjoy your authoring experience with "
+            },
+            {
+              "type": "link",
+              "href": "https://twitter.com/KeystoneJS",
+              "children": [
+                {
+                  "text": "Keystone",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "text": ". Share this and say hi to me on Twitter — "
+            },
+            {
+              "type": "link",
+              "href": "https://twitter.com/flexdinesh",
+              "children": [
+                {
+                  "text": "@flexdinesh",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "text": ". Happy Blogging! 👋"
+            }
+          ]
+        },
+        {
+          "type": "divider",
           "children": [
             {
               "text": ""
@@ -61,7 +616,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "WIP"
+              "text": ""
             }
           ]
         }
@@ -69,10 +624,13 @@
     }
   },
   {
-    "title": "Keystone content authoring experience is just fantastic",
+    "title": "Keystone Content Authoring Experience is Just Fantastic!",
     "slug": "keystone-content-authoring",
     "status": "published",
     "publishDate": "2022-09-03T04:00:00.000Z",
+    "metaDescription": "",
+    "metaImageUrl": "",
+    "metaImageAltText": "",
     "author": {
       "connect": {
         "email": "flexdinesh@gmail.com"
@@ -260,7 +818,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "This is a 2-equally-split-column layout —"
+              "text": "This is a 2-equally-split-columns layout —"
             }
           ]
         },
@@ -334,7 +892,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "This is a 3-equally-split-column layout —"
+              "text": "This is a 3-equally-split-columns layout —"
             }
           ]
         },

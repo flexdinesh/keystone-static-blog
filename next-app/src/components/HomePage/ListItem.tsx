@@ -37,19 +37,19 @@ export function ListItem({ item }: { item: Post | ExternalLink }) {
 
   return (
     <li
-      className="mb-4 before:-ml-5 before:content-['_»_'] before:text-slate-500 dark:before:text-slate-400 ml-4 before:pr-2"
+      className="mb-2 before:-ml-5 before:content-['_»_'] before:text-slate-500 dark:before:text-slate-400 ml-4 before:pr-2"
       key={item.id}
     >
       {item.__typename === 'Post' ? (
         <Link href={`/blog/${item.slug}`}>
           <a className="hover:text-link">
-            <span className="animate-link hover:after:bg-link">{item.title}</span>
+            <span className="hover:after:bg-link">{item.title}</span>
           </a>
         </Link>
       ) : (
         <Link href={item.url} passHref>
           <a className="hover:text-link" target={'_blank'}>
-            <span className="animate-link hover:after:bg-link">{item.title}</span>
+            <span className="hover:after:bg-link">{item.title}</span>
             {item.type && (
               <span className="pl-2" title={externalLinkTypeToTitleMessageMap[item.type]}>
                 <FontAwesomeIcon icon={externalLinkTypeToIconMap[item.type]} />
