@@ -159,6 +159,9 @@ type Post {
   status: PostStatusType
   publishDate: DateTime
   author: User
+  metaDescription: String
+  metaImageUrl: String
+  metaImageAltText: String
   content: Post_content_Document
 }
 
@@ -189,6 +192,9 @@ input PostWhereInput {
   status: PostStatusTypeNullableFilter
   publishDate: DateTimeNullableFilter
   author: UserWhereInput
+  metaDescription: StringFilter
+  metaImageUrl: StringFilter
+  metaImageAltText: StringFilter
 }
 
 input PostStatusTypeNullableFilter {
@@ -215,6 +221,9 @@ input PostOrderByInput {
   slug: OrderDirection
   status: OrderDirection
   publishDate: OrderDirection
+  metaDescription: OrderDirection
+  metaImageUrl: OrderDirection
+  metaImageAltText: OrderDirection
 }
 
 input PostUpdateInput {
@@ -223,6 +232,9 @@ input PostUpdateInput {
   status: PostStatusType
   publishDate: DateTime
   author: UserRelateToOneForUpdateInput
+  metaDescription: String
+  metaImageUrl: String
+  metaImageAltText: String
   content: JSON
 }
 
@@ -243,6 +255,9 @@ input PostCreateInput {
   status: PostStatusType
   publishDate: DateTime
   author: UserRelateToOneForCreateInput
+  metaDescription: String
+  metaImageUrl: String
+  metaImageAltText: String
   content: JSON
 }
 

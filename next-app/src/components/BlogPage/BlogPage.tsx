@@ -51,7 +51,7 @@ export function BlogPage({ post }: BlogPageProps) {
           </div>
           <article className="prose lg:prose-lg prose:slate dark:prose-invert max-w-none pb-8">
             <h1 className="!mb-0 pb-4">{post.title}</h1>
-            <div className="text-sm text-typography-secondary">{formattedDate}</div>
+            <div className="text-sm text-slate-500 dark:text-slate-400">{formattedDate}</div>
             <CustomRenderer document={post.content.document} />
           </article>
         </main>

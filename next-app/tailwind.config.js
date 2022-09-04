@@ -37,12 +37,6 @@ module.exports = {
         },
         border: '#ccc',
         link: '#339af0',
-        typography: {
-          light: 'hsl(0, 0%, 25%)',
-          dark: 'hsl(0, 0%, 98%)',
-          primary: '#4A4A4A',
-          secondary: '#9B9B9B',
-        },
       },
     },
   },

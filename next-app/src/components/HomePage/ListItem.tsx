@@ -37,7 +37,7 @@ export function ListItem({ item }: { item: Post | ExternalLink }) {
 
   return (
     <li
-      className="mb-4 before:-ml-5 before:content-['_»_'] before:text-typography-secondary ml-4 before:pr-2"
+      className="mb-4 before:-ml-5 before:content-['_»_'] before:text-slate-500 dark:before:text-slate-400 ml-4 before:pr-2"
       key={item.id}
     >
       {item.__typename === 'Post' ? (
@@ -62,10 +62,10 @@ export function ListItem({ item }: { item: Post | ExternalLink }) {
       {formattedDate ? (
         <React.Fragment>
           {/* Wrap to next line when for longer titles */}
-          <span className="block lg:inline-block">
-            {/* <span className="hidden after:content-['\2219'] lg:inline-block visible text-typography-secondary pl-4 pr-4"></span> */}
-            <span className="hidden after:content-['—'] lg:inline-block text-typography-secondary pl-4 pr-4"></span>
-            <span className="text-typography-secondary text-sm justify-self-end">
+          <span className="block">
+            {/* <span className="hidden after:content-['\2219'] text-slate-500 dark:text-slate-400 pl-4 pr-4"></span> */}
+            <span className="hidden after:content-['—'] text-slate-500 dark:text-slate-400 pl-4 pr-4"></span>
+            <span className="text-slate-500 dark:text-slate-400 text-sm justify-self-end">
               {formattedDate}
             </span>
           </span>

@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/prism-dracula.css';
 /* 
   We import the styles here to prevent 
   svg flash while loading the server rendered page 

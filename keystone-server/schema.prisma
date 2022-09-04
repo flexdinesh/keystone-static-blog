@@ -23,14 +23,17 @@ model User {
 }
 
 model Post {
-  id          String    @id @default(cuid())
-  title       String    @default("")
-  slug        String    @unique @default("")
-  status      String?   @default("draft")
-  publishDate DateTime?
-  author      User?     @relation("Post_author", fields: [authorId], references: [id])
-  authorId    String?   @map("author")
-  content     String    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  id               String    @id @default(cuid())
+  title            String    @default("")
+  slug             String    @unique @default("")
+  status           String?   @default("draft")
+  publishDate      DateTime?
+  author           User?     @relation("Post_author", fields: [authorId], references: [id])
+  authorId         String?   @map("author")
+  metaDescription  String    @default("")
+  metaImageUrl     String    @default("")
+  metaImageAltText String    @default("")
+  content          String    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
 
   @@index([authorId])
 }
