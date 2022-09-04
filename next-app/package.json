@@ -7,7 +7,8 @@
     "build": "next build",
     "export": "next build && next export",
     "start": "next start --port 8000",
-    "clean": "rimraf out .next"
+    "clean": "rimraf out .next",
+    "serve": "serve out"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -30,6 +31,7 @@
     "@types/node": "18.7.2",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
+    "serve": "^14.0.1",
     "typescript": "4.7.4"
   }
 }
