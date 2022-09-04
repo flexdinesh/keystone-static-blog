@@ -22,8 +22,9 @@ const externalLinkTypeToIconMap = {
 } as const;
 
 const externalLinkTypeToTitleMessageMap = {
-  dev: 'External link to a Dev.to blog post',
+  github: 'External link to a GitHub repo',
   twitter: 'External link to a tweet',
+  dev: 'External link to a Dev.to blog post',
   medium: 'External link to a Medium blog post',
   youtube: 'External link to a YouTube video',
   podcast: 'External link to a podcast',

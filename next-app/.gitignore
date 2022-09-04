@@ -10,7 +10,8 @@
 
 # next.js
 /.next/
-/out/
+## Do not ignore exported static files. We're locally buidling and pushing the files to netlify.
+#/out/
 
 # production
 /build
