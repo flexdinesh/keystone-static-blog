@@ -112,7 +112,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "This blog you're reading is build using the template — ",
+              "text": "This blog you're reading is built using the template — ",
               "italic": true,
               "bold": true
             },
@@ -134,7 +134,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "The template comes built-in with lots of goodies"
+              "text": "The template comes bundled with lots of goodies"
             }
           ]
         },
@@ -186,7 +186,7 @@
                       "bold": true
                     },
                     {
-                      "text": " so it comes with a really nice "
+                      "text": " so it comes with a nice "
                     },
                     {
                       "text": "dark mode",
@@ -399,7 +399,7 @@
                       ]
                     },
                     {
-                      "text": " and could be easily customised easily."
+                      "text": " and could be easily customised."
                     }
                   ]
                 }
@@ -455,7 +455,7 @@
               "italic": true
             },
             {
-              "text": "). You can see them the custom components in action here — "
+              "text": "). You can see the custom components in action here — "
             },
             {
               "type": "link",
@@ -515,14 +515,14 @@
                   "type": "list-item-content",
                   "children": [
                     {
-                      "text": "Complete control over how you render and style your content. Default out-of-the-box elements and your custom elements can be styled however you want. Checkout this post to see all available formatting options - "
+                      "text": "You have complete control over how you render and style your content. Default out-of-the-box elements and your custom elements can be styled however you want. Check this post to see all available formatting options - "
                     },
                     {
                       "type": "link",
-                      "href": "http://staticblogswithkeystone.netlify.app/blog/keystone-content-authoring",
+                      "href": "https://staticblogswithkeystone.netlify.app/blog/keystone-content-authoring",
                       "children": [
                         {
-                          "text": "Keystone content authoring experience is just fantastic"
+                          "text": "Keystone Content Authoring Experience is Just Fantastic!"
                         }
                       ]
                     },
@@ -574,7 +574,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "I hope you enjoy your authoring experience with "
+              "text": "I hope you enjoy your content authoring experience with "
             },
             {
               "type": "link",
@@ -1199,7 +1199,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "I have created a few example custom components but your imagination is your limit when it comes to what you can do with custom components."
+              "text": "When it comes to what you can do with custom components, your imagination is your only limit. Here are a few example custom components I've created —"
             }
           ]
         },
@@ -1442,7 +1442,7 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "That's all folks. Hope you enjoy your authoring experience with "
+              "text": "That's all folks. Hope you enjoy your content authoring experience with "
             },
             {
               "type": "link",
