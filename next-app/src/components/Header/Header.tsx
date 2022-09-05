@@ -44,11 +44,11 @@ export function Header({ forPage = 'home' }: Props) {
       <TopNav />
       <HeadingTag className={`dark:text-white ${headingClassnames}`}>
         <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-secondary-500 dark:after:to-secondary-700">
-          Dinesh Pandiyan
+          Blog Template
         </span>
       </HeadingTag>
       <p className="text-slate-500 dark:text-slate-400 font-medium text-sm tracking-wider mt-2">
-        I talk and write about web.
+        Template to build your own static blogs with Keystone.
       </p>
     </header>
   );
