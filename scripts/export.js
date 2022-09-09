@@ -4,7 +4,7 @@ const { result } = concurrently(
     { command: 'yarn start:keystone', name: 'KEYSTONE', prefixColor: 'green' },
     {
       command:
-        'wait-on http://localhost:3000 && yarn export:app && yarn kill:server && wait-on -r http://localhost:3000',
+        'wait-on http://localhost:3000 && yarn export:app && yarn kill:server',
       name: 'BUILD-AND-KILL',
       prefixColor: 'magenta',
     },
