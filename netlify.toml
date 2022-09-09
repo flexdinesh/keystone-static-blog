@@ -2,5 +2,7 @@
   NODE_VERSION = "16"
   # YARN_FLAGS = "--version" # prevent Netlify npm install
 
-# [build]
+[build]
 #   base = "next-app/out/"
+publish = "next-app/out/"
+command = "yarn export"
