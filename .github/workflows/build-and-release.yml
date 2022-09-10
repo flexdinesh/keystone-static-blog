@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths:
+      - keystone-server/**
+      - next-app/**
+
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
