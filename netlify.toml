@@ -1,8 +1,8 @@
 [build.environment]
   NODE_VERSION = "16"
-  # YARN_FLAGS = "--version" # prevent Netlify npm install
+  YARN_FLAGS = "--version" # prevent Netlify npm install
 
 [build]
-#   base = "next-app/out/"
-publish = "next-app/out/"
-command = "yarn export"
+  base = "next-app/out/"
+  publish = "next-app/out/"
+  # command = "yarn export"
