@@ -69,13 +69,15 @@ Once your content is ready, keep the keystone server running and open the Next.j
 
 ### Deploying
 
-The generated website is just a bunch of html, js and css files. You can host it where ever you want.
+The generated website is just a bunch of html, js and css files. You can host it where ever you want. You can choose one of these three methods to deploy.
 
-**What about generating the files in a CI?**
+**1. Build in local and push the built files to your repo**
 
-You don't have to do that. Only the files in `next-app/out/` matters. Since your Keystone works fine locally and you can commit your database to your repo, you can generate your website locally every time you add/edit/remove content and push the generated files to your repo. Take a look at [my repo's commit history](https://github.com/flexdinesh/dineshpandiyan.com/commits/main) for my [website](https://dineshpandiyan.com), every time I make content change, I push the newly exported files to my repo and Netlify automatically picks them up deploys the newly generated files.
+You can run `yarn export` in your local environment and it will export the static website to `next-app/out` dir. You can just commit these static files and ask your CI to deploy these files. _Eg. If you're using Netlify, you'll tell Netlify that just publish the files in `next-app/out` dir on every new commit to the repo. Check netlify.toml file for more info on how to do it._
 
-If you don't want to generate your blog locally and instead do it in a CI, you gotta figure out how to run the keystone server in your CI, generate your blog and exit the Keystone server once done.
+**2. Build in CI**
+
+You can choose to automate your deploy process by building your website in a CI. There's a limitation with this though. During build, the content is fetched from a running local keystone server. Not all static hosting CI's support running a local server. So the build process needs to be dockerised. You will need to run `yarn export:docker` to build your website in a docker environment. But remember not all CIs support docker either. So if your CI supports docker, you can just run `yarn export:docker` in your CI and the site will be exported at `next-app/out` dir. If your CI doesn't support docker (_like Netlify where this template is hosted_) you could use GitHub Actions to build your website in GitHub's CI and publish it to your hosting using their CLI. Eg. This template is hosted in Netlify, so there's a GitHub action at [.github/workflows/build-and-release.yml](.github/workflows/build-and-release.yml) that builds the website on every push to main and deploys to Netlify using Netlify's CLI.
 
 ## Where do I deploy?
 
