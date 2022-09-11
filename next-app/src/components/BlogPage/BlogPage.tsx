@@ -7,15 +7,11 @@ import Prism from '../../components/PrismScript/prism';
 import { BlogPageSeo } from './BlogPageSeo';
 import { PageLayout } from '../Layout/PageLayout';
 import { Footer } from '../Footer/Footer';
-import { Header } from '../Header/Header';
+import { BlogpageHeader } from '../Header/Header';
 import { CustomRenderer } from '../DocumentRenderer/DocumentRenderer';
-import type { Post } from './types';
+import type { BlogpageData } from '../../data/blogpage';
 
-export type BlogPageProps = {
-  post: Post | null;
-};
-
-export function BlogPage({ post }: BlogPageProps) {
+export function BlogPage({ post, meta }: BlogpageData) {
   const formattedDate = post?.publishDate
     ? format(new Date(post?.publishDate), 'MMM dd, yyyy')
     : null;
@@ -30,18 +26,10 @@ export function BlogPage({ post }: BlogPageProps) {
 
   return (
     <React.Fragment>
-      <BlogPageSeo
-        title={post.title}
-        authorName={post.author.name}
-        slug={post.slug}
-        publishTimeISO={post.publishDate}
-        metaDescription={post.metaDescription}
-        metaImageUrl={post.metaImageUrl}
-        metaImageAltText={post.metaImageAltText}
-      />
+      <BlogPageSeo post={post} meta={meta} />
       <PageLayout className="max-w-3xl grid grid-rows-[1fr_auto]">
         <main>
-          <Header forPage="blog" />
+          <BlogpageHeader />
           <div className="pb-4">
             <Link href="/">
               <a className="no-underline hover:text-link before:content-['←'] before:pr-1 hover:before:-translate-x-1 before:inline-block before:transition-all before:duration-150 before:ease-in-out">
@@ -52,7 +40,7 @@ export function BlogPage({ post }: BlogPageProps) {
           <article className="prose lg:prose-lg prose:slate dark:prose-invert max-w-none pb-8">
             <h1 className="!mb-0 pb-4">{post.title}</h1>
             <div className="text-sm text-slate-500 dark:text-slate-400">{formattedDate}</div>
-            <CustomRenderer document={post.content.document} />
+            <CustomRenderer document={post.content?.document} />
           </article>
         </main>
         <Footer />

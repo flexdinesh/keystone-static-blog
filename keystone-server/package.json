@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "keystone dev --seed-database",
-    "start": "keystone start --seed-database",
+    "start": "NODE_ENV=production keystone start --seed-database",
     "build": "keystone build",
     "backup": "keystone --backup-to-json"
   },

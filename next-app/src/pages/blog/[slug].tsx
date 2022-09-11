@@ -1,54 +1,28 @@
 import React from 'react';
 import type { GetStaticPathsResult, GetStaticPropsContext } from 'next';
 import { BlogPage } from '../../components/BlogPage/BlogPage';
-import type { BlogPageProps } from '../../components/BlogPage/BlogPage';
-import type { Post } from '../../components/BlogPage/types';
 import { fetchGraphQL, gql } from '../../graphql';
+import type { BlogpagePathsQuery } from '../../.generated/types';
+import { fetchBlogpageData } from '../../data/blogpage';
+import type { BlogpageData } from '../../data/blogpage';
 
-export default function Blog({ post }: BlogPageProps) {
-  return <BlogPage post={post} />;
+export default function Blog(data: BlogpageData) {
+  return <BlogPage {...data} />;
 }
-
-type ResponseData = {
-  post: Post | null;
-};
 
 export async function getStaticProps({ params = {} }: GetStaticPropsContext) {
   const slug = params.slug;
-  const data: ResponseData = await fetchGraphQL(
-    gql`
-      query post($slug: String!) {
-        post(where: { slug: $slug }) {
-          __typename
-          id
-          title
-          slug
-          publishDate
-          author {
-            email
-            name
-            github
-            twitter
-          }
-          content {
-            document
-          }
-        }
-      }
-    `,
-    {
-      slug,
-    }
-  );
+
+  const data = await fetchBlogpageData(slug as string);
 
   const post = data?.post;
   return { props: { post } };
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const data: { posts: { slug: string }[] } = await fetchGraphQL(
+  const data: BlogpagePathsQuery = await fetchGraphQL(
     gql`
-      query posts {
+      query blogpagePaths {
         posts {
           slug
         }
@@ -57,9 +31,11 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   );
 
   const posts = data?.posts || [];
-  const paths = posts.map(({ slug }) => ({
-    params: { slug },
-  }));
+  const paths = posts
+    .filter((p): p is { slug: string } => Boolean(p?.slug))
+    .map(({ slug }) => ({
+      params: { slug },
+    }));
 
   return {
     paths,

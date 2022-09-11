@@ -57,7 +57,7 @@ Open your keystone admin dashboard locally at http://localhost:3000 and start au
 
 - If you want to create a new blog post, you can create one in **Posts**.
 
-- If you want to link to an external blog post or a link you can create one in **External Links**.
+- If you want to link to an external blog post or a link you can create one in **Links**.
 
 ### Generating blog
 

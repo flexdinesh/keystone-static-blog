@@ -3,48 +3,36 @@
     "title": "Progressive Rendering — The Key to Faster Web",
     "url": "https://medium.com/the-thinkmill/progressive-rendering-the-key-to-faster-web-ebfbbece41a4",
     "status": "published",
-    "publishDate": "2019-11-11T03:00:00.000Z",
-    "type": "medium",
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    }
+    "category": {
+      "name": "medium"
+    },
+    "publishDate": "2019-11-11T03:00:00.000Z"
   },
   {
     "title": "Top 10 features in React Dev Tools in 10 tweets",
     "url": "https://twitter.com/flexdinesh/status/1180324978278879232",
     "status": "published",
-    "publishDate": "2019-10-05T03:32:00.000Z",
-    "type": "twitter",
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    }
+    "category": {
+      "name": "twitter"
+    },
+    "publishDate": "2019-10-05T03:32:00.000Z"
   },
   {
     "title": "Design system boilerplate",
     "url": "https://github.com/flexdinesh/design-system-boilerplate",
     "status": "published",
-    "publishDate": "2022-02-12T13:00:00.000Z",
-    "type": "github",
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    }
+    "category": {
+      "name": "github"
+    },
+    "publishDate": "2022-02-12T13:00:00.000Z"
   },
   {
     "title": "Keystone Static Blog Template on GitHub",
     "url": "https://github.com/flexdinesh/keystone-static-blog",
     "status": "published",
-    "publishDate": "2022-09-04T08:00:00.000Z",
-    "type": "github",
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    }
+    "category": {
+      "name": "github"
+    },
+    "publishDate": "2022-09-04T08:00:00.000Z"
   }
 ]

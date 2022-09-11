@@ -3,24 +3,43 @@ import fs from 'fs';
 import path from 'path';
 import { Context } from '.keystone/types';
 
-async function seedUsers(context: Context) {
+async function seedCategories(context: Context) {
   const { db } = context.sudo();
-  const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/users.json'), 'utf-8');
-  const seedUsers: any[] = JSON.parse(rawJSONData);
-  const usersAlreadyInDatabase = await db.User.findMany({
+  const rawJSONData = fs.readFileSync(
+    path.join(process.cwd(), './src/seed/categories.json'),
+    'utf-8'
+  );
+  const seedCategories: any[] = JSON.parse(rawJSONData);
+  const categoriesAlreadyInDatabase = await db.Category.findMany({
     where: {
-      email: { in: seedUsers.map(user => user.email) },
+      name: { in: seedCategories.map(category => category.name) },
     },
   });
-  const usersToCreate = seedUsers.filter(
-    seedUser => !usersAlreadyInDatabase.some(u => u.email === seedUser.email)
+  const categoryToCreate = seedCategories.filter(
+    seedCategory => !categoriesAlreadyInDatabase.some(c => c.name === seedCategory.name)
   );
-  await db.User.createMany({
-    data: usersToCreate,
+  await db.Category.createMany({
+    data: categoryToCreate,
   });
 }
 
-// seed posts and connect with user
+async function seedMeta(context: Context) {
+  const { db } = context.sudo();
+  const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/meta.json'), 'utf-8');
+  const seedMeta: any[] = JSON.parse(rawJSONData);
+  const metaAlreadyInDatabase = await db.Meta.findMany({
+    where: {
+      email: { in: seedMeta.map(meta => meta.email) },
+    },
+  });
+  const metaToCreate = seedMeta.filter(
+    seedMeta => !metaAlreadyInDatabase.some(m => m.email === seedMeta.email)
+  );
+  await db.Meta.createMany({
+    data: metaToCreate,
+  });
+}
+
 async function seedPosts(context: Context) {
   const { db } = context.sudo();
   const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/posts.json'), 'utf-8');
@@ -38,15 +57,11 @@ async function seedPosts(context: Context) {
   });
 }
 
-// seed externalLinks and connect with user
-async function seedExternalLinks(context: Context) {
+async function seedLinks(context: Context) {
   const { db } = context.sudo();
-  const rawJSONData = fs.readFileSync(
-    path.join(process.cwd(), './src/seed/external-links.json'),
-    'utf-8'
-  );
+  const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/links.json'), 'utf-8');
   const seedLinks: any[] = JSON.parse(rawJSONData);
-  const linksAlreadyInDatabase = await db.ExternalLink.findMany({
+  const linksAlreadyInDatabase = await db.Link.findMany({
     where: {
       url: { in: seedLinks.map(link => link.url) },
     },
@@ -54,15 +69,16 @@ async function seedExternalLinks(context: Context) {
   const linksToCreate = seedLinks.filter(
     seedLink => !linksAlreadyInDatabase.some(l => l.url === seedLink.url)
   );
-  await db.ExternalLink.createMany({
+  await db.Link.createMany({
     data: linksToCreate,
   });
 }
 
 export async function seedDatabase(context: Context) {
   console.log(`🌱 Seeding database...`);
-  await seedUsers(context);
+  await seedCategories(context);
+  await seedMeta(context);
   await seedPosts(context);
-  await seedExternalLinks(context);
+  await seedLinks(context);
   console.log(`🌱 Seeding database completed.`);
 }

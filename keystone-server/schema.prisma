@@ -12,14 +12,19 @@ generator client {
   output   = "node_modules/.prisma/client"
 }
 
-model User {
-  id            String         @id @default(cuid())
-  email         String         @unique @default("")
-  name          String         @default("")
-  github        String         @default("")
-  twitter       String         @default("")
-  posts         Post[]         @relation("Post_author")
-  externalLinks ExternalLink[] @relation("ExternalLink_author")
+model Meta {
+  id               String @id @default(cuid())
+  email            String @unique @default("")
+  name             String @default("")
+  github           String @default("")
+  twitter          String @default("")
+  metaTitle        String @default("")
+  metaDescription  String @default("")
+  metaImageUrl     String @default("")
+  metaImageAltText String @default("")
+  metaImageWidth   String @default("")
+  metaImageHeight  String @default("")
+  metaUrl          String @default("")
 }
 
 model Post {
@@ -27,26 +32,34 @@ model Post {
   title            String    @default("")
   slug             String    @unique @default("")
   status           String?   @default("draft")
+  category         Category? @relation("Post_category", fields: [categoryId], references: [id])
+  categoryId       String?   @map("category")
   publishDate      DateTime?
-  author           User?     @relation("Post_author", fields: [authorId], references: [id])
-  authorId         String?   @map("author")
   metaDescription  String    @default("")
   metaImageUrl     String    @default("")
   metaImageAltText String    @default("")
+  metaImageWidth   String    @default("")
+  metaImageHeight  String    @default("")
   content          String    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
 
-  @@index([authorId])
+  @@index([categoryId])
 }
 
-model ExternalLink {
+model Link {
   id          String    @id @default(cuid())
   title       String    @default("")
   url         String    @unique @default("")
   status      String?   @default("published")
+  category    Category? @relation("Link_category", fields: [categoryId], references: [id])
+  categoryId  String?   @map("category")
   publishDate DateTime?
-  type        String?
-  author      User?     @relation("ExternalLink_author", fields: [authorId], references: [id])
-  authorId    String?   @map("author")
 
-  @@index([authorId])
+  @@index([categoryId])
+}
+
+model Category {
+  id    String @id @default(cuid())
+  name  String @unique @default("blog")
+  posts Post[] @relation("Post_category")
+  links Link[] @relation("Link_category")
 }

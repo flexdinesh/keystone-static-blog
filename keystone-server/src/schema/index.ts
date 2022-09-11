@@ -1,5 +1,6 @@
+import { Meta } from './meta';
 import { Post } from './post';
-import { User } from './user';
-import { ExternalLink } from './external-link';
+import { Link } from './link';
+import { Category } from './category';
 
-export const lists = { User, Post, ExternalLink };
+export const lists = { Meta, Post, Link, Category };

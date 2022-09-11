@@ -1,7 +1,7 @@
 import { list } from '@keystone-6/core';
 import { select, timestamp, relationship, text } from '@keystone-6/core/fields';
 
-export const ExternalLink = list({
+export const Link = list({
   ui: {
     description:
       'Link an external post/tweet/media/video/etc another platform. Eg. Medium, Twitter, YouTube, etc.',
@@ -24,22 +24,8 @@ export const ExternalLink = list({
       defaultValue: 'published',
       ui: { displayMode: 'segmented-control' },
     }),
+    category: relationship({ ref: 'Category.links', many: false }),
+    // tags: relationship({ ref: 'Tag.links', many: true }),
     publishDate: timestamp(),
-    type: select({
-      type: 'enum',
-      options: [
-        { label: 'GitHub', value: 'github' },
-        { label: 'Twitter', value: 'twitter' },
-        { label: 'Dev.to', value: 'dev' },
-        { label: 'Medium', value: 'medium' },
-        { label: 'YouTube', value: 'youtube' },
-        { label: 'Podcast', value: 'podcast' },
-      ],
-      ui: {
-        displayMode: 'segmented-control',
-        description: 'Used to display an icon next to the post to identify source.',
-      },
-    }),
-    author: relationship({ ref: 'User.externalLinks', many: false }),
   },
 });

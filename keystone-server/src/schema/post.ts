@@ -17,22 +17,35 @@ export const Post = list({
       defaultValue: 'draft',
       ui: { displayMode: 'segmented-control' },
     }),
+    category: relationship({ ref: 'Category.posts', many: false }),
+    // tags: relationship({ ref: 'Tag.posts', many: true }),
     publishDate: timestamp(),
-    author: relationship({ ref: 'User.posts', many: false }),
     metaDescription: text({
       ui: {
         displayMode: 'textarea',
-        description: '(Optional) Only used in meta tags for SEO purposes.',
+        description:
+          '(OPTIONAL) Used for SEO - description, og:description and twitter:description.',
       },
     }),
+
     metaImageUrl: text({
       ui: {
-        description: '(Optional) Only used in meta tags for SEO purposes.',
+        description: '(OPTIONAL) Used for SEO - og:image and twitter:image.',
       },
     }),
     metaImageAltText: text({
       ui: {
-        description: '(Optional) If you added Meta Image Url, alt text for it.',
+        description: '(OPTIONAL) Used for SEO - og:image:alt and twitter:image:alt.',
+      },
+    }),
+    metaImageWidth: text({
+      ui: {
+        description: '(OPTIONAL) Used for SEO - og:image:width. Eg. 1920.',
+      },
+    }),
+    metaImageHeight: text({
+      ui: {
+        description: '(OPTIONAL) Used for SEO - og:image:height.Eg. 1080.',
       },
     }),
     content: document({

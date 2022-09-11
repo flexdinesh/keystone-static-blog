@@ -1,0 +1,15 @@
+[
+  {
+    "email": "flexdinesh@gmail.com",
+    "name": "Dinesh Pandiyan",
+    "github": "flexdinesh",
+    "twitter": "flexdinesh",
+    "metaTitle": "Static Blogs with Keystone | Dinesh Pandiyan",
+    "metaDescription": "Starter template to build your own static blogs with Keystone. Created by Dinesh Pandiyan.",
+    "metaImageUrl": "https://staticblogswithkeystone.netlify.app/images/meta-image.png",
+    "metaImageAltText": "Banner for staticblogswithkeystone.netlify.app",
+    "metaImageWidth": "1920",
+    "metaImageHeight": "1080",
+    "metaUrl": "https://staticblogswithkeystone.netlify.app"
+  }
+]

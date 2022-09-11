@@ -1,78 +1,82 @@
 import Head from 'next/head';
 import React from 'react';
-import { title as pageTitle, websiteURL, twitterHandle } from '../HomePage/HomePageSeo';
+import type { BlogpageData } from '../../data/blogpage';
 
-type BlogPageSeo = {
-  title: string;
-  slug: string;
-  publishTimeISO?: string | null;
-  authorName?: string | undefined;
-  metaDescription?: string | null;
-  metaImageUrl?: string | null;
-  metaImageAltText?: string | null;
-};
+type BlogPageSeoProps = BlogpageData;
+export function BlogPageSeo({ post, meta }: BlogPageSeoProps) {
+  const derivedTitle = meta?.name ? `${post.title} | ${meta?.name}` : post.title || '';
+  const derivedURL = post.slug ? `${meta?.metaUrl}/${post.slug}` : '';
+  const twitterHandleForMetaTag = '@' + (meta?.twitter || '').replace('@', '');
 
-export function BlogPageSeo({
-  title,
-  slug,
-  publishTimeISO,
-  authorName = 'Dinesh Pandiyan',
-  metaDescription,
-  metaImageUrl,
-  metaImageAltText,
-}: BlogPageSeo) {
-  const derivedTitle = `${title} | ${pageTitle}`;
-  const derivedURL = slug ? `${websiteURL}/${slug}` : '';
   return (
     <React.Fragment>
       <Head>
-        <title>{derivedTitle}</title>
-        {metaDescription && (
-          <meta property="description" content={metaDescription} key="description" />
+        {post.title && <title>{derivedTitle}</title>}
+        {post.metaDescription && (
+          <meta property="description" content={post.metaDescription} key="description" />
         )}
-        {/* <meta property="author" content={authorName} key="author" /> */}
+        {meta?.name && <meta property="article:author" content={meta?.name} key="og:author" />}
 
         {/* og meta tags */}
-        <meta property="og:title" content={derivedTitle} key="og:title" />
-        {metaDescription && (
-          <meta property="og:description" content={metaDescription} key="og:description" />
+        {post.title && <meta property="og:title" content={derivedTitle} key="og:title" />}
+        {post.metaDescription && (
+          <meta property="og:description" content={post.metaDescription} key="og:description" />
         )}
-        {derivedURL && <meta property="og:url" content={derivedURL} key="og:url" />}
-        <meta property="og:site_name" content={title} key="og:site_name" />
+        {meta?.metaUrl && <meta property="og:url" content={derivedURL} key="og:url" />}
+        {meta?.metaTitle && (
+          <meta property="og:site_name" content={meta?.metaTitle} key="og:site_name" />
+        )}
         <meta property="og:type" content="article" key="og:type" />
-        {publishTimeISO && (
+        {post.publishDate && (
           <meta
             property="article:published_time"
-            content={publishTimeISO}
+            content={post.publishDate}
             key="og:published_time"
           />
         )}
-        {metaImageUrl && <meta property="og:image" content={metaImageUrl} key="og:image" />}
-        {metaImageAltText && (
-          <meta property="og:image:alt" content={metaImageAltText} key="og:image:alt" />
+        {post.metaImageUrl && (
+          <meta property="og:image" content={post.metaImageUrl} key="og:image" />
         )}
-        {/* TODO: Check if dimensions are okay for the image */}
-        {/* <meta property="og:image:width" content="1280" key="og:image:width" /> */}
-        {/* <meta property="og:image:height" content="675" key="og:image:height" /> */}
-        {authorName && <meta property="article:author" content={authorName} key="og:author" />}
+        {post.metaImageAltText && (
+          <meta property="og:image:alt" content={post.metaImageAltText} key="og:image:alt" />
+        )}
+        {post.metaImageWidth && (
+          <meta property="og:image:width" content={post.metaImageWidth} key="og:image:width" />
+        )}
+        {post.metaImageHeight && (
+          <meta property="og:image:height" content={post.metaImageHeight} key="og:image:height" />
+        )}
+        {meta?.name && <meta property="article:author" content={meta?.name} key="og:author" />}
 
         {/* Twitter meta tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content={title} key="twitter:title" />
-        {metaDescription && (
+        {post.title && <meta property="twitter:title" content={post.title} key="twitter:title" />}
+        {post.metaDescription && (
           <meta
             property="twitter:description"
-            content={metaDescription}
+            content={post.metaDescription}
             key="twitter:description"
           />
         )}
-        {/* <meta property="twitter:site" content={twitterHandle} key="twitter:site" /> */}
-        {/* <meta property="twitter:creator" content={twitterHandle} key="twitter:creator" /> */}
-        {metaImageUrl && (
-          <meta property="twitter:image" content={metaImageUrl} key="twitter:image" />
+        {meta?.twitter && (
+          <meta property="twitter:site" content={twitterHandleForMetaTag} key="twitter:site" />
         )}
-        {metaImageAltText && (
-          <meta property="twitter:image:alt" content={metaImageAltText} key="twitter:image:alt" />
+        {meta?.twitter && (
+          <meta
+            property="twitter:creator"
+            content={twitterHandleForMetaTag}
+            key="twitter:creator"
+          />
+        )}
+        {post.metaImageUrl && (
+          <meta property="twitter:image" content={post.metaImageUrl} key="twitter:image" />
+        )}
+        {post.metaImageAltText && (
+          <meta
+            property="twitter:image:alt"
+            content={post.metaImageAltText}
+            key="twitter:image:alt"
+          />
         )}
       </Head>
     </React.Fragment>

@@ -3,15 +3,15 @@
     "title": "Build Static Blogs with Keystone 🧢",
     "slug": "static-blogs-with-keystone",
     "status": "published",
+    "category": {
+      "name": "blog"
+    },
     "publishDate": "2022-09-04T10:00:00.000Z",
     "metaDescription": "This is a starter template to build statically generated blog-like websites with Keystone and Next.js. Built by Dinesh Pandiyan.",
     "metaImageUrl": "https://raw.githubusercontent.com/flexdinesh/keystone-static-blog/main/next-app/public/images/meta-image.png",
     "metaImageAltText": "Banner image with graphics describing that static blogs could be built with Keystone and Next.js",
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    },
+    "metaImageWidth": "",
+    "metaImageHeight": "",
     "content": {
       "document": [
         {
@@ -627,15 +627,15 @@
     "title": "Keystone Content Authoring Experience is Just Fantastic!",
     "slug": "keystone-content-authoring",
     "status": "published",
+    "category": {
+      "name": "blog"
+    },
     "publishDate": "2022-09-03T04:00:00.000Z",
     "metaDescription": "",
     "metaImageUrl": "",
     "metaImageAltText": "",
-    "author": {
-      "connect": {
-        "email": "flexdinesh@gmail.com"
-      }
-    },
+    "metaImageWidth": "",
+    "metaImageHeight": "",
     "content": {
       "document": [
         {

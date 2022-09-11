@@ -2,30 +2,44 @@ import React from 'react';
 import { HomePageSeo } from './HomePageSeo';
 import { PageLayout } from '../Layout/PageLayout';
 import { Footer } from '../Footer/Footer';
-import { Header } from '../Header/Header';
+import type { HomepageData } from '../../data/homepage';
+import { HomepageHeader } from '../Header/Header';
 import { ListItem } from './ListItem';
-import type { Post, ExternalLink } from './types';
+import { UncategorisedFeed } from './UncategorisedFeed';
 
-export type HomePageProps = {
-  posts: Post[];
-  externalLinks: ExternalLink[];
-};
+function groupBasedOnCategories({ categories, posts, links }: HomepageData) {
+  if (!categories) {
+    return null;
+  }
 
-export function HomePage({ posts, externalLinks }: HomePageProps) {
-  const items = [...posts, ...externalLinks].sort((a, b) =>
-    (b.publishDate || '').localeCompare(a.publishDate || '')
-  );
+  const groupedItems = categories.map(cat => {
+    const postsForCategory = posts?.filter(p => p.category?.name === cat.name) || [];
+    const linksForCategory = links?.filter(l => l.category?.name === cat.name) || [];
+    const groupedAndSortedPostsOrLinks = [...postsForCategory, ...linksForCategory].sort((a, b) =>
+      (b?.publishDate || '').localeCompare(a?.publishDate || '')
+    );
+
+    if (!groupedAndSortedPostsOrLinks.length) {
+      return null;
+    }
+
+    return {
+      name: cat.name,
+      items: groupedAndSortedPostsOrLinks,
+    };
+  });
+
+  return groupedItems;
+}
+
+export function HomePage({ posts, links, categories, meta }: HomepageData) {
   return (
     <React.Fragment>
-      <HomePageSeo />
+      <HomePageSeo meta={meta} />
       <PageLayout className="grid grid-rows-[1fr_auto] max-w-3xl">
         <main className="lg:text-lg">
-          <Header forPage="home" />
-          <ul className="list-none">
-            {items.map(item => {
-              return <ListItem item={item} key={item.id} />;
-            })}
-          </ul>
+          <HomepageHeader />
+          <UncategorisedFeed posts={posts} links={links} />
         </main>
         <Footer />
       </PageLayout>

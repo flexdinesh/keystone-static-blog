@@ -1,52 +1,71 @@
 import Head from 'next/head';
 import React from 'react';
+import type { HomepageData } from '../../data/homepage';
 
-export const title = 'Static Blogs with Keystone | Dinesh Pandiyan';
-const description =
-  'Starter template to build your own static blogs with Keystone. Created by Dinesh Pandiyan.';
-export const websiteURL = 'https://staticblogswithkeystone.netlify.app';
-export const twitterHandle = '@yourtwitterhandle';
-
-export function HomePageSeo() {
+type HomePageSeoProps = Pick<HomepageData, 'meta'>;
+export function HomePageSeo({ meta }: HomePageSeoProps) {
+  const twitterHandleForMetaTag = '@' + (meta?.twitter || '').replace('@', '');
   return (
     <React.Fragment>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} key="description" />
+        {meta?.metaTitle && <title>{meta?.metaTitle}</title>}
+        {meta?.metaDescription && (
+          <meta name="description" content={meta?.metaDescription} key="description" />
+        )}
 
         {/* og meta tags */}
-        <meta property="og:title" content={title} key="og:title" />
-        <meta property="og:description" content={description} key="og:description" />
+        {meta?.metaTitle && <meta property="og:title" content={meta?.metaTitle} key="og:title" />}
+        {meta?.metaDescription && (
+          <meta property="og:description" content={meta?.metaDescription} key="og:description" />
+        )}
         <meta property="og:type" content="website" key="og:type" />
-        <meta property="og:url" content={websiteURL} key="og:url" />
+        {meta?.metaUrl && <meta property="og:url" content={meta?.metaUrl} key="og:url" />}
         {/* If you need want your URL previews to include an image */}
-        <meta
-          property="og:image"
-          content="https://staticblogswithkeystone.netlify.app/images/meta-image.png"
-          key="og:image"
-        />
-        <meta
-          property="og:image:alt"
-          content="Banner for staticblogswithkeystone.netlify.app"
-          key="og:image:alt"
-        />
-        <meta property="og:image:width" content="1920" key="og:image:width" />
-        <meta property="og:image:height" content="1080" key="og:image:height" />
+        {meta?.metaImageUrl && (
+          <meta property="og:image" content={meta?.metaImageUrl} key="og:image" />
+        )}
+        {meta?.metaImageAltText && (
+          <meta property="og:image:alt" content={meta?.metaImageAltText} key="og:image:alt" />
+        )}
+        {meta?.metaImageWidth && (
+          <meta property="og:image:width" content={meta?.metaImageWidth} key="og:image:width" />
+        )}
+        {meta?.metaImageHeight && (
+          <meta property="og:image:height" content={meta?.metaImageHeight} key="og:image:height" />
+        )}
 
         {/* twitter meta tags */}
-        {/* If you don't use twitter:image, set content to summary */}
         <meta name="twitter:card" content="summary_large_image" />
-        {/* if you want to link your content to your twitter handle */}
-        {/* <meta property="twitter:site" content={twitterHandle} key="twitter:site" /> */}
-        {/* <meta property="twitter:creator" content={twitterHandle} key="twitter:creator" /> */}
-        <meta property="twitter:title" content={title} key="twitter:title" />
-        <meta property="twitter:description" content={description} key="twitter:description" />
-        {/* If you need want your URL previews to include an image */}
-        <meta
-          property="twitter:image"
-          content="https://staticblogswithkeystone.netlify.app/images/meta-image.png"
-          key="twitter:image"
-        />
+        {meta?.twitter && (
+          <meta property="twitter:site" content={twitterHandleForMetaTag} key="twitter:site" />
+        )}
+        {meta?.twitter && (
+          <meta
+            property="twitter:creator"
+            content={twitterHandleForMetaTag}
+            key="twitter:creator"
+          />
+        )}
+        {meta?.metaTitle && (
+          <meta property="twitter:title" content={meta?.metaTitle} key="twitter:title" />
+        )}
+        {meta?.metaDescription && (
+          <meta
+            property="twitter:description"
+            content={meta?.metaDescription}
+            key="twitter:description"
+          />
+        )}
+        {meta?.metaImageUrl && (
+          <meta property="twitter:image" content={meta?.metaImageUrl} key="twitter:image" />
+        )}
+        {meta?.metaImageAltText && (
+          <meta
+            property="twitter:image:alt"
+            content={meta?.metaImageAltText}
+            key="twitter:image:alt"
+          />
+        )}
       </Head>
     </React.Fragment>
   );

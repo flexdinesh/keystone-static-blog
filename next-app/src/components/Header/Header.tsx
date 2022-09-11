@@ -3,10 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { ThemeToggle } from './ThemeToggle';
 
-type Props = {
-  forPage: 'home' | 'blog';
-};
-
 function TopNav() {
   return (
     <div className="justify-self-end py-2 flex items-center content-center">
@@ -33,23 +29,34 @@ function TopNav() {
   );
 }
 
-export function Header({ forPage = 'home' }: Props) {
-  // semantically correct tags for SEO in home vs other pages
-  const HeadingTag = forPage === 'home' ? 'h1' : 'h3';
-  const headingClassnames = forPage === 'home' ? ' text-5xl py-2' : 'text-4xl py-0';
-  const headerClassnames = forPage === 'home' ? ' pb-8' : 'pb-2';
-
+function Intro() {
   return (
-    <header className={`text-center grid auto-rows-auto ${headerClassnames}`}>
-      <TopNav />
-      <HeadingTag className={`dark:text-white ${headingClassnames}`}>
+    <React.Fragment>
+      <h1 className="dark:text-white text-5xl py-2">
         <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-secondary-500 dark:after:to-secondary-700">
           Blog Template
         </span>
-      </HeadingTag>
+      </h1>
       <p className="text-slate-500 dark:text-slate-400 font-medium text-sm tracking-wider mt-2">
         Template to build your own static blogs with Keystone.
       </p>
+    </React.Fragment>
+  );
+}
+
+export function HomepageHeader() {
+  return (
+    <header className={`text-center grid auto-rows-auto pb-8`}>
+      <TopNav />
+      <Intro />
+    </header>
+  );
+}
+
+export function BlogpageHeader() {
+  return (
+    <header className={`text-center grid auto-rows-auto pb-8`}>
+      <TopNav />
     </header>
   );
 }
