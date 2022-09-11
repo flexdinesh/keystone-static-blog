@@ -18,9 +18,9 @@
     "keystone:docker:run": "docker run -p 3000:3000 keystone-server",
     "keystone:docker:kill": "docker kill $(docker ps -q)",
     "start:keystone": "cd keystone-server && yarn build && yarn start",
-    "kill:server": "kill-port --port 3000",
+    "kill:keystone": "kill-port --port 3000",
     "export:app": "cd next-app && yarn clean && yarn export",
-    "export:docker": "node scripts/export-using-docker.js",
+    "export:docker": "node scripts/export.js --docker",
     "export": "node scripts/export.js"
   },
   "devDependencies": {
