@@ -6,6 +6,7 @@ export type HomepageData = {
   links: NonNullable<HomepageQuery['links']>;
   categories: NonNullable<HomepageQuery['categories']>;
   meta: NonNullable<HomepageQuery['metas']>[number] | null;
+  config: NonNullable<HomepageQuery['configs']>[number] | null;
 };
 
 export async function fetchHomepageData(): Promise<HomepageData> {
@@ -59,6 +60,12 @@ export async function fetchHomepageData(): Promise<HomepageData> {
         metaImageHeight
         metaUrl
       }
+      configs {
+        __typename
+        id
+        theme
+        homepageFeedStyle
+      }
     }
   `);
 
@@ -66,11 +73,13 @@ export async function fetchHomepageData(): Promise<HomepageData> {
   const links = data?.links || [];
   const categories = data?.categories || [];
   const meta = data?.metas?.length ? data?.metas[0] : null;
+  const config = data?.configs?.length ? data?.configs[0] : null;
 
   return {
     posts,
     links,
     categories,
     meta,
+    config,
   };
 }

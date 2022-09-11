@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="flex items-center justify-center py-4">
+    <footer className="flex items-center justify-center mt-12 py-4">
       <div className=" text-sm font-medium">
         Built with{' '}
         <Link href="https://keystonejs.com/" target={'_blank'}>

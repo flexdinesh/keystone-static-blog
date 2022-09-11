@@ -4,6 +4,7 @@ import type { BlogpageQuery } from '../.generated/types';
 export type BlogpageData = {
   post: NonNullable<BlogpageQuery['post']>;
   meta: NonNullable<BlogpageQuery['metas']>[number] | null;
+  config: NonNullable<BlogpageQuery['configs']>[number] | null;
 };
 
 export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
@@ -39,6 +40,12 @@ export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
           metaTitle
           metaUrl
         }
+        configs {
+          __typename
+          id
+          theme
+          homepageFeedStyle
+        }
       }
     `,
     {
@@ -48,9 +55,11 @@ export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
 
   const post = data?.post as BlogpageData['post'];
   const meta = data?.metas?.length ? data?.metas[0] : null;
+  const config = data?.configs?.length ? data?.configs[0] : null;
 
   return {
     post,
     meta,
+    config,
   };
 }

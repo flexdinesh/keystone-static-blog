@@ -2,9 +2,9 @@ import React from 'react';
 import type { HomepageData } from '../../data/homepage';
 import { ListItem } from './ListItem';
 
-type UncategorisedFeedProps = Pick<HomepageData, 'posts' | 'links'>;
+type FlatFeedProps = Pick<HomepageData, 'posts' | 'links'>;
 
-export function UncategorisedFeed({ posts, links }: UncategorisedFeedProps) {
+export function FlatFeed({ posts, links }: FlatFeedProps) {
   if (!posts?.length && !links?.length) {
     return <p>Nothing posts yet, coming back later.</p>;
   }
@@ -15,7 +15,7 @@ export function UncategorisedFeed({ posts, links }: UncategorisedFeedProps) {
 
   return (
     <React.Fragment>
-      <ul className="list-none">
+      <ul className="list-none mt-12">
         {postOrLinkItems.map(postOrLink => {
           return <ListItem postOrLink={postOrLink} key={postOrLink.id} />;
         })}

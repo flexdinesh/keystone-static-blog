@@ -11,7 +11,7 @@ import { BlogpageHeader } from '../Header/Header';
 import { CustomRenderer } from '../DocumentRenderer/DocumentRenderer';
 import type { BlogpageData } from '../../data/blogpage';
 
-export function BlogPage({ post, meta }: BlogpageData) {
+export function BlogPage({ post, meta, config }: BlogpageData) {
   const formattedDate = post?.publishDate
     ? format(new Date(post?.publishDate), 'MMM dd, yyyy')
     : null;
@@ -26,7 +26,7 @@ export function BlogPage({ post, meta }: BlogpageData) {
 
   return (
     <React.Fragment>
-      <BlogPageSeo post={post} meta={meta} />
+      <BlogPageSeo post={post} meta={meta} config={config} />
       <PageLayout className="max-w-3xl grid grid-rows-[1fr_auto]">
         <main>
           <BlogpageHeader />

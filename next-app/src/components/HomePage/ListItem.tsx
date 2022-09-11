@@ -39,7 +39,7 @@ const categoryIconTooltip: Record<CategoryNameType, string | null> = {
 function BlogItem({ post }: { post: HomepageData['posts'][number] }) {
   return (
     <NextLink href={`/blog/${post.slug}`}>
-      <a className="hover:text-primary-700 dark:hover:text-secondary-500">
+      <a className="hover:text-primary-800 dark:hover:text-secondary-500">
         <span className="">{post.title}</span>
       </a>
     </NextLink>
@@ -53,8 +53,8 @@ function LinkItem({ link }: { link: HomepageData['links'][number] }) {
 
   return (
     <NextLink href={link?.url || ''} passHref>
-      <a className="hover:text-primary-700 dark:hover:text-secondary-500" target={'_blank'}>
-        <span className="">{link.title}</span>
+      <a className="hover:text-primary-800 dark:hover:text-secondary-500" target={'_blank'}>
+        <span>{link.title}</span>
         {link.category?.name && (
           <span className="pl-2" title={title}>
             {renderedIcon}
@@ -76,25 +76,22 @@ export function ListItem({
 
   return (
     <li
-      className="mb-2 before:-ml-5 before:content-['_»_'] before:text-slate-500 dark:before:text-slate-400 ml-4 before:pr-2"
+      className="relative pl-4 my-[0.66em] grid grid-cols-[1fr_auto] before:left-0 before:absolute before:content-['_»_'] before:text-slate-500 dark:before:text-slate-400"
       key={postOrLink.id}
     >
-      {postOrLink.__typename === 'Post' ? (
-        <BlogItem post={postOrLink} />
-      ) : (
-        <LinkItem link={postOrLink} />
-      )}
+      <div className="pr-8">
+        {postOrLink.__typename === 'Post' ? (
+          <BlogItem post={postOrLink} />
+        ) : (
+          <LinkItem link={postOrLink} />
+        )}
+      </div>
       {formattedDate ? (
-        <React.Fragment>
-          {/* Wrap to next line when for longer titles */}
-          <span className="block">
-            {/* <span className="hidden after:content-['\2219'] text-slate-500 dark:text-slate-400 pl-4 pr-4"></span> */}
-            <span className="hidden after:content-['—'] text-slate-500 dark:text-slate-400 pl-4 pr-4"></span>
-            <span className="text-slate-500 dark:text-slate-400 text-sm justify-self-end">
-              {formattedDate}
-            </span>
+        <div>
+          <span className="text-slate-500 dark:text-slate-400 text-sm justify-self-end">
+            {formattedDate}
           </span>
-        </React.Fragment>
+        </div>
       ) : null}
     </li>
   );

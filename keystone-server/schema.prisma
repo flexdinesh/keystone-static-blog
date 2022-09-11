@@ -12,6 +12,12 @@ generator client {
   output   = "node_modules/.prisma/client"
 }
 
+model Config {
+  id                String @id @default(cuid())
+  theme             String @unique @default("default")
+  homepageFeedStyle String @default("flat")
+}
+
 model Meta {
   id               String @id @default(cuid())
   email            String @unique @default("")

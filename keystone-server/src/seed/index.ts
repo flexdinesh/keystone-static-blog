@@ -23,21 +23,30 @@ async function seedCategories(context: Context) {
   });
 }
 
+async function seedConfig(context: Context) {
+  const { db } = context.sudo();
+  const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/config.json'), 'utf-8');
+  const seedConfig: any[] = JSON.parse(rawJSONData);
+  const configAlreadyInDatabase = await db.Config.findMany();
+
+  if (!configAlreadyInDatabase.length) {
+    await db.Config.createMany({
+      data: seedConfig,
+    });
+  }
+}
+
 async function seedMeta(context: Context) {
   const { db } = context.sudo();
   const rawJSONData = fs.readFileSync(path.join(process.cwd(), './src/seed/meta.json'), 'utf-8');
   const seedMeta: any[] = JSON.parse(rawJSONData);
-  const metaAlreadyInDatabase = await db.Meta.findMany({
-    where: {
-      email: { in: seedMeta.map(meta => meta.email) },
-    },
-  });
-  const metaToCreate = seedMeta.filter(
-    seedMeta => !metaAlreadyInDatabase.some(m => m.email === seedMeta.email)
-  );
-  await db.Meta.createMany({
-    data: metaToCreate,
-  });
+  const metaAlreadyInDatabase = await db.Meta.findMany();
+
+  if (!metaAlreadyInDatabase.length) {
+    await db.Meta.createMany({
+      data: seedMeta,
+    });
+  }
 }
 
 async function seedPosts(context: Context) {
@@ -76,8 +85,9 @@ async function seedLinks(context: Context) {
 
 export async function seedDatabase(context: Context) {
   console.log(`🌱 Seeding database...`);
-  await seedCategories(context);
+  await seedConfig(context);
   await seedMeta(context);
+  await seedCategories(context);
   await seedPosts(context);
   await seedLinks(context);
   console.log(`🌱 Seeding database completed.`);

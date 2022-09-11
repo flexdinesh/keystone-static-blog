@@ -3,6 +3,15 @@ import fs from 'fs';
 import path from 'path';
 import { Context } from '.keystone/types';
 
+async function backupConfig(context: Context) {
+  const { query } = context.sudo();
+  const configInDatabase = await query.Config.findMany({
+    query: 'theme homepageFeedStyle',
+  });
+  const json = JSON.stringify(configInDatabase, null, 2);
+  fs.writeFileSync(path.join(process.cwd(), './src/seed/config.json'), json, 'utf8');
+}
+
 async function backupMeta(context: Context) {
   const { query } = context.sudo();
   const metaInDatabase = await query.Meta.findMany({
@@ -51,6 +60,7 @@ async function backupLinks(context: Context) {
 
 export async function backupToJSON(context: Context) {
   console.log(`💼 Back up data to JSON...`);
+  await backupConfig(context);
   await backupMeta(context);
   await backupCategories(context);
   await backupPosts(context);

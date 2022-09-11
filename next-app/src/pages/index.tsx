@@ -9,7 +9,7 @@ export default function Home(data: HomepageData) {
 
 // fetch data from keystone during build-time to generate homepage
 export async function getStaticProps() {
-  const { categories, links, posts, meta } = await fetchHomepageData();
+  const { categories, links, posts, meta, config } = await fetchHomepageData();
 
   return {
     props: {
@@ -17,6 +17,7 @@ export async function getStaticProps() {
       links,
       posts,
       meta,
+      config,
     },
   };
 }

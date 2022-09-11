@@ -21,8 +21,7 @@
     "kill:server": "kill-port --port 3000",
     "export:app": "cd next-app && yarn clean && yarn export",
     "export:docker": "node scripts/export-using-docker.js",
-    "export": "node scripts/export.js",
-    "push": "git add. && git commit -m 'New build 🚀' && git push origin head"
+    "export": "node scripts/export.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.1",

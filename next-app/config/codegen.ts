@@ -6,6 +6,9 @@ const config: CodegenConfig = {
   generates: {
     './src/.generated/types.ts': {
       plugins: ['typescript', 'typescript-operations'],
+      config: {
+        avoidOptionals: true,
+      },
     },
     // './src/.generated/graphql.schema.json': {
     //   plugins: ['introspection'],

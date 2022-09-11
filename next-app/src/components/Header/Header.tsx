@@ -32,7 +32,7 @@ function TopNav() {
 function Intro() {
   return (
     <React.Fragment>
-      <h1 className="dark:text-white text-5xl py-2">
+      <h1 className="dark:text-white text-5xl pt-4 pb-2">
         <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-secondary-500 dark:after:to-secondary-700">
           Blog Template
         </span>
@@ -46,7 +46,7 @@ function Intro() {
 
 export function HomepageHeader() {
   return (
-    <header className={`text-center grid auto-rows-auto pb-8`}>
+    <header className="text-center grid auto-rows-auto pb-2">
       <TopNav />
       <Intro />
     </header>
@@ -55,7 +55,7 @@ export function HomepageHeader() {
 
 export function BlogpageHeader() {
   return (
-    <header className={`text-center grid auto-rows-auto pb-8`}>
+    <header className="text-center grid auto-rows-auto pb-2">
       <TopNav />
     </header>
   );
