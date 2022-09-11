@@ -15,7 +15,7 @@ export function FlatFeed({ posts, links }: FlatFeedProps) {
 
   return (
     <React.Fragment>
-      <ul className="list-none mt-12">
+      <ul className="list-none mt-8">
         {postOrLinkItems.map(postOrLink => {
           return <ListItem postOrLink={postOrLink} key={postOrLink.id} />;
         })}

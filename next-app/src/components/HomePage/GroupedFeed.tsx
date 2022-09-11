@@ -57,7 +57,7 @@ export function GroupedFeed({ posts, links, categories }: GroupedFeedProps) {
 
         return (
           <React.Fragment key={category.name}>
-            <h2 className="font-semibold text-[1.6em] mt-[1.8em] mb-[1em] leading-[1.3]">
+            <h2 className="font-semibold text-[1.66em] mt-[1.33em] mb-[1em] leading-[1.3]">
               {categoryDisplayName[category.name]}
             </h2>
             <ul className="list-none mt-4">

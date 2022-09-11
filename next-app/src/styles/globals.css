@@ -40,9 +40,7 @@ body {
 
     .fancy-name {
         position: relative;
-        line-height: 1rem;
         font-weight: 900;
-        display: inline;
         background-repeat: no-repeat;
     }
 
@@ -53,6 +51,6 @@ body {
         left: -0.25rem;
         right: 0;
         bottom: 0.25rem;
-        z-index: -10;
+        z-index: -1;
     }
 }

@@ -32,13 +32,13 @@ function TopNav() {
 function Intro() {
   return (
     <React.Fragment>
-      <h1 className="dark:text-white text-5xl pt-4 pb-2">
+      <h1 className="text-ellipsis whitespace-nowrap overflow-hidden text-center dark:text-white text-5xl px-4 pt-4 pb-2">
         <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-secondary-500 dark:after:to-secondary-700">
-          Blog Template
+          Blogger Templater
         </span>
       </h1>
-      <p className="text-slate-500 dark:text-slate-400 font-medium text-sm tracking-wider mt-2">
-        Template to build your own static blogs with Keystone.
+      <p className="text-md mt-4 px-4">
+        Hello! Welcome to my blog. This is a template to build your own static blogs with Keystone.
       </p>
     </React.Fragment>
   );
@@ -46,7 +46,7 @@ function Intro() {
 
 export function HomepageHeader() {
   return (
-    <header className="text-center grid auto-rows-auto pb-2">
+    <header className="grid auto-rows-auto pb-2">
       <TopNav />
       <Intro />
     </header>
