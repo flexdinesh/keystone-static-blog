@@ -39,7 +39,7 @@ const categoryIconTooltip: Record<CategoryNameType, string | null> = {
 function BlogItem({ post }: { post: HomepageData['posts'][number] }) {
   return (
     <NextLink href={`/blog/${post.slug}`}>
-      <a className="hover:text-primary-800 dark:hover:text-secondary-500">
+      <a className="hover:text-link dark:hover:text-link">
         <span className="">{post.title}</span>
       </a>
     </NextLink>
@@ -53,7 +53,7 @@ function LinkItem({ link }: { link: HomepageData['links'][number] }) {
 
   return (
     <NextLink href={link?.url || ''} passHref>
-      <a className="hover:text-primary-800 dark:hover:text-secondary-500" target={'_blank'}>
+      <a className="hover:text-link dark:hover:text-link" target={'_blank'}>
         <span>{link.title}</span>
         {link.category?.name && (
           <span className="pl-2" title={title}>
@@ -76,7 +76,18 @@ export function ListItem({
 
   return (
     <li
-      className="relative pl-4 my-[0.66em] grid grid-cols-[1fr_auto] before:left-0 before:absolute before:content-['_»_'] before:text-slate-500 dark:before:text-slate-400"
+      className="
+        relative 
+        pl-4 
+        my-[0.66em] 
+        grid 
+        grid-cols-[1fr] 
+        sm:grid-cols-[1fr_auto] 
+        before:left-0 
+        before:absolute 
+        before:content-['_»_'] 
+        before:text-text-muted 
+        dark:before:text-text-muted"
       key={postOrLink.id}
     >
       <div className="pr-8">
@@ -88,7 +99,13 @@ export function ListItem({
       </div>
       {formattedDate ? (
         <div>
-          <span className="text-slate-500 dark:text-slate-400 text-sm justify-self-end">
+          <span
+            className="
+              justify-self-end
+              text-sm 
+              text-text-muted 
+              dark:text-text-muted"
+          >
             {formattedDate}
           </span>
         </div>

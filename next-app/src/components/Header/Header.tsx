@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { ThemeToggle } from './ThemeToggle';
+import { DarkModeToggle } from './DarkModeToggle';
 
 function TopNav() {
   return (
@@ -11,7 +11,7 @@ function TopNav() {
         aria-label="Dinesh on GitHub"
         rel="noopener noreferrer"
         target="_blank"
-        className="text-2xl ml-4 hover:text-primary-800 dark:hover:text-secondary-800"
+        className="text-2xl ml-4 hover:text-link dark:hover:text-link"
       >
         <FontAwesomeIcon icon={faGithub} />
       </a>
@@ -20,11 +20,11 @@ function TopNav() {
         aria-label="Dinesh on Twitter"
         rel="noopener noreferrer"
         target="_blank"
-        className="text-2xl ml-4 hover:text-primary-800 dark:hover:text-secondary-800"
+        className="text-2xl ml-4 hover:text-link dark:hover:text-link"
       >
         <FontAwesomeIcon icon={faTwitter} />
       </a>
-      <ThemeToggle />
+      <DarkModeToggle />
     </div>
   );
 }
@@ -32,13 +32,13 @@ function TopNav() {
 function Intro() {
   return (
     <React.Fragment>
-      <h1 className="text-ellipsis whitespace-nowrap overflow-hidden text-center dark:text-white text-5xl px-4 pt-4 pb-2">
-        <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-secondary-500 dark:after:to-secondary-700">
-          Blogger Templater
+      <h1 className="text-ellipsis whitespace-nowrap overflow-hidden text-center dark:text-text-heading text-5xl px-4 pt-4 pb-2">
+        <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-primary-500 dark:after:to-primary-700">
+          Blog Template
         </span>
       </h1>
       <p className="text-md mt-4 px-4">
-        Hello! Welcome to my blog. This is a template to build your own static blogs with Keystone.
+        Hello! Welcome to my blog. This is a template to build your own static blogs using Keystone.
       </p>
     </React.Fragment>
   );

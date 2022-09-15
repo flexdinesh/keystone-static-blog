@@ -3,7 +3,7 @@ import Script from 'next/script';
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html className="theme-default" lang="en">
       <Head>
         <link
           rel="icon"
@@ -21,22 +21,13 @@ export default function Document() {
           All this to avoid a flash of default light theme when user either prefers dark theme or has previously
           save dark theme to their local storage. ¯\_(ツ)_/¯ React is hard sometimes.
          */}
-        <Script id="set-default-theme-script" strategy="beforeInteractive">
-          {`
-            // check localstorage and system preference to set default theme
-            if (typeof window !== 'undefined') {
-              const isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-              const localStorageTheme = localStorage.theme;
-              if (!localStorageTheme && isSystemThemeDark) {
-                document.documentElement.classList.add('dark');
-              } else if (localStorageTheme) {
-                document.documentElement.classList.add(localStorageTheme);
-              }
-            }
-          `}
-        </Script>
+        <Script
+          id="set-default-theme-script"
+          strategy="beforeInteractive"
+          src="/scripts/init-theme.js"
+        ></Script>
       </Head>
-      <body className="text-slate-900 dark:text-slate-200 bg-bg-light dark:bg-slate-800">
+      <body className="text-text-base dark:text-text-base bg-bg dark:dark:bg-bg">
         <Main />
         <NextScript />
       </body>

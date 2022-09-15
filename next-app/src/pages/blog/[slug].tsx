@@ -12,10 +12,9 @@ export default function Blog(data: BlogpageData) {
 
 export async function getStaticProps({ params = {} }: GetStaticPropsContext) {
   const slug = params.slug;
-
   const data = await fetchBlogpageData(slug as string);
-
   const post = data?.post;
+
   return { props: { post } };
 }
 
