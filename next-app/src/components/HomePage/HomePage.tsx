@@ -7,13 +7,14 @@ import { HomepageHeader } from '../Header/Header';
 import { FlatFeed } from './FlatFeed';
 import { GroupedFeed } from './GroupedFeed';
 
-export function HomePage({ posts, links, categories, meta, config }: HomepageData) {
+export function HomePage(homepageData: HomepageData) {
+  const { posts, links, categories, meta, config } = homepageData;
   return (
     <React.Fragment>
       <HomePageSeo meta={meta} />
       <PageLayout className="grid grid-rows-[1fr_auto] max-w-3xl">
         <main className="lg:text-lg">
-          <HomepageHeader />
+          <HomepageHeader {...homepageData} />
           {config?.homepageFeedStyle === 'grouped' ? (
             <GroupedFeed posts={posts} links={links} categories={categories} />
           ) : (

@@ -1,7 +1,10 @@
 import React from 'react';
+import { DocumentRenderer } from '@keystone-6/document-renderer';
+import type { DocumentRendererProps } from '@keystone-6/document-renderer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { DarkModeToggle } from './DarkModeToggle';
+import type { HomepageData } from '../../data/homepage';
 
 function TopNav() {
   return (
@@ -29,26 +32,47 @@ function TopNav() {
   );
 }
 
-function Intro() {
+function AboutRenderer({ document }: DocumentRendererProps) {
+  return (
+    <DocumentRenderer
+      document={document}
+      renderers={{
+        block: {
+          block: React.Fragment,
+          paragraph({ children }) {
+            return <p>{children}</p>;
+          },
+        },
+        inline: {
+          code({ children }) {
+            return <code>{children}</code>;
+          },
+        },
+      }}
+    />
+  );
+}
+
+function Intro({ meta }: HomepageData) {
   return (
     <React.Fragment>
       <h1 className="text-ellipsis whitespace-nowrap overflow-hidden text-center dark:text-text-heading text-5xl px-4 pt-4 pb-2">
         <span className="fancy-name after:w-11/12 after:bg-gradient-to-bl after:from-primary-500 after:to-primary-700 dark:after:from-primary-500 dark:after:to-primary-700">
-          Blog Template
+          {meta?.title}
         </span>
       </h1>
-      <p className="text-md mt-4 px-4">
-        Hello! Welcome to my blog. This is a template to build your own static blogs using Keystone.
-      </p>
+      <div className="text-md mt-4 px-4">
+        <AboutRenderer document={meta?.about?.document} />
+      </div>
     </React.Fragment>
   );
 }
 
-export function HomepageHeader() {
+export function HomepageHeader(homepageData: HomepageData) {
   return (
     <header className="grid auto-rows-auto pb-2">
       <TopNav />
-      <Intro />
+      <Intro {...homepageData} />
     </header>
   );
 }

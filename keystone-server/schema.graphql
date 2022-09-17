@@ -84,6 +84,8 @@ input ConfigCreateInput {
 type Meta {
   id: ID!
   email: String
+  title: String
+  about: Meta_about_Document
   name: String
   github: String
   twitter: String
@@ -94,6 +96,10 @@ type Meta {
   metaImageWidth: String
   metaImageHeight: String
   metaUrl: String
+}
+
+type Meta_about_Document {
+  document(hydrateRelationships: Boolean! = false): JSON!
 }
 
 input MetaWhereUniqueInput {
@@ -107,6 +113,7 @@ input MetaWhereInput {
   NOT: [MetaWhereInput!]
   id: IDFilter
   email: StringFilter
+  title: StringFilter
   name: StringFilter
   github: StringFilter
   twitter: StringFilter
@@ -150,6 +157,7 @@ input NestedStringFilter {
 input MetaOrderByInput {
   id: OrderDirection
   email: OrderDirection
+  title: OrderDirection
   name: OrderDirection
   github: OrderDirection
   twitter: OrderDirection
@@ -164,6 +172,8 @@ input MetaOrderByInput {
 
 input MetaUpdateInput {
   email: String
+  title: String
+  about: JSON
   name: String
   github: String
   twitter: String
@@ -183,6 +193,8 @@ input MetaUpdateArgs {
 
 input MetaCreateInput {
   email: String
+  title: String
+  about: JSON
   name: String
   github: String
   twitter: String

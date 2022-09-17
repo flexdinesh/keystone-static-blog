@@ -49,6 +49,10 @@ export async function fetchHomepageData(): Promise<HomepageData> {
         __typename
         id
         email
+        title
+        about {
+          document
+        }
         name
         github
         twitter

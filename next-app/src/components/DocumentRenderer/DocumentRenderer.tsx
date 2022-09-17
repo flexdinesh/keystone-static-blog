@@ -38,9 +38,9 @@ const defaultElementRenderers: DocumentRendererProps['renderers'] = {
   },
 };
 
-type CustomRendererProps = React.ComponentProps<typeof DocumentRenderer>;
+type PostRendererProps = React.ComponentProps<typeof DocumentRenderer>;
 
-const customComponentRenderers: CustomRendererProps['componentBlocks'] = {
+const customComponentRenderers: PostRendererProps['componentBlocks'] = {
   hero: props => {
     return <Hero {...props} />;
   },
@@ -67,7 +67,7 @@ const customComponentRenderers: CustomRendererProps['componentBlocks'] = {
   },
 };
 
-export function CustomRenderer({ document }: DocumentRendererProps) {
+export function PostRenderer({ document }: DocumentRendererProps) {
   return (
     <DocumentRenderer
       document={document}

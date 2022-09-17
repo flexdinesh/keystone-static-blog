@@ -4,28 +4,29 @@ import type { BlogpageData } from '../../data/blogpage';
 
 type BlogPageSeoProps = BlogpageData;
 export function BlogPageSeo({ post, meta }: BlogPageSeoProps) {
-  const derivedTitle = meta?.name ? `${post.title} | ${meta?.name}` : post.title || '';
+  const derivedBlogPageTitle = meta?.name ? `${post.title} | ${meta?.name}` : post.title || '';
+  const siteTitle = meta?.metaTitle || meta?.title;
   const derivedURL = post.slug ? `${meta?.metaUrl}/${post.slug}` : '';
   const twitterHandleForMetaTag = '@' + (meta?.twitter || '').replace('@', '');
 
   return (
     <React.Fragment>
       <Head>
-        {post.title && <title>{derivedTitle}</title>}
+        {derivedBlogPageTitle && <title>{derivedBlogPageTitle}</title>}
         {post.metaDescription && (
           <meta property="description" content={post.metaDescription} key="description" />
         )}
         {meta?.name && <meta property="article:author" content={meta?.name} key="og:author" />}
 
         {/* og meta tags */}
-        {post.title && <meta property="og:title" content={derivedTitle} key="og:title" />}
+        {derivedBlogPageTitle && (
+          <meta property="og:title" content={derivedBlogPageTitle} key="og:title" />
+        )}
         {post.metaDescription && (
           <meta property="og:description" content={post.metaDescription} key="og:description" />
         )}
         {meta?.metaUrl && <meta property="og:url" content={derivedURL} key="og:url" />}
-        {meta?.metaTitle && (
-          <meta property="og:site_name" content={meta?.metaTitle} key="og:site_name" />
-        )}
+        {siteTitle && <meta property="og:site_name" content={siteTitle} key="og:site_name" />}
         <meta property="og:type" content="article" key="og:type" />
         {post.publishDate && (
           <meta

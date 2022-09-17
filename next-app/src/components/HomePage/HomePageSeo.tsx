@@ -4,17 +4,18 @@ import type { HomepageData } from '../../data/homepage';
 
 type HomePageSeoProps = Pick<HomepageData, 'meta'>;
 export function HomePageSeo({ meta }: HomePageSeoProps) {
+  const metaTitle = meta?.metaTitle || meta?.title;
   const twitterHandleForMetaTag = '@' + (meta?.twitter || '').replace('@', '');
   return (
     <React.Fragment>
       <Head>
-        {meta?.metaTitle && <title>{meta?.metaTitle}</title>}
+        {metaTitle && <title>{metaTitle}</title>}
         {meta?.metaDescription && (
           <meta name="description" content={meta?.metaDescription} key="description" />
         )}
 
         {/* og meta tags */}
-        {meta?.metaTitle && <meta property="og:title" content={meta?.metaTitle} key="og:title" />}
+        {metaTitle && <meta property="og:title" content={metaTitle} key="og:title" />}
         {meta?.metaDescription && (
           <meta property="og:description" content={meta?.metaDescription} key="og:description" />
         )}
@@ -46,9 +47,7 @@ export function HomePageSeo({ meta }: HomePageSeoProps) {
             key="twitter:creator"
           />
         )}
-        {meta?.metaTitle && (
-          <meta property="twitter:title" content={meta?.metaTitle} key="twitter:title" />
-        )}
+        {metaTitle && <meta property="twitter:title" content={metaTitle} key="twitter:title" />}
         {meta?.metaDescription && (
           <meta
             property="twitter:description"

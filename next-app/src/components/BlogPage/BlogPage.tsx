@@ -8,7 +8,7 @@ import { BlogPageSeo } from './BlogPageSeo';
 import { PageLayout } from '../Layout/PageLayout';
 import { Footer } from '../Footer/Footer';
 import { BlogpageHeader } from '../Header/Header';
-import { CustomRenderer } from '../DocumentRenderer/DocumentRenderer';
+import { PostRenderer } from '../DocumentRenderer/DocumentRenderer';
 import type { BlogpageData } from '../../data/blogpage';
 
 export function BlogPage({ post, meta, config }: BlogpageData) {
@@ -40,7 +40,7 @@ export function BlogPage({ post, meta, config }: BlogpageData) {
           <article className="prose lg:prose-lg prose:slate dark:prose-invert max-w-none pb-8">
             <h1 className="!mb-0 pb-4">{post.title}</h1>
             <div className="text-sm text-text-muted dark:text-text-muted">{formattedDate}</div>
-            <CustomRenderer document={post.content?.document} />
+            <PostRenderer document={post.content?.document} />
           </article>
         </main>
         <Footer />

@@ -34,6 +34,10 @@ export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
           __typename
           id
           email
+          title
+          about {
+            document
+          }
           name
           github
           twitter

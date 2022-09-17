@@ -1,5 +1,6 @@
 import { list } from '@keystone-6/core';
 import { text } from '@keystone-6/core/fields';
+import { document } from '@keystone-6/fields-document';
 
 export const Meta = list({
   ui: {
@@ -12,6 +13,29 @@ export const Meta = list({
     email: text({
       validation: { isRequired: true },
       isIndexed: 'unique',
+    }),
+    title: text({
+      validation: { isRequired: true },
+      ui: {
+        description:
+          'Website title. Used in website. Used in page title and SEO - og:title and twitter:title.',
+      },
+    }),
+    about: document({
+      formatting: {
+        blockTypes: {
+          blockquote: true,
+        },
+        inlineMarks: {
+          bold: true,
+          italic: true,
+          underline: true,
+          strikethrough: true,
+          code: true,
+        },
+        softBreaks: true,
+      },
+      links: true,
     }),
     name: text({
       validation: { isRequired: true },
@@ -33,9 +57,9 @@ export const Meta = list({
       },
     }),
     metaTitle: text({
-      validation: { isRequired: true },
       ui: {
-        description: 'The website title. Used in page title and SEO - og:title and twitter:title.',
+        description:
+          '(OPTIONAL) Provide if you want to use a separate title in meta tags. Used in page title and SEO - og:title and twitter:title.',
       },
     }),
     metaDescription: text({

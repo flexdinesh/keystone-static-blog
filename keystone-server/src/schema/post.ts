@@ -2,7 +2,7 @@ import path from 'path';
 import { list } from '@keystone-6/core';
 import { select, timestamp, relationship, text } from '@keystone-6/core/fields';
 import { document } from '@keystone-6/fields-document';
-import { componentBlocks } from '../component-blocks';
+import { componentBlocks } from '../component-blocks/post';
 
 export const Post = list({
   fields: {
@@ -59,7 +59,7 @@ export const Post = list({
         [1, 1, 1], // grid layout 1fr 1fr 1fr
       ],
       ui: {
-        views: path.join(process.cwd(), './src/component-blocks'),
+        views: path.join(process.cwd(), './src/component-blocks/post'),
       },
       componentBlocks,
     }),

@@ -21,6 +21,8 @@ model Config {
 model Meta {
   id               String @id @default(cuid())
   email            String @unique @default("")
+  title            String @default("")
+  about            String @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
   name             String @default("")
   github           String @default("")
   twitter          String @default("")
