@@ -13,8 +13,8 @@ export const Config = list({
       validation: { isRequired: true },
       isIndexed: 'unique',
       type: 'enum',
-      options: [{ label: 'Default', value: 'default' }],
-      defaultValue: 'default',
+      options: [{ label: 'Sleek', value: 'sleek' }],
+      defaultValue: 'sleek',
     }),
     homepageFeedStyle: select({
       validation: { isRequired: true },

@@ -14,7 +14,7 @@ generator client {
 
 model Config {
   id                String @id @default(cuid())
-  theme             String @unique @default("default")
+  theme             String @unique @default("sleek")
   homepageFeedStyle String @default("flat")
 }
 

@@ -8,7 +8,7 @@ type Config {
 }
 
 enum ConfigThemeType {
-  default
+  sleek
 }
 
 enum ConfigHomepageFeedStyleType {

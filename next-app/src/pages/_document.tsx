@@ -1,22 +1,26 @@
+import { Fragment } from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
 import Script from 'next/script';
+import type { ConfigThemeType } from '../.generated/types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Document(props: any) {
   const config = props?.__NEXT_DATA__?.props?.pageProps?.config;
-  const theme = config?.theme || 'default';
+  const theme: ConfigThemeType = config?.theme || 'sleek';
 
-  const font: Record<string, JSX.Element> = {
-    default: (
-      <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&display=block"
-        rel="stylesheet"
-      />
+  const font: Record<ConfigThemeType, JSX.Element> = {
+    sleek: (
+      <Fragment>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&display=block"
+          rel="stylesheet"
+        />
+      </Fragment>
     ),
   };
 
   return (
-    <Html className="theme-default" lang="en">
+    <Html className={`theme-${theme}`} lang="en">
       <Head>
         <link
           rel="icon"
@@ -32,9 +36,9 @@ export default function Document(props: any) {
           save dark theme to their local storage. ¯\_(ツ)_/¯ React is hard sometimes.
          */}
         <Script
-          id="set-default-theme-script"
+          id="set-default-mode-script"
           strategy="beforeInteractive"
-          src="/scripts/init-theme.js"
+          src="/scripts/init-mode.js"
         ></Script>
       </Head>
       <body className="text-text-base dark:text-text-base bg-bg dark:dark:bg-bg">

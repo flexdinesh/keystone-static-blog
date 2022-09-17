@@ -15,7 +15,7 @@ function SunMoon({ mode }: { mode: 'dark' | 'light' }) {
         `}
     >
       <span
-        className={`absolute top-0 right-0 w-[11px] h-[11px] rounded-full bg-gray-700
+        className={`absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-gray-700
           ${mode === 'dark' ? 'scale-[1]' : 'scale-[0]'}
           `}
       ></span>
