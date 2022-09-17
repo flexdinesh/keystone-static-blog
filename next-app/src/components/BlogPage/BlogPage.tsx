@@ -7,8 +7,8 @@ import Prism from '../../components/PrismScript/prism';
 import { BlogPageSeo } from './BlogPageSeo';
 import { PageLayout } from '../Layout/PageLayout';
 import { Footer } from '../Footer/Footer';
-import { BlogpageHeader } from '../Header/Header';
-import { PostRenderer } from '../DocumentRenderer/DocumentRenderer';
+import { Nav } from '../Nav/Nav';
+import { PostRenderer } from './DocumentRenderer/DocumentRenderer';
 import type { BlogpageData } from '../../data/blogpage';
 
 export function BlogPage({ post, meta, config }: BlogpageData) {
@@ -29,7 +29,9 @@ export function BlogPage({ post, meta, config }: BlogpageData) {
       <BlogPageSeo post={post} meta={meta} config={config} />
       <PageLayout className="max-w-3xl grid grid-rows-[1fr_auto]">
         <main>
-          <BlogpageHeader />
+          <header className="text-center grid auto-rows-auto pb-2">
+            <Nav />
+          </header>
           <div className="pb-4">
             <Link href="/">
               <a className="no-underline hover:text-link before:content-['←'] before:pr-1 hover:before:-translate-x-1 before:inline-block before:transition-all before:duration-150 before:ease-in-out">
