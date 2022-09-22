@@ -2,46 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-    .animate-link {
-        position: relative;
-        box-decoration-break: clone;
-        text-decoration: none;
-    }
-
-    .animate-link:hover:after {
-        transform: translateZ(0) scale(1);
-    }
-
-    .animate-link:after {
-        left: 0;
-        right: 0;
-        bottom: -2px;
-        content: "";
-        height: 2px;
-        position: absolute;
-        transform: translateZ(0) scaleX(0);
-        transform-origin: left center;
-        transition: all .3s ease-in-out;
-    }
-
-    .fancy-name {
-        position: relative;
-        font-weight: 900;
-        background-repeat: no-repeat;
-    }
-
-    .fancy-name:after {
-        content: '';
-        position: absolute;
-        height: 1rem;
-        left: -0.25rem;
-        right: 0;
-        bottom: 0.25rem;
-        z-index: -1;
-    }
-}
-
 .theme-sleek {
     font-family: 'Open Sans', sans-serif;
     --color-primary-50: 255 249 219;
@@ -59,8 +19,15 @@
     --color-text-base: 15 23 42;
     --color-text-muted: 100 116 139;
     --color-text-inverted: 229 229 229;
+    /* black */
+    --color-text-code: 0 0 0;
 
+    /* white */
     --color-bg: 255 255 255;
+    --color-bg-inverted: 23 23 23;
+    /* primary-100 */
+    --color-bg-code: 254 243 199;
+
     --color-link: 240 140 0;
 }
 
@@ -80,7 +47,13 @@
     --color-text-base: 229 229 229;
     --color-text-muted: 148 163 184;
     --color-text-inverted: 15 23 42;
+    /* white */
+    --color-text-code: 255 255 255;
 
     --color-bg: 30 41 59;
+    --color-bg-inverted: 255 255 255;
+    /* primary-900 */
+    --color-bg-code: 24 24 27;
+
     --color-link: 51 154 240;
 }

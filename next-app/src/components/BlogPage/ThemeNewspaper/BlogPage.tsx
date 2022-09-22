@@ -46,8 +46,8 @@ export function BlogPage(blogpageData: BlogpageData) {
                 </a>
               </Link>
             </div>
-            <article className="prose lg:prose-lg prose:slate dark:prose-invert max-w-none pb-8 !leading-[1.9]">
-              <h1 className="!mb-0 pb-4">
+            <article className="prose lg:prose-lg prose:zinc dark:prose-invert max-w-none pb-8 !leading-[1.9]">
+              <h1 className="!mb-0 pb-4 !leading-[1.2em]">
                 <span
                   className="
                     before:mb-8 before:content-[''] before:block before:h-[1px] before:w-[100%] before:border-b-[1px] before:border-current

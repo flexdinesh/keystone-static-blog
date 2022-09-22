@@ -4,47 +4,57 @@
 
 .theme-newspaper {
     font-family: 'Roboto Mono', sans-serif;
-    --color-primary-50: 248 250 252;
-    --color-primary-100: 241 245 249;
-    --color-primary-200: 226 232 240;
-    --color-primary-300: 203 213 225;
-    --color-primary-400: 148 163 184;
-    --color-primary-500: 100 116 139;
-    --color-primary-600: 71 85 105;
-    --color-primary-700: 51 65 85;
-    --color-primary-800: 30 41 59;
-    --color-primary-900: 15 23 42;
+    --color-primary-50: 250 250 250;
+    --color-primary-100: 244 244 245;
+    --color-primary-200: 228 228 231;
+    --color-primary-300: 212 212 216;
+    --color-primary-400: 161 161 170;
+    --color-primary-500: 113 113 122;
+    --color-primary-600: 82 82 91;
+    --color-primary-700: 63 63 70;
+    --color-primary-800: 39 39 42;
+    --color-primary-900: 24 24 27;
 
     --color-text-heading: 15 23 42;
     --color-text-base: 15 23 42;
     --color-text-muted: 100 116 139;
     --color-text-inverted: 229 229 229;
+    /* black */
+    --color-text-code: 0 0 0;
 
+    /* white */
     --color-bg: 255 255 255;
     --color-bg-inverted: 23 23 23;
+    /* primary-100 */
+    --color-bg-code: 254 243 199;
+
     --color-link: 51 154 240;
 }
 
 .theme-newspaper.dark {
-    --color-primary-50: 248 250 252;
-    --color-primary-100: 241 245 249;
-    --color-primary-200: 226 232 240;
-    --color-primary-300: 203 213 225;
-    --color-primary-400: 148 163 184;
-    --color-primary-500: 100 116 139;
-    --color-primary-600: 71 85 105;
-    --color-primary-700: 51 65 85;
-    --color-primary-800: 30 41 59;
-    --color-primary-900: 15 23 42;
+    --color-primary-50: 250 250 250;
+    --color-primary-100: 244 244 245;
+    --color-primary-200: 228 228 231;
+    --color-primary-300: 212 212 216;
+    --color-primary-400: 161 161 170;
+    --color-primary-500: 113 113 122;
+    --color-primary-600: 82 82 91;
+    --color-primary-700: 63 63 70;
+    --color-primary-800: 39 39 42;
+    --color-primary-900: 24 24 27;
 
     --color-text-heading: 255 255 255;
     --color-text-base: 229 229 229;
     --color-text-muted: 148 163 184;
     --color-text-inverted: 15 23 42;
+    /* white */
+    --color-text-code: 255 255 255;
 
-    /* --color-bg: 31 41 55; */
-    /* --color-bg: 38 38 38; */
-    --color-bg: 23 23 23;
+    /* primary-800 */
+    --color-bg: 39 39 42;
     --color-bg-inverted: 255 255 255;
+    /* primary-900 */
+    --color-bg-code: 24 24 27;
+
     --color-link: 51 154 240;
 }

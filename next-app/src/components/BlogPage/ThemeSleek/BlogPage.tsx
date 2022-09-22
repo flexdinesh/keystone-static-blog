@@ -41,7 +41,7 @@ export function BlogPage(blogpageData: BlogpageData) {
             </Link>
           </div>
           <article className="prose lg:prose-lg prose:slate dark:prose-invert max-w-none pb-8">
-            <h1 className="!mb-0 pb-4">{post.title}</h1>
+            <h1 className="!mb-0 pb-4 !leading-[1.1em]">{post.title}</h1>
             <div className="text-sm text-text-muted dark:text-text-muted">{formattedDate}</div>
             <PostRenderer document={post.content?.document} />
           </article>
