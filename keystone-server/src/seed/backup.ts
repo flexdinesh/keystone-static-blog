@@ -16,7 +16,7 @@ async function backupMeta(context: Context) {
   const { query } = context.sudo();
   const metaInDatabase = await query.Meta.findMany({
     query:
-      'email name github twitter metaTitle metaDescription metaImageUrl metaImageAltText metaImageWidth metaImageHeight metaUrl',
+      'email name title about { document } github twitter metaTitle metaDescription metaImageUrl metaImageAltText metaImageWidth metaImageHeight metaUrl',
   });
   const json = JSON.stringify(metaInDatabase, null, 2);
   fs.writeFileSync(path.join(process.cwd(), './src/seed/meta.json'), json, 'utf8');

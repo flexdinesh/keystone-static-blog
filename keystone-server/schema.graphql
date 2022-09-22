@@ -3,12 +3,15 @@
 
 type Config {
   id: ID!
-  theme: ConfigThemeType
-  homepageFeedStyle: ConfigHomepageFeedStyleType
+  uniqueField: String
+  theme: ConfigThemeType!
+  homepageFeedStyle: ConfigHomepageFeedStyleType!
 }
 
 enum ConfigThemeType {
   sleek
+  newspaper
+  cardboard
 }
 
 enum ConfigHomepageFeedStyleType {
@@ -18,7 +21,7 @@ enum ConfigHomepageFeedStyleType {
 
 input ConfigWhereUniqueInput {
   id: ID
-  theme: ConfigThemeType
+  uniqueField: String
 }
 
 input ConfigWhereInput {
@@ -26,6 +29,7 @@ input ConfigWhereInput {
   OR: [ConfigWhereInput!]
   NOT: [ConfigWhereInput!]
   id: IDFilter
+  uniqueField: StringFilter
   theme: ConfigThemeTypeNullableFilter
   homepageFeedStyle: ConfigHomepageFeedStyleTypeNullableFilter
 }
@@ -39,91 +43,6 @@ input IDFilter {
   gt: ID
   gte: ID
   not: IDFilter
-}
-
-input ConfigThemeTypeNullableFilter {
-  equals: ConfigThemeType
-  in: [ConfigThemeType!]
-  notIn: [ConfigThemeType!]
-  not: ConfigThemeTypeNullableFilter
-}
-
-input ConfigHomepageFeedStyleTypeNullableFilter {
-  equals: ConfigHomepageFeedStyleType
-  in: [ConfigHomepageFeedStyleType!]
-  notIn: [ConfigHomepageFeedStyleType!]
-  not: ConfigHomepageFeedStyleTypeNullableFilter
-}
-
-input ConfigOrderByInput {
-  id: OrderDirection
-  theme: OrderDirection
-  homepageFeedStyle: OrderDirection
-}
-
-enum OrderDirection {
-  asc
-  desc
-}
-
-input ConfigUpdateInput {
-  theme: ConfigThemeType
-  homepageFeedStyle: ConfigHomepageFeedStyleType
-}
-
-input ConfigUpdateArgs {
-  where: ConfigWhereUniqueInput!
-  data: ConfigUpdateInput!
-}
-
-input ConfigCreateInput {
-  theme: ConfigThemeType
-  homepageFeedStyle: ConfigHomepageFeedStyleType
-}
-
-type Meta {
-  id: ID!
-  email: String
-  title: String
-  about: Meta_about_Document
-  name: String
-  github: String
-  twitter: String
-  metaTitle: String
-  metaDescription: String
-  metaImageUrl: String
-  metaImageAltText: String
-  metaImageWidth: String
-  metaImageHeight: String
-  metaUrl: String
-}
-
-type Meta_about_Document {
-  document(hydrateRelationships: Boolean! = false): JSON!
-}
-
-input MetaWhereUniqueInput {
-  id: ID
-  email: String
-}
-
-input MetaWhereInput {
-  AND: [MetaWhereInput!]
-  OR: [MetaWhereInput!]
-  NOT: [MetaWhereInput!]
-  id: IDFilter
-  email: StringFilter
-  title: StringFilter
-  name: StringFilter
-  github: StringFilter
-  twitter: StringFilter
-  metaTitle: StringFilter
-  metaDescription: StringFilter
-  metaImageUrl: StringFilter
-  metaImageAltText: StringFilter
-  metaImageWidth: StringFilter
-  metaImageHeight: StringFilter
-  metaUrl: StringFilter
 }
 
 input StringFilter {
@@ -154,9 +73,97 @@ input NestedStringFilter {
   not: NestedStringFilter
 }
 
+input ConfigThemeTypeNullableFilter {
+  equals: ConfigThemeType
+  in: [ConfigThemeType!]
+  notIn: [ConfigThemeType!]
+  not: ConfigThemeTypeNullableFilter
+}
+
+input ConfigHomepageFeedStyleTypeNullableFilter {
+  equals: ConfigHomepageFeedStyleType
+  in: [ConfigHomepageFeedStyleType!]
+  notIn: [ConfigHomepageFeedStyleType!]
+  not: ConfigHomepageFeedStyleTypeNullableFilter
+}
+
+input ConfigOrderByInput {
+  id: OrderDirection
+  uniqueField: OrderDirection
+  theme: OrderDirection
+  homepageFeedStyle: OrderDirection
+}
+
+enum OrderDirection {
+  asc
+  desc
+}
+
+input ConfigUpdateInput {
+  uniqueField: String
+  theme: ConfigThemeType
+  homepageFeedStyle: ConfigHomepageFeedStyleType
+}
+
+input ConfigUpdateArgs {
+  where: ConfigWhereUniqueInput!
+  data: ConfigUpdateInput!
+}
+
+input ConfigCreateInput {
+  uniqueField: String
+  theme: ConfigThemeType! = sleek
+  homepageFeedStyle: ConfigHomepageFeedStyleType! = flat
+}
+
+type Meta {
+  id: ID!
+  uniqueField: String
+  title: String
+  about: Meta_about_Document
+  name: String
+  github: String
+  twitter: String
+  metaTitle: String
+  metaDescription: String
+  metaImageUrl: String
+  metaImageAltText: String
+  metaImageWidth: String
+  metaImageHeight: String
+  metaUrl: String
+}
+
+type Meta_about_Document {
+  document(hydrateRelationships: Boolean! = false): JSON!
+}
+
+input MetaWhereUniqueInput {
+  id: ID
+  uniqueField: String
+}
+
+input MetaWhereInput {
+  AND: [MetaWhereInput!]
+  OR: [MetaWhereInput!]
+  NOT: [MetaWhereInput!]
+  id: IDFilter
+  uniqueField: StringFilter
+  title: StringFilter
+  name: StringFilter
+  github: StringFilter
+  twitter: StringFilter
+  metaTitle: StringFilter
+  metaDescription: StringFilter
+  metaImageUrl: StringFilter
+  metaImageAltText: StringFilter
+  metaImageWidth: StringFilter
+  metaImageHeight: StringFilter
+  metaUrl: StringFilter
+}
+
 input MetaOrderByInput {
   id: OrderDirection
-  email: OrderDirection
+  uniqueField: OrderDirection
   title: OrderDirection
   name: OrderDirection
   github: OrderDirection
@@ -171,7 +178,7 @@ input MetaOrderByInput {
 }
 
 input MetaUpdateInput {
-  email: String
+  uniqueField: String
   title: String
   about: JSON
   name: String
@@ -192,7 +199,7 @@ input MetaUpdateArgs {
 }
 
 input MetaCreateInput {
-  email: String
+  uniqueField: String
   title: String
   about: JSON
   name: String
@@ -426,6 +433,7 @@ enum CategoryNameType {
   medium
   youtube
   podcast
+  talk
 }
 
 input CategoryWhereUniqueInput {

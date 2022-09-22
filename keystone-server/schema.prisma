@@ -14,13 +14,14 @@ generator client {
 
 model Config {
   id                String @id @default(cuid())
-  theme             String @unique @default("sleek")
+  uniqueField       String @unique @default("config")
+  theme             String @default("sleek")
   homepageFeedStyle String @default("flat")
 }
 
 model Meta {
   id               String @id @default(cuid())
-  email            String @unique @default("")
+  uniqueField      String @unique @default("meta")
   title            String @default("")
   about            String @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
   name             String @default("")

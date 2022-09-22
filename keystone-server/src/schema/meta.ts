@@ -8,11 +8,23 @@ export const Meta = list({
     label: 'Meta',
     singular: 'Meta',
     plural: 'Meta',
+    labelField: 'uniqueField',
   },
   fields: {
-    email: text({
+    uniqueField: text({
       validation: { isRequired: true },
+      ui: {
+        itemView: { fieldMode: 'hidden' },
+      },
       isIndexed: 'unique',
+      defaultValue: 'meta',
+      hooks: {
+        validateInput: async ({ operation, resolvedData, addValidationError }) => {
+          if (operation === 'create' && resolvedData.uniqueField !== 'meta') {
+            addValidationError('Meta already created.');
+          }
+        },
+      },
     }),
     title: text({
       validation: { isRequired: true },

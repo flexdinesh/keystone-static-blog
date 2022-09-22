@@ -1,21 +1,20 @@
 import React from 'react';
 import type { GetStaticPathsResult, GetStaticPropsContext } from 'next';
-import { BlogPage } from '../../components/BlogPage/BlogPage';
+import { BlogPage } from '../../components/BlogPage';
 import { fetchGraphQL, gql } from '../../graphql';
 import type { BlogpagePathsQuery } from '../../.generated/types';
 import { fetchBlogpageData } from '../../data/blogpage';
 import type { BlogpageData } from '../../data/blogpage';
 
-export default function Blog(data: BlogpageData) {
-  return <BlogPage {...data} />;
+export default function Blog(blogpageData: BlogpageData) {
+  return <BlogPage {...blogpageData} />;
 }
 
 export async function getStaticProps({ params = {} }: GetStaticPropsContext) {
   const slug = params.slug;
-  const data = await fetchBlogpageData(slug as string);
-  const post = data?.post;
+  const { post, meta, config } = await fetchBlogpageData(slug as string);
 
-  return { props: { post } };
+  return { props: { post, meta, config } };
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {

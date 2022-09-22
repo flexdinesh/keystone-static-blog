@@ -16,6 +16,7 @@ export const Category = list({
         { label: 'Medium', value: 'medium' },
         { label: 'YouTube', value: 'youtube' },
         { label: 'Podcast', value: 'podcast' },
+        { label: 'Talks', value: 'talk' },
       ],
       defaultValue: 'blog',
       ui: { displayMode: 'segmented-control' },

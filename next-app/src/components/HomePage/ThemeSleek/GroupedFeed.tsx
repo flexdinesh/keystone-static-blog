@@ -1,6 +1,6 @@
 import React from 'react';
-import type { HomepageData } from '../../data/homepage';
-import type { CategoryNameType } from '../../.generated/types';
+import type { HomepageData } from '../../../data/homepage';
+import type { CategoryNameType } from '../../../.generated/types';
 import { ListItem } from './ListItem';
 
 const categoryDisplayName: Record<CategoryNameType, string> = {
@@ -12,6 +12,7 @@ const categoryDisplayName: Record<CategoryNameType, string> = {
   github: 'GitHub',
   medium: 'Medium',
   podcast: 'Podcasts',
+  talk: 'Talks',
 };
 
 function groupBasedOnCategories({ categories, posts, links }: GroupedFeedProps) {
@@ -57,12 +58,14 @@ export function GroupedFeed({ posts, links, categories }: GroupedFeedProps) {
 
         return (
           <React.Fragment key={category.name}>
-            <h2 className="font-semibold text-[1.66em] mt-[1.33em] mb-[1em] leading-[1.3]">
+            <h2 className="font-semibold text-[1.66em] mt-8 mb-4 leading-[1.3]">
               {categoryDisplayName[category.name]}
             </h2>
-            <ul className="list-none mt-4">
+            <ul className="list-none">
               {category.items.map(postOrLink => {
-                return <ListItem postOrLink={postOrLink} key={postOrLink.id} />;
+                return (
+                  <ListItem postOrLink={postOrLink} key={postOrLink.id} showCategoryIcon={false} />
+                );
               })}
             </ul>
           </React.Fragment>

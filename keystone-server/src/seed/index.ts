@@ -44,7 +44,7 @@ async function seedMeta(context: Context) {
 
   if (!metaAlreadyInDatabase.length) {
     await db.Meta.createMany({
-      data: seedMeta,
+      data: seedMeta.map(m => ({ ...m, about: m?.about?.document })),
     });
   }
 }
@@ -62,7 +62,11 @@ async function seedPosts(context: Context) {
     seedPost => !postsAlreadyInDatabase.some(p => p.slug === seedPost.slug)
   );
   await db.Post.createMany({
-    data: postsToCreate.map(p => ({ ...p, content: p?.content?.document })),
+    data: postsToCreate.map(p => ({
+      ...p,
+      content: p?.content?.document,
+      category: p?.category ? { connect: p?.category } : undefined,
+    })),
   });
 }
 
@@ -79,7 +83,10 @@ async function seedLinks(context: Context) {
     seedLink => !linksAlreadyInDatabase.some(l => l.url === seedLink.url)
   );
   await db.Link.createMany({
-    data: linksToCreate,
+    data: linksToCreate.map(l => ({
+      ...l,
+      category: l?.category ? { connect: l?.category } : undefined,
+    })),
   });
 }
 

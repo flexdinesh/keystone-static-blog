@@ -10,7 +10,7 @@ import {
   faMedium,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
-import { faPodcast } from '@fortawesome/free-solid-svg-icons';
+import { faPodcast, faMicrophoneLines } from '@fortawesome/free-solid-svg-icons';
 import type { CategoryNameType } from '../../.generated/types';
 import type { HomepageData } from '../../data/homepage';
 
@@ -23,6 +23,7 @@ const categoryIcon: Record<CategoryNameType, IconDefinition | null> = {
   medium: faMedium,
   youtube: faYoutube,
   podcast: faPodcast,
+  talk: faMicrophoneLines,
 } as const;
 
 const categoryIconTooltip: Record<CategoryNameType, string | null> = {
@@ -34,6 +35,7 @@ const categoryIconTooltip: Record<CategoryNameType, string | null> = {
   podcast: 'External link to a podcast',
   twitter: 'External link to a tweet',
   youtube: 'External link to a YouTube video',
+  talk: 'External link to a Talk',
 } as const;
 
 function BlogItem({ post }: { post: HomepageData['posts'][number] }) {
@@ -46,7 +48,13 @@ function BlogItem({ post }: { post: HomepageData['posts'][number] }) {
   );
 }
 
-function LinkItem({ link }: { link: HomepageData['links'][number] }) {
+function LinkItem({
+  link,
+  showCategoryIcon = false,
+}: {
+  link: HomepageData['links'][number];
+  showCategoryIcon: boolean;
+}) {
   const title = (link.category?.name && categoryIconTooltip[link.category.name]) || '';
   const icon = link.category?.name ? categoryIcon[link.category?.name] : null;
   const renderedIcon = icon ? <FontAwesomeIcon icon={icon} /> : null;
@@ -54,12 +62,8 @@ function LinkItem({ link }: { link: HomepageData['links'][number] }) {
   return (
     <NextLink href={link?.url || ''} passHref>
       <a className="hover:text-link dark:hover:text-link" target={'_blank'}>
-        <span>{link.title}</span>
-        {link.category?.name && (
-          <span className="pl-2" title={title}>
-            {renderedIcon}
-          </span>
-        )}
+        <span className="pr-2">{link.title}</span>
+        {showCategoryIcon && link.category?.name && <span title={title}>{renderedIcon}</span>}
       </a>
     </NextLink>
   );
@@ -67,8 +71,10 @@ function LinkItem({ link }: { link: HomepageData['links'][number] }) {
 
 export function ListItem({
   postOrLink,
+  showCategoryIcon = false,
 }: {
   postOrLink: HomepageData['posts'][number] | HomepageData['links'][number];
+  showCategoryIcon: boolean;
 }) {
   const formattedDate = postOrLink.publishDate
     ? format(new Date(postOrLink.publishDate), 'MMM dd, yyyy')
@@ -94,7 +100,7 @@ export function ListItem({
         {postOrLink.__typename === 'Post' ? (
           <BlogItem post={postOrLink} />
         ) : (
-          <LinkItem link={postOrLink} />
+          <LinkItem link={postOrLink} showCategoryIcon={showCategoryIcon} />
         )}
       </div>
       {formattedDate ? (

@@ -3,15 +3,16 @@ import { format } from 'date-fns';
 import Link from 'next/link';
 // Customised prism.js downloaded from
 // https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+jsx+tsx+typescript
-import Prism from '../../components/PrismScript/prism';
-import { BlogPageSeo } from './BlogPageSeo';
-import { PageLayout } from '../Layout/PageLayout';
-import { Footer } from '../Footer/Footer';
-import { Nav } from '../Nav/Nav';
+import Prism from '../../../components/PrismScript/prism';
+import { BlogPageSeo } from '../BlogPageSeo';
+import { PageLayout } from '../../Layout/PageLayout';
+import { Footer } from '../../Footer/Footer';
+import { Nav } from '../../Nav';
 import { PostRenderer } from './DocumentRenderer/DocumentRenderer';
-import type { BlogpageData } from '../../data/blogpage';
+import type { BlogpageData } from '../../../data/blogpage';
 
-export function BlogPage({ post, meta, config }: BlogpageData) {
+export function BlogPage(blogpageData: BlogpageData) {
+  const { post, meta, config } = blogpageData;
   const formattedDate = post?.publishDate
     ? format(new Date(post?.publishDate), 'MMM dd, yyyy')
     : null;
@@ -30,7 +31,7 @@ export function BlogPage({ post, meta, config }: BlogpageData) {
       <PageLayout className="max-w-3xl grid grid-rows-[1fr_auto]">
         <main>
           <header className="text-center grid auto-rows-auto pb-2">
-            <Nav />
+            <Nav theme={config?.theme} />
           </header>
           <div className="pb-4">
             <Link href="/">

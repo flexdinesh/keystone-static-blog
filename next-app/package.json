@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 8000",
+    "dev": "yarn codegen && next dev --port 8000",
     "build": "yarn codegen && next build",
     "export": "yarn codegen && next build && next export",
     "start": "next start --port 8000",

@@ -32,7 +32,7 @@ export function Intro({ meta }: HomepageData) {
           {meta?.title}
         </span>
       </h1>
-      <div className="text-md mt-4 px-4">
+      <div className="text-md mt-4 px-4 leading-[1.8]">
         <AboutRenderer document={meta?.about?.document} />
       </div>
     </React.Fragment>

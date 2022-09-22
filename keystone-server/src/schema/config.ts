@@ -1,23 +1,58 @@
 import { list } from '@keystone-6/core';
-import { select } from '@keystone-6/core/fields';
+import { text, select } from '@keystone-6/core/fields';
 
 export const Config = list({
   ui: {
+    description: 'Layout configuration to decide how your website looks.',
     label: 'Config',
     singular: 'Config',
     plural: 'Config',
-    description: 'Layout configuration to decide how your website looks.',
+    labelField: 'uniqueField',
   },
   fields: {
+    uniqueField: text({
+      validation: { isRequired: true },
+      ui: {
+        itemView: { fieldMode: 'hidden' },
+      },
+      isIndexed: 'unique',
+      defaultValue: 'config',
+      hooks: {
+        validateInput: async ({ operation, resolvedData, addValidationError }) => {
+          if (operation === 'create' && resolvedData.uniqueField !== 'config') {
+            addValidationError('Config already created.');
+          }
+        },
+      },
+    }),
     theme: select({
       validation: { isRequired: true },
-      isIndexed: 'unique',
+      graphql: {
+        read: {
+          isNonNull: true,
+        },
+        create: {
+          isNonNull: true,
+        },
+      },
       type: 'enum',
-      options: [{ label: 'Sleek', value: 'sleek' }],
+      options: [
+        { label: 'Sleek', value: 'sleek' },
+        { label: 'Newspaper', value: 'newspaper' },
+        { label: 'Cardboard', value: 'cardboard' },
+      ],
       defaultValue: 'sleek',
     }),
     homepageFeedStyle: select({
       validation: { isRequired: true },
+      graphql: {
+        read: {
+          isNonNull: true,
+        },
+        create: {
+          isNonNull: true,
+        },
+      },
       type: 'enum',
       options: [
         { label: 'Flat', value: 'flat' },

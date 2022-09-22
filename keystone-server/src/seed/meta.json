@@ -1,7 +1,20 @@
 [
   {
-    "email": "flexdinesh@gmail.com",
+    "uniqueField": "meta",
     "name": "Dinesh Pandiyan",
+    "title": "Blog Template",
+    "about": {
+      "document": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "text": "Hello! Welcome to my blog. This is a template to build your own static blogs using Keystone. Two themes available - sleek and newspaper."
+            }
+          ]
+        }
+      ]
+    },
     "github": "flexdinesh",
     "twitter": "flexdinesh",
     "metaTitle": "Static Blogs with Keystone | Dinesh Pandiyan",

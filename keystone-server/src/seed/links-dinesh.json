@@ -1,0 +1,290 @@
+[
+  {
+    "title": "Progressive Rendering — The Key to Faster Web",
+    "url": "https://medium.com/the-thinkmill/progressive-rendering-the-key-to-faster-web-ebfbbece41a4",
+    "status": "published",
+    "publishDate": "2019-11-11T03:00:00.000Z",
+    "category": {
+      "name": "medium"
+    }
+  },
+  {
+    "title": "Top 10 features in React Dev Tools in 10 tweets",
+    "url": "https://twitter.com/flexdinesh/status/1180324978278879232",
+    "status": "published",
+    "publishDate": "2019-10-05T03:32:00.000Z",
+    "category": {
+      "name": "twitter"
+    }
+  },
+  {
+    "title": "Deploy Gatsby sites to GitHub Pages",
+    "url": "https://dev.to/flexdinesh/deploy-gatsby-sites-to-github-pages-eed",
+    "status": "published",
+    "publishDate": "2019-01-24T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Design system boilerplate",
+    "url": "https://github.com/flexdinesh/design-system-boilerplate",
+    "status": "published",
+    "publishDate": "2022-02-12T13:00:00.000Z",
+    "category": {
+      "name": "github"
+    }
+  },
+  {
+    "title": "React Dev Tools — Debug Like a Ninja",
+    "url": "https://medium.com/the-thinkmill/react-dev-tools-debug-like-a-ninja-c3a5d09895c6",
+    "status": "published",
+    "publishDate": "2019-09-13T18:00:00.000Z",
+    "category": {
+      "name": "medium"
+    }
+  },
+  {
+    "title": "React — Access custom params in handlers the right way",
+    "url": "https://dev.to/flexdinesh/react-access-custom-params-in-handlers-the-right-way-44mi",
+    "status": "published",
+    "publishDate": "2019-06-06T04:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Cache Busting a React App",
+    "url": "https://dev.to/flexdinesh/cache-busting-a-react-app-22lk",
+    "status": "published",
+    "publishDate": "2019-04-14T04:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "React Hooks: Test custom hooks with Enzyme",
+    "url": "https://dev.to/flexdinesh/react-hooks-test-custom-hooks-with-enzyme-40ib",
+    "status": "published",
+    "publishDate": "2019-02-23T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Don't build your portfolio with just React",
+    "url": "https://dev.to/flexdinesh/dont-build-your-portfolio-with-just-react-11a9",
+    "status": "published",
+    "publishDate": "2019-02-01T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "2018 - Year In Review",
+    "url": "https://dev.to/flexdinesh/2018---year-in-review-515h",
+    "status": "published",
+    "publishDate": "2019-01-05T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Introducing Responsive React Components",
+    "url": "https://dev.to/flexdinesh/introducing-responsive-react-components--1a6a",
+    "status": "published",
+    "publishDate": "2018-11-20T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Render Browser Specific Content with React",
+    "url": "https://dev.to/flexdinesh/render-browser-specific-content-with-react--amm",
+    "status": "published",
+    "publishDate": "2018-05-28T04:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "I Created My Portfolio with React and Some Magic",
+    "url": "https://dev.to/flexdinesh/i-re-wrote-my-portfolio-and-added-some-magic-22n7",
+    "status": "published",
+    "publishDate": "2018-04-02T04:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Upgrade to Webpack 4",
+    "url": "https://dev.to/flexdinesh/upgrade-to-webpack-4---5bc5",
+    "status": "published",
+    "publishDate": "2018-03-13T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "React-Redux Boilerplate with Best Practices",
+    "url": "https://dev.to/flexdinesh/react-redux-boilerplate-with-best-practices--2pp5",
+    "status": "published",
+    "publishDate": "2018-03-12T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Publish your own NPM package",
+    "url": "https://dev.to/flexdinesh/publish-your-own-npm-package---5b71",
+    "status": "published",
+    "publishDate": "2018-03-06T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Short Circuit Assignment in JavaScript",
+    "url": "https://dev.to/flexdinesh/short-circuit-assignment-in-javascript--4k80",
+    "status": "published",
+    "publishDate": "2018-02-18T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Accessing Nested Objects in JavaScript",
+    "url": "https://codeburst.io/accessing-nested-objects-in-javascript-c2ed249fe576",
+    "status": "published",
+    "publishDate": "2018-02-22T03:00:00.000Z",
+    "category": {
+      "name": "medium"
+    }
+  },
+  {
+    "title": "Create your developer landing page with GitHub Pages",
+    "url": "https://dev.to/flexdinesh/create-your-developer-landing-page-with-github-pages---42jk",
+    "status": "published",
+    "publishDate": "2018-03-09T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "How I got started with Open-Source",
+    "url": "https://dev.to/flexdinesh/how-i-got-started-with-open-source--882",
+    "status": "published",
+    "publishDate": "2018-02-05T03:00:00.000Z",
+    "category": {
+      "name": "dev"
+    }
+  },
+  {
+    "title": "Statically generate blog websites with Keystone and Next.js",
+    "url": "https://github.com/flexdinesh/keystone-static-blog",
+    "status": "published",
+    "publishDate": "2022-09-03T04:00:00.000Z",
+    "category": {
+      "name": "github"
+    }
+  },
+  {
+    "title": "GraphQL notes and guides for @apollo/client",
+    "url": "https://github.com/flexdinesh/apollo-graphql-playbook",
+    "status": "published",
+    "publishDate": "2022-07-14T14:00:00.000Z",
+    "category": {
+      "name": "github"
+    }
+  },
+  {
+    "title": "Monorepo starter template to build React applications",
+    "url": "https://github.com/flexdinesh/react-monorepo",
+    "status": "published",
+    "publishDate": "2022-04-10T04:00:00.000Z",
+    "category": {
+      "name": "github"
+    }
+  },
+  {
+    "title": "A handbook for git commands",
+    "url": "https://github.com/flexdinesh/git-handbook",
+    "status": "published",
+    "publishDate": "2022-06-29T04:00:00.000Z",
+    "category": {
+      "name": "github"
+    }
+  },
+  {
+    "title": "React Sydney: Progressive SSR and progressive hydration with React",
+    "url": "#",
+    "status": "published",
+    "publishDate": "2020-03-02T07:00:00.000Z",
+    "category": {
+      "name": "talk"
+    }
+  },
+  {
+    "title": "JSConf Hawaii: Faster web with progressive rendering",
+    "url": "https://www.youtube.com/watch?v=iYW7vKCqN6g",
+    "status": "published",
+    "publishDate": "2020-02-05T03:00:00.000Z",
+    "category": {
+      "name": "talk"
+    }
+  },
+  {
+    "title": "React Sydney: Compile-time React",
+    "url": "https://twitter.com/reactsydney/status/1190769441757249536",
+    "status": "published",
+    "publishDate": "2019-11-04T07:00:00.000Z",
+    "category": {
+      "name": "talk"
+    }
+  },
+  {
+    "title": "SydJS: Progressive rendering in modern web apps",
+    "url": "https://www.youtube.com/watch?v=Q4bCo6KdWyk",
+    "status": "published",
+    "publishDate": "2019-09-18T08:00:00.000Z",
+    "category": {
+      "name": "talk"
+    }
+  },
+  {
+    "title": "React Sydney: Using the new React devtools",
+    "url": "https://www.meetup.com/en-AU/React-Sydney/events/264441092",
+    "status": "published",
+    "publishDate": "2019-09-02T08:00:00.000Z",
+    "category": {
+      "name": "talk"
+    }
+  },
+  {
+    "title": "Progressive Server Rendering + Progressive Client Hydration with React",
+    "url": "https://twitter.com/flexdinesh/status/1218824439237767168",
+    "status": "published",
+    "publishDate": "2020-01-19T03:00:00.000Z",
+    "category": {
+      "name": "twitter"
+    }
+  },
+  {
+    "title": "CSR vs SSR",
+    "url": "https://twitter.com/flexdinesh/status/1180313818825576448",
+    "status": "published",
+    "publishDate": "2019-10-05T04:00:00.000Z",
+    "category": {
+      "name": "twitter"
+    }
+  },
+  {
+    "title": "React Round Up: Progressive SSR with Dinesh Pandiyan",
+    "url": "https://www.youtube.com/watch?v=T0gUqhjk1Wc",
+    "status": "published",
+    "publishDate": "2019-10-08T07:00:00.000Z",
+    "category": {
+      "name": "podcast"
+    }
+  }
+]

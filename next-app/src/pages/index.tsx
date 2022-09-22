@@ -1,10 +1,10 @@
 import React from 'react';
-import { HomePage } from '../components/HomePage/HomePage';
+import { HomePage } from '../components/HomePage';
 import { fetchHomepageData } from '../data/homepage';
 import type { HomepageData } from '../data/homepage';
 
-export default function Home(data: HomepageData) {
-  return <HomePage {...data} />;
+export default function Home(homepageData: HomepageData) {
+  return <HomePage {...homepageData} />;
 }
 
 // fetch data from keystone during build-time to generate homepage

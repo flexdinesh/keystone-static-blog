@@ -1,5 +1,5 @@
 import React from 'react';
-import type { HomepageData } from '../../data/homepage';
+import type { HomepageData } from '../../../data/homepage';
 import { ListItem } from './ListItem';
 
 type FlatFeedProps = Pick<HomepageData, 'posts' | 'links'>;
@@ -17,7 +17,7 @@ export function FlatFeed({ posts, links }: FlatFeedProps) {
     <React.Fragment>
       <ul className="list-none mt-8">
         {postOrLinkItems.map(postOrLink => {
-          return <ListItem postOrLink={postOrLink} key={postOrLink.id} />;
+          return <ListItem postOrLink={postOrLink} key={postOrLink.id} showCategoryIcon={true} />;
         })}
       </ul>
     </React.Fragment>

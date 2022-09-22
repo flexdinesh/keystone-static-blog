@@ -3,8 +3,8 @@ import type { BlogpageQuery } from '../.generated/types';
 
 export type BlogpageData = {
   post: NonNullable<BlogpageQuery['post']>;
-  meta: NonNullable<BlogpageQuery['metas']>[number] | null;
-  config: NonNullable<BlogpageQuery['configs']>[number] | null;
+  meta: BlogpageQuery['meta'];
+  config: BlogpageQuery['config'];
 };
 
 export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
@@ -30,10 +30,9 @@ export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
             document
           }
         }
-        metas {
+        meta(where: { uniqueField: "meta" }) {
           __typename
           id
-          email
           title
           about {
             document
@@ -44,7 +43,7 @@ export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
           metaTitle
           metaUrl
         }
-        configs {
+        config(where: { uniqueField: "config" }) {
           __typename
           id
           theme
@@ -58,8 +57,8 @@ export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
   );
 
   const post = data?.post as BlogpageData['post'];
-  const meta = data?.metas?.length ? data?.metas[0] : null;
-  const config = data?.configs?.length ? data?.configs[0] : null;
+  const meta = data?.meta;
+  const config = data?.config;
 
   return {
     post,

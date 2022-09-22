@@ -26,6 +26,7 @@ module.exports = {
           inverted: 'rgb(var(--color-text-inverted) / <alpha-value>)',
         },
         bg: 'rgb(var(--color-bg) / <alpha-value>)',
+        'bg-inverted': 'rgb(var(--color-bg-inverted) / <alpha-value>)',
         link: 'rgb(var(--color-link) / <alpha-value>)',
       },
     },
