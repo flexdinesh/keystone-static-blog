@@ -1,7 +1,7 @@
 import React from 'react';
 import { DocumentRenderer } from '@keystone-6/document-renderer';
 import type { DocumentRendererProps } from '@keystone-6/document-renderer';
-import type { HomepageData } from '../../data/homepage';
+import type { HomepageData } from '../../../data/homepage';
 
 function AboutRenderer({ document }: DocumentRendererProps) {
   return (

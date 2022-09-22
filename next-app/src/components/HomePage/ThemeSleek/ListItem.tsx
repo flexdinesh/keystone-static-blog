@@ -11,8 +11,8 @@ import {
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { faPodcast, faMicrophoneLines } from '@fortawesome/free-solid-svg-icons';
-import type { CategoryNameType } from '../../.generated/types';
-import type { HomepageData } from '../../data/homepage';
+import type { CategoryNameType } from '../../../.generated/types';
+import type { HomepageData } from '../../../data/homepage';
 
 const categoryIcon: Record<CategoryNameType, IconDefinition | null> = {
   blog: null,
