@@ -21,7 +21,7 @@ jobs:
       - name: Abort if env var not found
         env:
           NETLIFY_ID: ${{ secrets.NETLIFY_SITE_ID_SLEEKZ }}
-        if: "${{ env.NETLIFY_ID !== '' }}"
+        if: "${{ env.NETLIFY_ID == '' }}"
         run: exit 1
       - run: yarn
       - run: yarn lint
