@@ -43,13 +43,6 @@ module.exports = {
         'bg-code': 'rgb(var(--color-bg-code) / <alpha-value>)',
         link: 'rgb(var(--color-link) / <alpha-value>)',
       },
-      backgroundImage: {
-        'gradient-underline':
-          'linear-gradient(var(--tw-gradient-from) 60%, var(--tw-gradient-to) 60%)',
-      },
-      backgroundSize: {
-        'gradient-underline': '90% 40%',
-      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

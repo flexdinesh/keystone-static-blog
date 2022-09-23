@@ -65,7 +65,7 @@ async function seedPosts(context: Context) {
     data: postsToCreate.map(p => ({
       ...p,
       content: p?.content?.document,
-      category: p?.category ? { connect: p?.category } : undefined,
+      category: p?.category || undefined,
     })),
   });
 }
@@ -85,7 +85,7 @@ async function seedLinks(context: Context) {
   await db.Link.createMany({
     data: linksToCreate.map(l => ({
       ...l,
-      category: l?.category ? { connect: l?.category } : undefined,
+      category: l?.category || undefined,
     })),
   });
 }

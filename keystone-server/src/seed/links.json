@@ -4,7 +4,9 @@
     "url": "https://medium.com/the-thinkmill/progressive-rendering-the-key-to-faster-web-ebfbbece41a4",
     "status": "published",
     "category": {
-      "name": "medium"
+      "connect": {
+        "name": "medium"
+      }
     },
     "publishDate": "2019-11-11T03:00:00.000Z"
   },
@@ -13,7 +15,9 @@
     "url": "https://twitter.com/flexdinesh/status/1180324978278879232",
     "status": "published",
     "category": {
-      "name": "twitter"
+      "connect": {
+        "name": "twitter"
+      }
     },
     "publishDate": "2019-10-05T03:32:00.000Z"
   },
@@ -22,7 +26,9 @@
     "url": "https://github.com/flexdinesh/design-system-boilerplate",
     "status": "published",
     "category": {
-      "name": "github"
+      "connect": {
+        "name": "github"
+      }
     },
     "publishDate": "2022-02-12T13:00:00.000Z"
   },
@@ -31,7 +37,9 @@
     "url": "https://github.com/flexdinesh/keystone-static-blog",
     "status": "published",
     "category": {
-      "name": "github"
+      "connect": {
+        "name": "github"
+      }
     },
     "publishDate": "2022-09-04T08:00:00.000Z"
   }

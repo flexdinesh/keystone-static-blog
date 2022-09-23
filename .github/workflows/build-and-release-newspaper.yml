@@ -1,0 +1,31 @@
+name: Keystone main branch workflow - Sleek theme
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - keystone-server/**
+      - next-app/**
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      - run: yarn
+      - run: yarn lint
+      - run: THEME=newspaper yarn export:docker
+      # Deploy to Netlify using our production secrets
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=next-app/out --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_NEWSPAPER }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

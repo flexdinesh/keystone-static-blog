@@ -4,7 +4,9 @@
     "slug": "static-blogs-with-keystone",
     "status": "published",
     "category": {
-      "name": "blog"
+      "connect": {
+        "name": "blog"
+      }
     },
     "publishDate": "2022-09-06T10:00:00.000Z",
     "metaDescription": "This is a starter template to build statically generated blog-like websites with Keystone and Next.js. Built by Dinesh Pandiyan.",
@@ -628,7 +630,9 @@
     "slug": "keystone-content-authoring",
     "status": "published",
     "category": {
-      "name": "blog"
+      "connect": {
+        "name": "blog"
+      }
     },
     "publishDate": "2022-09-05T04:00:00.000Z",
     "metaDescription": "",

@@ -18,6 +18,13 @@ function AboutRenderer({ document }: DocumentRendererProps) {
           code({ children }) {
             return <code>{children}</code>;
           },
+          link({ children, href }) {
+            return (
+              <a href={href} target="_blank" className="hover:text-link dark:hover:text-link">
+                {children}
+              </a>
+            );
+          },
         },
       }}
     />
@@ -28,7 +35,13 @@ export function Intro({ meta }: HomepageData) {
   return (
     <React.Fragment>
       <h1 className="text-center dark:text-text-heading text-5xl px-4 pt-4 pb-8">
-        <span className="font-extrabold bg-gradient-underline bg-gradient-to-bl bg-no-repeat bg-[bottom_left] from-primary-400 to-primary-700 dark:from-primary-400 dark:to-primary-700">
+        <span
+          className="
+            font-extrabold 
+            bg-gradient-to-bl bg-no-repeat bg-left-bottom bg-[length:90%_35%]
+            from-primary-400 to-primary-700 dark:from-primary-400 dark:to-primary-700
+          "
+        >
           {meta?.title}
         </span>
       </h1>

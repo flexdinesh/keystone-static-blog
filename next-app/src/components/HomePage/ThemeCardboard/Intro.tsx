@@ -18,6 +18,22 @@ function AboutRenderer({ document }: DocumentRendererProps) {
           code({ children }) {
             return <code>{children}</code>;
           },
+          link({ children, href }) {
+            return (
+              <a href={href} target="_blank">
+                <span
+                  className="
+                    transition-[background-size] duration-300 
+                    bg-gradient-to-r bg-left-bottom bg-no-repeat
+                    bg-[length:0%_55%] hover:bg-[length:100%_55%] dark:bg-[length:0%_2px] hover:dark:bg-[length:100%_2px]
+                    from-primary-200 to-primary-200 dark:from-primary-500 dark:to-primary-500
+                  "
+                >
+                  {children}
+                </span>
+              </a>
+            );
+          },
         },
       }}
     />
@@ -29,8 +45,10 @@ export function Intro({ meta }: HomepageData) {
     <React.Fragment>
       <h1 className="text-center dark:text-text-heading text-5xl px-4 pt-4 pb-8">
         <span
-          className="font-extrabold
-            bg-gradient-underline bg-gradient-to-bl bg-no-repeat bg-[bottom_left] from-primary-300 to-primary-300 dark:from-primary-600 dark:to-primary-600
+          className="
+            font-extrabold
+            bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%]
+            from-primary-300 to-primary-300 dark:from-primary-600 dark:to-primary-600
           "
         >
           {meta?.title}

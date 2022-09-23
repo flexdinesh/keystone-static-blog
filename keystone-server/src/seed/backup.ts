@@ -6,7 +6,7 @@ import { Context } from '.keystone/types';
 async function backupConfig(context: Context) {
   const { query } = context.sudo();
   const configInDatabase = await query.Config.findMany({
-    query: 'theme homepageFeedStyle',
+    query: 'uniqueField theme homepageFeedStyle',
   });
   const json = JSON.stringify(configInDatabase, null, 2);
   fs.writeFileSync(path.join(process.cwd(), './src/seed/config.json'), json, 'utf8');
@@ -16,7 +16,7 @@ async function backupMeta(context: Context) {
   const { query } = context.sudo();
   const metaInDatabase = await query.Meta.findMany({
     query:
-      'email name title about { document } github twitter metaTitle metaDescription metaImageUrl metaImageAltText metaImageWidth metaImageHeight metaUrl',
+      'uniqueField name title about { document } github twitter metaTitle metaDescription metaImageUrl metaImageAltText metaImageWidth metaImageHeight metaUrl',
   });
   const json = JSON.stringify(metaInDatabase, null, 2);
   fs.writeFileSync(path.join(process.cwd(), './src/seed/meta.json'), json, 'utf8');
@@ -37,11 +37,11 @@ async function backupPosts(context: Context) {
     query:
       'title slug status category { name } publishDate metaDescription metaImageUrl metaImageAltText metaImageWidth metaImageHeight content { document }',
   });
-  const postsWithAuthorConnect = postsInDatabase.map(post => ({
+  const postsWithCategoryConnect = postsInDatabase.map(post => ({
     ...post,
-    author: post?.author?.email && { connect: { email: post.author.email } },
+    category: post?.category?.name && { connect: { name: post.category.name } },
   }));
-  const json = JSON.stringify(postsWithAuthorConnect, null, 2);
+  const json = JSON.stringify(postsWithCategoryConnect, null, 2);
   fs.writeFileSync(path.join(process.cwd(), './src/seed/posts.json'), json, 'utf8');
 }
 
@@ -50,11 +50,11 @@ async function backupLinks(context: Context) {
   const linksInDatabase = await query.Link.findMany({
     query: 'title url status category { name } publishDate',
   });
-  const linksWithAuthorConnect = linksInDatabase.map(link => ({
+  const linksWithCategoryConnect = linksInDatabase.map(link => ({
     ...link,
-    author: link?.author?.email && { connect: { email: link.author.email } },
+    category: link?.category?.name && { connect: { name: link.category.name } },
   }));
-  const json = JSON.stringify(linksWithAuthorConnect, null, 2);
+  const json = JSON.stringify(linksWithCategoryConnect, null, 2);
   fs.writeFileSync(path.join(process.cwd(), './src/seed/links.json'), json, 'utf8');
 }
 

@@ -20,6 +20,13 @@ function AboutRenderer({ document }: DocumentRendererProps) {
           code({ children }) {
             return <code>{children}</code>;
           },
+          link({ children, href }) {
+            return (
+              <a href={href} target="_blank" className="hover:text-link dark:hover:text-link">
+                {children}
+              </a>
+            );
+          },
         },
       }}
     />

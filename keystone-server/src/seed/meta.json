@@ -9,7 +9,43 @@
           "type": "paragraph",
           "children": [
             {
-              "text": "Hello! Welcome to my blog. This is a template to build your own static blogs using Keystone. Two themes available - sleek and newspaper."
+              "text": "Hello! Welcome to my blog. This is a template to build your own static blogs using Keystone. Available in three themes - "
+            },
+            {
+              "type": "link",
+              "href": "https://sleekstaticblogswithkeystone.netlify.app",
+              "children": [
+                {
+                  "text": "sleek"
+                }
+              ]
+            },
+            {
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "href": "https://newspaperstaticblogswithkeystone.netlify.app",
+              "children": [
+                {
+                  "text": "newspaper"
+                }
+              ]
+            },
+            {
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "href": "https://cardboardstaticblogswithkeystone.netlify.app",
+              "children": [
+                {
+                  "text": "cardboard"
+                }
+              ]
+            },
+            {
+              "text": "."
             }
           ]
         }

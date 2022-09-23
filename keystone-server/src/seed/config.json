@@ -2,6 +2,6 @@
   {
     "uniqueField": "config",
     "theme": "newspaper",
-    "homepageFeedStyle": "flat"
+    "homepageFeedStyle": "grouped"
   }
 ]
