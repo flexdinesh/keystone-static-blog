@@ -1,5 +1,5 @@
 import { fetchGraphQL, gql } from '../graphql';
-import type { HomepageQuery } from '../.generated/types';
+import type { HomepageQuery, ConfigThemeType } from '../.generated/types';
 
 export type HomepageData = {
   posts: NonNullable<HomepageQuery['posts']>;
@@ -77,6 +77,12 @@ export async function fetchHomepageData(): Promise<HomepageData> {
   const categories = data?.categories || [];
   const meta = data?.meta;
   const config = data?.config;
+
+  // Just to build all themes for demo
+  // Remove this if forked the repo
+  if (typeof process.env.THEME === 'string' && config) {
+    config.theme = process.env.THEME as ConfigThemeType;
+  }
 
   return {
     posts,

@@ -1,5 +1,5 @@
 import { fetchGraphQL, gql } from '../graphql';
-import type { BlogpageQuery } from '../.generated/types';
+import type { BlogpageQuery, ConfigThemeType } from '../.generated/types';
 
 export type BlogpageData = {
   post: NonNullable<BlogpageQuery['post']>;
@@ -59,6 +59,12 @@ export async function fetchBlogpageData(slug: string): Promise<BlogpageData> {
   const post = data?.post as BlogpageData['post'];
   const meta = data?.meta;
   const config = data?.config;
+
+  // Just to build all themes for demo
+  // Remove this if forked the repo
+  if (typeof process.env.THEME === 'string' && config) {
+    config.theme = process.env.THEME as ConfigThemeType;
+  }
 
   return {
     post,
