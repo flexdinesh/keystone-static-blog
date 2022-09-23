@@ -14,7 +14,12 @@ export function HomePage(homepageData: HomepageData) {
   return (
     <React.Fragment>
       <HomePageSeo meta={meta} />
-      <PageLayout className="grid grid-rows-[1fr_auto]">
+      <PageLayout
+        className="
+            grid grid-rows-[1fr_auto] py-4
+            bg-bg border-primary-900 border-0 rounded-sm
+          "
+      >
         <main className="lg:text-lg">
           <header className="grid auto-rows-auto pb-2">
             <Nav theme={config?.theme} />

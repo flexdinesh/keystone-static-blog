@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Prism from '../../../components/PrismScript/prism';
 import { BlogPageSeo } from '../BlogPageSeo';
 import { PageLayout } from '../../Layout/PageLayout';
-import { Footer } from '../../Footer/Footer';
+import { Footer } from '../../Footer';
 import { Nav } from '../../Nav';
 import { PostRenderer } from './DocumentRenderer/DocumentRenderer';
 import type { BlogpageData } from '../../../data/blogpage';
@@ -46,7 +46,7 @@ export function BlogPage(blogpageData: BlogpageData) {
             <PostRenderer document={post.content?.document} />
           </article>
         </main>
-        <Footer />
+        <Footer theme={config?.theme} />
       </PageLayout>
     </React.Fragment>
   );

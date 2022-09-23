@@ -10,12 +10,12 @@ function SunMoon({ mode }: { mode: 'dark' | 'light' }) {
         ${
           mode === 'dark'
             ? 'translate-x-6 from-primary-500 to-primary-500'
-            : 'translate-x-1 from-primary-800 to-primary-600'
+            : 'translate-x-1 from-[#fcd34d] to-[#fcd34d]'
         }
         `}
     >
       <span
-        className={`absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-gray-700
+        className={`absolute top-0 right-0 w-[10px] h-[10px] rounded-full bg-white
           ${mode === 'dark' ? 'scale-[1]' : 'scale-[0]'}
           `}
       ></span>
@@ -31,13 +31,11 @@ function SunMoon({ mode }: { mode: 'dark' | 'light' }) {
 export function DarkModeToggle() {
   const { mode, toggleMode } = useDarkMode();
 
-  const bgColor =
-    mode === null ? 'bg-transparent' : mode === 'dark' ? 'bg-gray-700' : 'bg-gray-200';
   return (
     <Switch
       checked={mode === 'dark'}
       onChange={toggleMode}
-      className={`${bgColor} ml-4 inline-flex h-6 w-11 items-center rounded-full`}
+      className="bg-transparent bg-black dark:bg-white ml-4 inline-flex h-6 w-11  items-center rounded-full"
     >
       <span className="sr-only">Toggle dark mode</span>
       {mode === null ? null : <SunMoon mode={mode} />}

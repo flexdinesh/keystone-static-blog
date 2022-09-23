@@ -50,8 +50,8 @@ export function BlogPage(blogpageData: BlogpageData) {
               <h1 className="!mb-0 pb-4 !leading-[1.2em]">
                 <span
                   className="
-                    before:mb-8 before:content-[''] before:block before:h-[1px] before:w-[100%] before:border-b-[1px] before:border-current
-                    after:mt-8 after:content-[''] after:block after:h-[1px] after:w-[100%] after:border-b-[1px] after:border-current
+                    relative block pl-10 leading-[150%]
+                    after:absolute after:content-[''] after:w-4 after:h-full after:top-0 after:left-0 after:bg-secondary-400
                     "
                 >
                   {post.title}

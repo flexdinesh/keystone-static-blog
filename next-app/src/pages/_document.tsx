@@ -25,7 +25,14 @@ export default function Document(props: any) {
         />
       </Fragment>
     ),
-    cardboard: null,
+    cardboard: (
+      <Fragment>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:ital,wght@0,400;0,700;0,800;1,400;1,700&display=block"
+          rel="stylesheet"
+        />
+      </Fragment>
+    ),
   };
 
   return (

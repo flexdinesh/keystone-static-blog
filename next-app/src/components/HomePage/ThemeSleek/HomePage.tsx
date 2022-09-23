@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomePageSeo } from '../HomePageSeo';
 import { PageLayout } from '../../Layout/PageLayout';
-import { Footer } from '../../Footer/Footer';
+import { Footer } from '../../Footer';
 import type { HomepageData } from '../../../data/homepage';
 import { Nav } from '../../Nav';
 import { Intro } from './Intro';
@@ -26,7 +26,7 @@ export function HomePage(homepageData: HomepageData) {
             <FlatFeed posts={posts} links={links} />
           )}
         </main>
-        <Footer />
+        <Footer theme={config?.theme} />
       </PageLayout>
     </React.Fragment>
   );

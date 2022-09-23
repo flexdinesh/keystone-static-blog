@@ -3,13 +3,14 @@ import { ConfigThemeType } from '../../.generated/types';
 import type { HomepageData } from '../../data/homepage';
 import { HomePage as ThemeSleekHomePage } from './ThemeSleek/HomePage';
 import { HomePage as ThemeNewspaperHomePage } from './ThemeNewspaper/HomePage';
+import { HomePage as ThemeCardboardHomePage } from './ThemeCardboard/HomePage';
 
 type RC = typeof ThemeSleekHomePage;
 
 const themeToPage: Record<ConfigThemeType, RC> = {
   sleek: ThemeSleekHomePage,
   newspaper: ThemeNewspaperHomePage,
-  cardboard: ThemeNewspaperHomePage,
+  cardboard: ThemeCardboardHomePage,
 };
 
 export function HomePage(homepageData: HomepageData) {

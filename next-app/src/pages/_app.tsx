@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import '../styles/theme-sleek.css';
 import '../styles/theme-newspaper.css';
+import '../styles/theme-cardboard.css';
 import '../styles/prism-customised.css';
 /* 
   We import the styles here to prevent 
