@@ -12,7 +12,7 @@ export default function Document(props: any) {
     sleek: (
       <Fragment>
         <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=block"
+          href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=block"
           rel="stylesheet"
         />
       </Fragment>

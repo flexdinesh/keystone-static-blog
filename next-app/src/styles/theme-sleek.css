@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .theme-sleek {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     --color-primary-50: 255 249 219;
     --color-primary-100: 255 243 191;
     --color-primary-200: 255 236 153;

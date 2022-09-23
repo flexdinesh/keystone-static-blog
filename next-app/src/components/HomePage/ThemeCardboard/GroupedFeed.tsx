@@ -58,7 +58,7 @@ export function GroupedFeed({ posts, links, categories }: GroupedFeedProps) {
 
         return (
           <React.Fragment key={category.name}>
-            <h2 className="font-semibold text-4xl mt-12 mb-8 leading-[1.3]">
+            <h2 className="font-bold text-4xl mt-12 mb-8 leading-[1.3]">
               <span
                 className="
                   block pl-8 relative leading-[150%]
