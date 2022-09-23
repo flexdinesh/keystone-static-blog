@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: 16
           cache: yarn
+      - name: Abort if env var not found
+        env:
+          NETLIFY_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        if: "${{ env.NETLIFY_ID == '' }}"
+        run: exit 1
       - run: yarn
       - run: yarn lint
       - run: yarn export:docker
