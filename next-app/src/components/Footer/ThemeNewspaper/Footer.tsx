@@ -7,13 +7,31 @@ export function Footer() {
       <div className=" text-sm font-medium">
         Built with{' '}
         <Link href="https://keystonejs.com/" target={'_blank'}>
-          <a className="animated-underline tracking-wider font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-white hover:after:bg-gradient-to-r hover:after:from-white hover:after:to-white">
+          <a
+            className="
+              tracking-wider font-semibold
+              animated-underline 
+              bg-clip-text text-transparent bg-gradient-to-r 
+              from-[#1476ff] to-[#1476ff] dark:from-[#00abda] dark:to-[#00abda]
+              hover:after:bg-gradient-to-r 
+              hover:after:from-[#1476ff] hover:after:to-[#1476ff] hover:after:dark:from-[#00abda] hover:after:dark:to-[#00abda]
+            "
+          >
             Keystone
           </a>
         </Link>{' '}
         and{' '}
         <Link href="https://nextjs.org/" target={'_blank'}>
-          <a className="animated-underline tracking-wider font-semibold bg-clip-text text-transparent bg-gradient-to-r from-white to-white hover:after:bg-gradient-to-r hover:after:from-white hover:after:to-white">
+          <a
+            className="
+              tracking-wider font-semibold
+              animated-underline  
+              bg-clip-text text-transparent bg-gradient-to-r 
+              from-[#7928ca] to-[#7928ca] dark:from-[#ff0080] dark:to-[#ff0080]
+              hover:after:bg-gradient-to-r 
+              hover:after:from-[#7928ca] hover:after:to-[#7928ca] hover:after:dark:from-[#ff0080] hover:after:dark:to-[#ff0080]
+            "
+          >
             Next.js
           </a>
         </Link>{' '}

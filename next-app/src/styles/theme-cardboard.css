@@ -39,7 +39,7 @@
     /* primary-100 */
     --color-bg-code: 254 243 199;
 
-    --color-link: 51 154 240;
+    --color-link: 34 211 238;
 }
 
 .theme-cardboard.dark {
@@ -78,5 +78,5 @@
     /* primary-900 */
     --color-bg-code: 24 24 27;
 
-    --color-link: 51 154 240;
+    --color-link: 103 232 249;
 }

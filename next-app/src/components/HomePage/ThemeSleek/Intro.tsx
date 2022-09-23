@@ -20,8 +20,18 @@ function AboutRenderer({ document }: DocumentRendererProps) {
           },
           link({ children, href }) {
             return (
-              <a href={href} target="_blank" className="hover:text-link dark:hover:text-link">
-                {children}
+              <a href={href} target="_blank">
+                <span
+                  className="
+                    hover:text-link hover:dark:text-link
+                    bg-gradient-to-r bg-left-bottom bg-no-repeat
+                    bg-[length:100%_1.5px] hover:bg-[length:100%_1.5px] dark:bg-[length:100%_1.5px] hover:dark:bg-[length:100%_1.5px]
+                    from-link to-link 
+                    dark:from-link dark:to-link
+                  "
+                >
+                  {children}
+                </span>
               </a>
             );
           },
@@ -38,7 +48,7 @@ export function Intro({ meta }: HomepageData) {
         <span
           className="
             font-extrabold 
-            bg-gradient-to-bl bg-no-repeat bg-left-bottom bg-[length:90%_35%]
+            bg-gradient-to-bl bg-no-repeat bg-left-bottom bg-[length:90%_30%]
             from-primary-400 to-primary-700 dark:from-primary-400 dark:to-primary-700
           "
         >

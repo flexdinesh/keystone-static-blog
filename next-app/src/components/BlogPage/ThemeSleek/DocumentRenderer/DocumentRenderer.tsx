@@ -39,6 +39,23 @@ const defaultElementRenderers: DocumentRendererProps['renderers'] = {
         </code>
       );
     },
+    link({ children, href }) {
+      return (
+        <a className="!no-underline" href={href}>
+          <span
+            className="
+              hover:text-link hover:dark:text-link
+              bg-gradient-to-r bg-left-bottom bg-no-repeat
+              bg-[length:100%_1.5px] hover:bg-[length:100%_1.5px] dark:bg-[length:100%_1.5px] hover:dark:bg-[length:100%_1.5px]
+              from-link to-link 
+              dark:from-link dark:to-link
+            "
+          >
+            {children}
+          </span>
+        </a>
+      );
+    },
   },
 };
 

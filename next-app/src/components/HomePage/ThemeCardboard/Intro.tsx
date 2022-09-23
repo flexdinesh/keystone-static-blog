@@ -23,10 +23,11 @@ function AboutRenderer({ document }: DocumentRendererProps) {
               <a href={href} target="_blank">
                 <span
                   className="
-                    transition-[background-size] duration-300 
+                    hover:text-link hover:dark:text-link
                     bg-gradient-to-r bg-left-bottom bg-no-repeat
-                    bg-[length:0%_55%] hover:bg-[length:100%_55%] dark:bg-[length:0%_2px] hover:dark:bg-[length:100%_2px]
-                    from-primary-200 to-primary-200 dark:from-primary-500 dark:to-primary-500
+                    bg-[length:100%_2px] hover:bg-[length:100%_2px] dark:bg-[length:100%_2px] hover:dark:bg-[length:100%_2px]
+                    from-link to-link 
+                    dark:from-link dark:to-link
                   "
                 >
                   {children}

@@ -18,7 +18,12 @@ const defaultElementRenderers: DocumentRendererProps['renderers'] = {
       const HeadingTag = `h${level}` as const;
       return (
         <HeadingTag style={{ textAlign }}>
-          <span className="after:mt-6 after:content-[''] after:block after:h-[1px] after:w-[100%] after:border-b-[1px] after:border-current">
+          <span
+            className="
+              relative block pl-10 leading-[150%]
+              after:absolute after:content-[''] after:w-3 after:h-full after:top-0 after:left-0 after:bg-secondary-400
+            "
+          >
             {children}
           </span>
         </HeadingTag>
@@ -50,10 +55,11 @@ const defaultElementRenderers: DocumentRendererProps['renderers'] = {
         <a className="!no-underline" href={href}>
           <span
             className="
-              text-link
-              transition-[background-size] duration-300
-              bg-left-bottom bg-[length:0%_2px] hover:bg-[length:100%_2px] bg-no-repeat
-              bg-gradient-to-t from-link to-link dark:from-link dark:to-link
+              hover:text-link hover:dark:text-link
+              bg-gradient-to-r bg-left-bottom bg-no-repeat
+              bg-[length:100%_2px] hover:bg-[length:100%_2px] dark:bg-[length:100%_2px] hover:dark:bg-[length:100%_2px]
+              from-link to-link 
+              dark:from-link dark:to-link
             "
           >
             {children}

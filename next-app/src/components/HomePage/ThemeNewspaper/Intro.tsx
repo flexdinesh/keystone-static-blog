@@ -22,7 +22,17 @@ function AboutRenderer({ document }: DocumentRendererProps) {
           },
           link({ children, href }) {
             return (
-              <a href={href} target="_blank" className="hover:text-link dark:hover:text-link">
+              <a
+                href={href}
+                target="_blank"
+                className="
+                    hover:text-link hover:dark:text-link
+                    bg-gradient-to-r bg-left-bottom bg-no-repeat
+                    bg-[length:100%_2px] hover:bg-[length:100%_2px] dark:bg-[length:100%_2px] hover:dark:bg-[length:100%_2px]
+                    from-link to-link 
+                    dark:from-link dark:to-link
+                  "
+              >
                 {children}
               </a>
             );
