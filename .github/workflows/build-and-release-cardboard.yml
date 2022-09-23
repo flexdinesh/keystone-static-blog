@@ -1,4 +1,4 @@
-name: Keystone main branch workflow - Sleek theme
+name: Keystone main branch workflow - Cardboard theme
 
 on:
   push:
@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: 16
           cache: yarn
+      - name: Abort if env var not found
+        env:
+        NETLIFY_ID: ${{ secrets.NETLIFY_SITE_ID_CARDBOARDZ }}
+        if: "${{ env.NETLIFY_ID !== '' }}"
+        run: exit 1
       - run: yarn
       - run: yarn lint
       - run: THEME=cardboard yarn export:docker
