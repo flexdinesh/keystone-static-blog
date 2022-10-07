@@ -35,9 +35,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "kill-port": "^2.0.1",
     "prettier": "^2.7.1",
-    "wait-on": "^6.0.1"
-  },
-  "dependencies": {
+    "wait-on": "^6.0.1",
     "yargs": "^17.6.0"
+  },
+  "resolutions": {
+    "next": "12.2.4"
   }
 }
