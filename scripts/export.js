@@ -1,4 +1,21 @@
 const concurrently = require('concurrently');
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
+const argv = yargs(hideBin(process.argv)).argv;
+
+const templateDirectories = {
+  sleek: 'blog-sleek',
+  newspaper: 'blog-newspaper',
+  cardboard: 'blog-cardboard',
+};
+
+let templateDirectory = templateDirectories.sleek; // default
+if (argv.theme) {
+  templateDirectory = templateDirectories[argv.theme];
+  console.log(`Exporting template: ${templateDirectory}`);
+}
+
+const exportCommand = `yarn workspace ${templateDirectory} clean && yarn workspace ${templateDirectory} export`;
 
 if (process.argv.includes('--docker')) {
   const { result } = concurrently(
@@ -10,7 +27,7 @@ if (process.argv.includes('--docker')) {
       },
       {
         command:
-          'wait-on http://localhost:3000 && yarn export:app && yarn keystone:docker:kill && wait-on -r http://localhost:3000',
+          `wait-on http://localhost:3000 && ${exportCommand} && yarn keystone:docker:kill && wait-on -r http://localhost:3000`,
         name: 'BUILD-AND-KILL',
         prefixColor: 'magenta',
       },
@@ -37,7 +54,7 @@ if (process.argv.includes('--docker')) {
     [
       { command: 'yarn start:keystone', name: 'KEYSTONE', prefixColor: 'green' },
       {
-        command: 'wait-on http://localhost:3000 && yarn export:app && yarn kill:keystone',
+        command: `wait-on http://localhost:3000 && ${exportCommand} && yarn kill:keystone`,
         name: 'BUILD-AND-KILL',
         prefixColor: 'magenta',
       },

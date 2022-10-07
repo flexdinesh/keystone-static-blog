@@ -1,7 +1,7 @@
 # Static Blogs with Keystone
 
 <p align="center">
-    <img src="next-app/public/images/meta-image.png" alt="Static Blogs with Keystone" width="75%"/>
+    <img src="blog-sleek/public/images/meta-image.png" alt="Static Blogs with Keystone" width="75%"/>
 </p>
 
 This is a starter template to build statically generated blog-like websites with [Keystone](https://keystonejs.com/) and [Next.js](https://nextjs.org/). The template is built with and styled using [Tailwind's configuration based theme](https://tailwindcss.com/docs/theme) which makes it easy to extend and customise it.
@@ -43,13 +43,13 @@ Keystone's document editor stands out in a handful of ways over MDX based conten
 
 ## Getting started
 
-The project is a monorepo with Keystone server in `keystone-server` workspace and the next frontend in `next-app` workspace.
+The project is a monorepo with Keystone server in `keystone-server` workspace and the next frontend in `blog-sleek` (any `blog-{theme}`) workspace.
 
-1. `yarn` at project root installs the dependencies for both the server and the frontend app.
+1. `yarn` at project root installs the dependencies for the server and all theme templates.
 
-2. `yarn dev` at project root starts the Keystone server at http://localhost:3000 and the next app at http://localhost:8000
+2. `yarn dev` at project root starts the Keystone server at http://localhost:3000 and the sleek template at http://localhost:8000
 
-_You can alternatively open two terminal tabs and run yarn dev individually within `keystone-server` and `next-app` directories_.
+_Recommended approach is to open two terminal tabs and run yarn dev individually within `keystone-server` and `blog-sleek` (any `blog-{theme}`)  directories_.
 
 ### Authoring content
 
@@ -63,9 +63,9 @@ Open your keystone admin dashboard locally at http://localhost:3000 and start au
 
 Once your content is ready, keep the keystone server running and open the Next.js app at http://localhost:8000.
 
-- Generate your blog by running `yarn export`. This will export your website in `next-app/out` directory.
+- Generate your blog by running `yarn export`. This will export your website in `blog-sleek/out` directory.
 
-- You can check out your generated content locally by running `yarn serve` in `next-app` dir.
+- You can check out your generated content locally by running `yarn serve` in `blog-sleek` dir.
 
 ### Deploying
 
@@ -73,11 +73,11 @@ The generated website is just a bunch of html, js and css files. You can host it
 
 **1. Build in local and push the built files to your repo**
 
-You can run `yarn export` in your local environment and it will export the static website to `next-app/out` dir. You can just commit these static files and ask your CI to deploy these files. _Eg. If you're using Netlify, you'll tell Netlify that just publish the files in `next-app/out` dir on every new commit to the repo. Check netlify.toml file for more info on how to do it._
+You can run `yarn export` in your local environment and it will export the static website to `blog-sleek/out` dir. You can just commit these static files and ask your CI to deploy these files. _Eg. If you're using Netlify, you'll tell Netlify that just publish the files in `blog-sleek/out` dir on every new commit to the repo. Check netlify.toml file for more info on how to do it._
 
 **2. Build in CI**
 
-You can choose to automate your deploy process by building your website in a CI. There's a limitation with this though. During build, the content is fetched from a running local keystone server. Not all static hosting CI's support running a local server. So the build process needs to be dockerised. You will need to run `yarn export:docker` to build your website in a docker environment. But remember not all CIs support docker either. So if your CI supports docker, you can just run `yarn export:docker` in your CI and the site will be exported at `next-app/out` dir. If your CI doesn't support docker (_like Netlify where this template is hosted_) you could use GitHub Actions to build your website in GitHub's CI and publish it to your hosting using their CLI. Eg. This template is hosted in Netlify, so there's a GitHub action at [.github/workflows/build-and-release.yml](.github/workflows/build-and-release.yml) that builds the website on every push to main and deploys to Netlify using Netlify's CLI.
+You can choose to automate your deploy process by building your website in a CI. There's a limitation with this though. During build, the content is fetched from a running local keystone server. Not all static hosting CI's support running a local server. So the build process needs to be dockerised. You will need to run `yarn export:docker` to build your website in a docker environment. But remember not all CIs support docker either. So if your CI supports docker, you can just run `yarn export:docker` in your CI and the site will be exported at `blog-sleek/out` dir. If your CI doesn't support docker (_like Netlify where this template is hosted_) you could use GitHub Actions to build your website in GitHub's CI and publish it to your hosting using their CLI. Eg. This template is hosted in Netlify, so there's a GitHub action at [.github/workflows/build-and-release.yml](.github/workflows/build-and-release.yml) that builds the website on every push to main and deploys to Netlify using Netlify's CLI.
 
 ## Where do I deploy?
 

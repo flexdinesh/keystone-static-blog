@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .animated-underline {
+        position: relative;
+        box-decoration-break: clone;
+        text-decoration: none;
+    }
+
+    .animated-underline:hover:after {
+        transform: translateZ(0) scale(1);
+    }
+
+    .animated-underline:after {
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        content: "";
+        height: 2px;
+        position: absolute;
+        transform: translateZ(0) scaleX(0);
+        transform-origin: left center;
+        transition: all .150s ease-in-out;
+    }
+}

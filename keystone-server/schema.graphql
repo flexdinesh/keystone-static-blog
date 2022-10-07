@@ -4,14 +4,7 @@
 type Config {
   id: ID!
   uniqueField: String
-  theme: ConfigThemeType!
   homepageFeedStyle: ConfigHomepageFeedStyleType!
-}
-
-enum ConfigThemeType {
-  sleek
-  newspaper
-  cardboard
 }
 
 enum ConfigHomepageFeedStyleType {
@@ -30,7 +23,6 @@ input ConfigWhereInput {
   NOT: [ConfigWhereInput!]
   id: IDFilter
   uniqueField: StringFilter
-  theme: ConfigThemeTypeNullableFilter
   homepageFeedStyle: ConfigHomepageFeedStyleTypeNullableFilter
 }
 
@@ -73,13 +65,6 @@ input NestedStringFilter {
   not: NestedStringFilter
 }
 
-input ConfigThemeTypeNullableFilter {
-  equals: ConfigThemeType
-  in: [ConfigThemeType!]
-  notIn: [ConfigThemeType!]
-  not: ConfigThemeTypeNullableFilter
-}
-
 input ConfigHomepageFeedStyleTypeNullableFilter {
   equals: ConfigHomepageFeedStyleType
   in: [ConfigHomepageFeedStyleType!]
@@ -90,7 +75,6 @@ input ConfigHomepageFeedStyleTypeNullableFilter {
 input ConfigOrderByInput {
   id: OrderDirection
   uniqueField: OrderDirection
-  theme: OrderDirection
   homepageFeedStyle: OrderDirection
 }
 
@@ -101,7 +85,6 @@ enum OrderDirection {
 
 input ConfigUpdateInput {
   uniqueField: String
-  theme: ConfigThemeType
   homepageFeedStyle: ConfigHomepageFeedStyleType
 }
 
@@ -112,7 +95,6 @@ input ConfigUpdateArgs {
 
 input ConfigCreateInput {
   uniqueField: String
-  theme: ConfigThemeType! = sleek
   homepageFeedStyle: ConfigHomepageFeedStyleType! = flat
 }
 

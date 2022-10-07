@@ -25,24 +25,6 @@ export const Config = list({
         },
       },
     }),
-    theme: select({
-      validation: { isRequired: true },
-      graphql: {
-        read: {
-          isNonNull: true,
-        },
-        create: {
-          isNonNull: true,
-        },
-      },
-      type: 'enum',
-      options: [
-        { label: 'Sleek', value: 'sleek' },
-        { label: 'Newspaper', value: 'newspaper' },
-        { label: 'Cardboard', value: 'cardboard' },
-      ],
-      defaultValue: 'sleek',
-    }),
     homepageFeedStyle: select({
       validation: { isRequired: true },
       graphql: {

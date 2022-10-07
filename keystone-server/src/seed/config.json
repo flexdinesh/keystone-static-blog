@@ -1,7 +1,6 @@
 [
   {
     "uniqueField": "config",
-    "theme": "newspaper",
     "homepageFeedStyle": "grouped"
   }
 ]

@@ -10,7 +10,7 @@
     },
     "publishDate": "2022-09-06T10:00:00.000Z",
     "metaDescription": "This is a starter template to build statically generated blog-like websites with Keystone and Next.js. Built by Dinesh Pandiyan.",
-    "metaImageUrl": "https://raw.githubusercontent.com/flexdinesh/keystone-static-blog/main/next-app/public/images/meta-image.png",
+    "metaImageUrl": "https://raw.githubusercontent.com/flexdinesh/keystone-static-blog/main/blog-sleek/public/images/meta-image.png",
     "metaImageAltText": "Banner image with graphics describing that static blogs could be built with Keystone and Next.js",
     "metaImageWidth": "",
     "metaImageHeight": "",
@@ -20,7 +20,7 @@
           "type": "component-block",
           "component": "hero",
           "props": {
-            "imageSrc": "https://raw.githubusercontent.com/flexdinesh/keystone-static-blog/main/next-app/public/images/meta-image.png",
+            "imageSrc": "https://raw.githubusercontent.com/flexdinesh/keystone-static-blog/main/blog-sleek/public/images/meta-image.png",
             "caption": {
               "discriminant": true,
               "value": null

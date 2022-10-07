@@ -7,11 +7,13 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "next-app",
-    "keystone-server"
+    "keystone-server",
+    "blog-sleek",
+    "blog-newspaper",
+    "blog-cardboard"
   ],
   "scripts": {
-    "dev": "concurrently --names \"SERVER,APP\" -c \"magenta.bold,green.bold\" \"cd keystone-server && yarn dev\" \"cd next-app && yarn dev\"",
+    "dev": "concurrently --names \"SERVER,APP\" -c \"magenta.bold,green.bold\" \"cd keystone-server && yarn dev\" \"cd blog-sleek && yarn dev\"",
     "lint": "eslint . --ext .ts --ext .tsx",
     "lint:fix": "eslint . --ext .ts --ext .tsx --fix",
     "keystone:docker:build": "docker build -t keystone-server -f keystone-server/Dockerfile .",
@@ -19,7 +21,6 @@
     "keystone:docker:kill": "docker kill $(docker ps -q)",
     "start:keystone": "cd keystone-server && yarn build && yarn start",
     "kill:keystone": "kill-port --port 3000",
-    "export:app": "cd next-app && yarn clean && yarn export",
     "export:docker": "node scripts/export.js --docker",
     "export": "node scripts/export.js"
   },
@@ -35,5 +36,8 @@
     "kill-port": "^2.0.1",
     "prettier": "^2.7.1",
     "wait-on": "^6.0.1"
+  },
+  "dependencies": {
+    "yargs": "^17.6.0"
   }
 }

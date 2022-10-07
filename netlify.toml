@@ -3,6 +3,6 @@
   YARN_FLAGS = "--version" # prevent Netlify npm install
 
 [build]
-  base = "next-app/out/"
-  publish = "next-app/out/"
+  base = "blog-sleek/out/"
+  publish = "blog-sleek/out/"
   # command = "yarn export"

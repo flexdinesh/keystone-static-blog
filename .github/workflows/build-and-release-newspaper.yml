@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - keystone-server/**
-      - next-app/**
+      - blog-newspaper/**
 
 jobs:
   build-and-release:
@@ -25,12 +25,12 @@ jobs:
         run: exit 1
       - run: yarn
       - run: yarn lint
-      - run: THEME=newspaper yarn export:docker
+      - run: yarn export:docker --theme=newspaper
       # Deploy to Netlify using our production secrets
       - name: Deploy to Netlify
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=next-app/out --prod
+          args: deploy --dir=blog-newspaper/out --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_NEWSPAPER }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
