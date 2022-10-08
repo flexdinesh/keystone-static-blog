@@ -6,7 +6,7 @@ import { Context } from '.keystone/types';
 async function backupConfig(context: Context) {
   const { query } = context.sudo();
   const configInDatabase = await query.Config.findMany({
-    query: 'uniqueField theme homepageFeedStyle',
+    query: 'uniqueField homepageFeedStyle',
   });
   const json = JSON.stringify(configInDatabase, null, 2);
   fs.writeFileSync(path.join(process.cwd(), './src/seed/config.json'), json, 'utf8');

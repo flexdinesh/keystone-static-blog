@@ -1,7 +1,16 @@
 -- CreateTable
+CREATE TABLE "Config" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "uniqueField" TEXT NOT NULL DEFAULT 'config',
+    "homepageFeedStyle" TEXT NOT NULL DEFAULT 'flat'
+);
+
+-- CreateTable
 CREATE TABLE "Meta" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "email" TEXT NOT NULL DEFAULT '',
+    "uniqueField" TEXT NOT NULL DEFAULT 'meta',
+    "title" TEXT NOT NULL DEFAULT '',
+    "about" TEXT NOT NULL DEFAULT '[{"type":"paragraph","children":[{"text":""}]}]',
     "name" TEXT NOT NULL DEFAULT '',
     "github" TEXT NOT NULL DEFAULT '',
     "twitter" TEXT NOT NULL DEFAULT '',
@@ -49,7 +58,10 @@ CREATE TABLE "Category" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Meta_email_key" ON "Meta"("email");
+CREATE UNIQUE INDEX "Config_uniqueField_key" ON "Config"("uniqueField");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Meta_uniqueField_key" ON "Meta"("uniqueField");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Post_slug_key" ON "Post"("slug");
