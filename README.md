@@ -9,6 +9,18 @@ This is a starter template to build statically generated blog-like websites with
 > Check it out here — [Static Blogs with Keystone](https://staticblogswithkeystone.netlify.app).
 
 
+## Getting started
+
+The project is a monorepo with Keystone server in `keystone-server` workspace and the next frontend in `blog-sleek` (any `blog-{theme}`) workspace.
+
+You will need to have [yarn MacOS install using Homebrew](https://formulae.brew.sh/formula/yarn) installed in your machine to get started.
+
+1. `yarn` at project root installs the dependencies for the server and all theme templates.
+
+2. `yarn dev` at project root starts the Keystone server at http://localhost:3000 and the sleek template at http://localhost:8000
+
+_Recommended approach is to open two terminal tabs and run yarn dev individually within `keystone-server` and `blog-sleek` (any `blog-{theme}`)  directories_.
+
 ## How does it work?
 
 The short version is that the blog is entirely generated during build-time using Next.js static site generation and the content for the blog is made available during build-time using Keystone's powerful content server along with the magic of zero configuration file-system based SQLite database.
@@ -40,18 +52,6 @@ Keystone's document editor stands out in a handful of ways over MDX based conten
 - Multi-column layouts for your content.
 
 - And more. Keystone's document editor is friggin' fantastic.
-
-## Getting started
-
-The project is a monorepo with Keystone server in `keystone-server` workspace and the next frontend in `blog-sleek` (any `blog-{theme}`) workspace.
-
-You will need to have [yarn MacOS install using Homebrew](https://formulae.brew.sh/formula/yarn) installed in your machine to get started.
-
-1. `yarn` at project root installs the dependencies for the server and all theme templates.
-
-2. `yarn dev` at project root starts the Keystone server at http://localhost:3000 and the sleek template at http://localhost:8000
-
-_Recommended approach is to open two terminal tabs and run yarn dev individually within `keystone-server` and `blog-sleek` (any `blog-{theme}`)  directories_.
 
 ### Authoring content
 
@@ -106,7 +106,6 @@ The repo is setup with GitHub actions to auto deploy your blog to Netlify after 
 5. Go back to GitHub repo _Settings -> Secrets -> Actions_ and add a new Repository Secret with name _NETLIFY\_SITE\_ID_ and paste the value your copied from step 4.
 
 You're all done now. Every time you commit a change to your repo GitHub actions will automatically deploy to your Netlify site. By default the action `.github/workflows/build-and-release.yml` will deploy `blog-sleek` but you can change it to whatever theme you want by editing the file. You can delete the other `.github/workflows/build-and-release-{theme}.yml` files because they are there only for demo purposes of the template repo.
-
 
 ## License
 
