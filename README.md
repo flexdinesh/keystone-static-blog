@@ -107,6 +107,18 @@ The repo is setup with GitHub actions to auto deploy your blog to Netlify after 
 
 You're all done now. Every time you commit a change to your repo GitHub actions will automatically deploy to your Netlify site. By default the action `.github/workflows/build-and-release.yml` will deploy `blog-sleek` but you can change it to whatever theme you want by editing the file. You can delete the other `.github/workflows/build-and-release-{theme}.yml` files because they are there only for demo purposes of the template repo.
 
+## Reset your repo to get latest template changes
+
+Run these commands from your forked repo.
+
+1. Add template repo as a new remote `git remote add upstream git@github.com:flexdinesh/keystone-static-blog.git`
+
+2. Fetch changes `git fetch upstream`
+
+3. Merge changes to your main `git merge upstream/main`. 
+
+I'm constantly improving the content model of this template in a backward compatible way. But sometimes I have to make a change in a breaking way. So if you run into conflicts in `keystone-server` dir during merge, I'm sorry about that and you can need to backup your data and reset your `keystone-server`dir. Alternately you can run this destructive `git reset --hard upstream/main` to reset everything from the fork without having to worry about merging conflicts but you'll lose your data so remember to take a backup if needed. The command to backup your data is `yarn backup` in `keystone-server` dir.
+
 ## License
 
 MIT © Dinesh Pandiyan
