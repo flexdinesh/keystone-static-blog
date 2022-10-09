@@ -11,13 +11,13 @@ This is a starter template to build statically generated blog-like websites with
 
 ## How does it work?
 
-The short version is that the blog is entirely generated during build-time using Next.js static site generation and the content for the blog is made available during build-time using Keystone's powerful content platform along with the magic of zero configuration file-system based SQLite database.
+The short version is that the blog is entirely generated during build-time using Next.js static site generation and the content for the blog is made available during build-time using Keystone's powerful content server along with the magic of zero configuration file-system based SQLite database.
 
 - The blog is generated statically using [Next.js static HTML export](https://nextjs.org/docs/advanced-features/static-html-export).
 
-- The content for the blog is fetched from a [local Keystone server](https://keystonejs.com). Keystone is a fantastic content platform that auto-magically generates GraphQL API based on schema definitions.
+- The content for the blog is fetched from a [local Keystone server](https://keystonejs.com). Keystone is a fantastic content server that auto-magically generates GraphQL API based on schema definitions.
 
-- Usually content platforms need to be connected to a database and hosted somewhere which often comes with hosting, configuration and maintenance cost. [Keystone supports SQLite database](https://keystonejs.com/docs/apis/config#sqlite) and we make use of that to avoid having to configure, host or maintain anything. **You can get started with zero configuration and commit your database along with your code like any other file.** 🤯 This is what makes this whole _generate blogs locally without having to host a server anywhere_ possible.
+- Usually content servers need to be connected to a database and hosted somewhere which often comes with hosting, configuration and maintenance cost. [Keystone supports SQLite database](https://keystonejs.com/docs/apis/config#sqlite) and we make use of that to avoid having to configure, host or maintain anything. **You can get started with zero configuration and commit your database along with your code like any other file.** 🤯 This is what makes this whole _generate blogs locally without having to host a server anywhere_ possible.
 
 - Author your content visually in your local environment using [Keystone's powerful document editor](https://keystonejs.com/docs/guides/document-field-demo) and admin dashboard. Once your content is ready, just run a local build and your blog will be exported as a static website. Now you can easily host this static website anywhere. I created [my blog](https://dineshpandiyan.com) using this template and hosted it in [Netlify](https://www.netlify.com/). Every time I make a change to my content, all I gotta do is push my changes to the repo and Netlify automatically deploys it in less than a minute.
 
@@ -44,6 +44,8 @@ Keystone's document editor stands out in a handful of ways over MDX based conten
 ## Getting started
 
 The project is a monorepo with Keystone server in `keystone-server` workspace and the next frontend in `blog-sleek` (any `blog-{theme}`) workspace.
+
+You will need to have [yarn MacOS install using Homebrew](https://formulae.brew.sh/formula/yarn) installed in your machine to get started.
 
 1. `yarn` at project root installs the dependencies for the server and all theme templates.
 
@@ -88,6 +90,23 @@ The generated website is just a bunch of html, js and css files. You can host it
 - [Cloudflare Pages](https://pages.cloudflare.com/)
 - [Fastly](https://docs.fastly.com/en/fundamentals/1-introduction)
 - [AWS S3](https://aws.amazon.com/s3/)
+
+## Easy deploy to Netlify using GitHub Actions (FREE)
+
+The repo is setup with GitHub actions to auto deploy your blog to Netlify after each commit.
+
+1. Create an account with Netlify.
+
+2. Goto Netlify _User Settings -> OAuth -> Personal access tokens_ and create a new access token and copy the value.
+
+3. Goto your GitHub repo _Settings -> Secrets -> Actions_ and add a new Repository Secret with name _NETLIFY\_AUTH\_TOKEN_ and paste the value your copied from step 2.
+
+4. Go back to Netlify dashboard and create a new site (manual deploy site should be enough since we use GitHub Actions to deploy). After creating the site, open Site Settings and copy _Site ID_.
+
+5. Go back to GitHub repo _Settings -> Secrets -> Actions_ and add a new Repository Secret with name _NETLIFY\_SITE\_ID_ and paste the value your copied from step 4.
+
+You're all done now. Every time you commit a change to your repo GitHub actions will automatically deploy to your Netlify site. By default the action `.github/workflows/build-and-release.yml` will deploy `blog-sleek` but you can change it to whatever theme you want by editing the file. You can delete the other `.github/workflows/build-and-release-{theme}.yml` files because they are there only for demo purposes of the template repo.
+
 
 ## License
 
